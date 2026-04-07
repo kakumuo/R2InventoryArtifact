@@ -1,17 +1,34 @@
 
 using System.Collections.Generic;
-using R2InventoryArtifact.Util.Math;
+using R2InventoryArtifact.Util;
 using R2InventoryArtifact.Util.R2API;
 using System;
 using System.Linq;
 using System.Collections.ObjectModel;
+using RoR2;
 
 namespace R2InventoryArtifact.Model
 {
-    public enum InventoryAddCode
+   public enum InventoryResultCode
     {
-        NONE, GRID_INSERT, GRID_STACK, HOLD_STACK, HOLD_INSERT, NONEQUIP_INSERT,
-        NONEQUIP_STACK
+        FAILED, 
+        GRID_INSERT, GRID_UPDATE, GRID_REMOVE, 
+        HOLD_INSERT, HOLD_UPDATE, HOLD_REMOVE,
+        NONEQUIP_INSERT, NONEQUP_UPDATE, NONEQUIP_REMOVE
+    }
+
+    public struct InventoryUpdateResult
+    {
+        public InventoryResultCode ResultCode;
+        public InventoryItem InventoryItem; 
+        public GridPosition Pos; 
+
+        public InventoryUpdateResult(InventoryResultCode ResultCode, InventoryItem InventoryItem, GridPosition Pos=new())
+        {
+            this.ResultCode = ResultCode; 
+            this.InventoryItem = InventoryItem; 
+            this.Pos = Pos; 
+        }
     }
 
     // unlocks upon achieving specific level
@@ -102,7 +119,7 @@ namespace R2InventoryArtifact.Model
 
         public static void UnsetItemAt(InventoryItem item, GridPosition pos)
         {
-            if (item != null)
+            if (item != null && _inventory[pos.Row, pos.Col] == item)
             {
                 foreach (GridPosition node in item.Nodes)
                 {
@@ -160,46 +177,38 @@ namespace R2InventoryArtifact.Model
         /// </summary>
         /// <value><c>updatedItem</c>: if add => updated item, if insert => new item, otherwise <c>null</c>.</value>
         /// <value><c>pos</c>: if add/insert => position of item, otherwise <c>null</c>.</value>
-        /// <param name="itemCode"></param>
+        /// <param name="itemIndex"></param>
         /// <param name="updatedItem"></param>
         /// <returns>
         /// InventoryAddCode - INSERT, STACK, NONE
         /// </returns>
-        public static InventoryAddCode AddToInventory(R2ItemCode baseCode, out InventoryItem updatedItem, out GridPosition itemPos)
+        public static InventoryUpdateResult AddToInventory(InventoryIndex inventoryIndex)
         {
-            R2ItemCode itemCode = TryGetCorruptItemCodeInInventory(baseCode);             
-
-            InventoryItem next = InventoryService.GetInventoryItem(itemCode);
+            InventoryItem next = InventoryService.GetInventoryItem(inventoryIndex);
             if(!next.IsEquippable)
             {
                 foreach(InventoryItem nonEquip in _nonEquipList)
                 {
-                    if(nonEquip.ItemCode == itemCode)
+                    if(nonEquip.InventoryIndex == next.InventoryIndex)
                     {
                         nonEquip.StackCount += 1; 
-                        updatedItem = next; 
-                        itemPos = new(); 
-                        return InventoryAddCode.NONEQUIP_STACK; 
+                        return new (InventoryResultCode.NONEQUP_UPDATE, nonEquip); 
                     }
                 }
 
                 _nonEquipList.Add(next); 
-                updatedItem = next; 
-                itemPos = new(); 
-                return InventoryAddCode.NONEQUIP_INSERT; 
+                return new (InventoryResultCode.NONEQUIP_INSERT, next); 
             }
 
-            // get next item
+            // increase stack if already in inventory
             for (int r = 0; r < _grid.Height; r++)
             {
                 for (int c = 0; c < _grid.Width; c++)
                 {
-                    if (_inventory[r, c] != null && _inventory[r, c].ItemCode == itemCode && _inventory[r, c].StackCount < _inventory[r, c].MaxStackCount)
+                    if (_inventory[r, c] != null && _inventory[r, c].InventoryIndex == next.InventoryIndex && _inventory[r, c].StackCount < _inventory[r, c].MaxStackCount)
                     {
-                        updatedItem = _inventory[r, c];
-                        updatedItem.StackCount += 1;
-                        itemPos = new GridPosition(c, r);
-                        return InventoryAddCode.GRID_STACK;
+                        _inventory[r, c].StackCount += 1;
+                        return new (InventoryResultCode.GRID_UPDATE, _inventory[r, c], new GridPosition(c, r)) ;
                     }
                 }
             }
@@ -207,12 +216,10 @@ namespace R2InventoryArtifact.Model
             // try increase item in item hold 
             foreach (InventoryItem holdItem in _holdList)
             {
-                if (holdItem.ItemCode == itemCode && holdItem.StackCount < holdItem.MaxStackCount)
+                if (holdItem.InventoryIndex == next.InventoryIndex && holdItem.StackCount < holdItem.MaxStackCount)
                 {
                     holdItem.StackCount += 1;
-                    updatedItem = holdItem;
-                    itemPos = new(0, 0);
-                    return InventoryAddCode.HOLD_STACK;
+                    return new (InventoryResultCode.HOLD_UPDATE, holdItem);
                 }
             }
 
@@ -227,9 +234,7 @@ namespace R2InventoryArtifact.Model
                         if (IsValidItemPosition(next, pos))
                         {
                             SetItemAt(next, pos);
-                            updatedItem = next;
-                            itemPos = pos;
-                            return InventoryAddCode.GRID_INSERT;
+                            return new (InventoryResultCode.GRID_INSERT, next, pos);
                         }
 
                         next.Rotate();
@@ -237,63 +242,138 @@ namespace R2InventoryArtifact.Model
                 }
             }
 
-            // try to add to hold if can be held
-            updatedItem = next;
-            itemPos = new(0, 0);
-            return next.IsDroppable ? InventoryAddCode.HOLD_INSERT : InventoryAddCode.NONE;
+            
+            AddToHold(next); 
+            return new (InventoryResultCode.HOLD_INSERT, next); 
         }
 
-        public static R2ItemCode TryGetCorruptItemCodeInInventory(R2ItemCode code)
-        {
-            // check to see if corrupted item is already in inventory
-            if(R2ItemService.Normal2Corrupt.ContainsKey(code))
+        public static List<InventoryUpdateResult> RemoveItems(InventoryIndex inventoryIndex, int count=1)
+        {            
+            List<InventoryUpdateResult> removedItems = new(); 
+            List<InventoryUpdateResult> tmp = new(); 
+
+            _holdList.ForEach(item =>
             {
-                R2ItemCode corruptCode = R2ItemService.Normal2Corrupt[code]; 
-                foreach(InventoryItem item in _itemRoot.Keys) if(item.ItemCode == corruptCode) return item.ItemCode; 
-                foreach(InventoryItem item in _holdList) if(item.ItemCode == corruptCode) return item.ItemCode; 
-                foreach(InventoryItem item in _nonEquipList) if(item.ItemCode == corruptCode) return item.ItemCode; 
-            }
-
-            return code; 
-        }
-
-        public static bool TryCorruptInventory(R2ItemCode corruptedItemCode)
-        {
-            if (!R2ItemService.Corrupt2Normal.ContainsKey(corruptedItemCode))
-                return false;
-
-            R2Item corruptedItem = R2ItemService.GetR2Item(corruptedItemCode);
-            List<R2ItemCode> baseItems = R2ItemService.Corrupt2Normal[corruptedItemCode];
-
-            // Corrupted item conversion
-            // corrupted items maintain the original items max stack count & shape, new items have their own stack count and shape
-            // corrupted items cannot be dropped
-            List<InventoryItem> keys = new List<InventoryItem>(_itemRoot.Keys);
-
-            foreach (InventoryItem invItem in keys)
-            {
-                // InventoryItem invItem = _inventory[r,c];  
-                if (baseItems.Contains(invItem.ItemCode))
+                if(item.InventoryIndex == inventoryIndex)
                 {
-                    invItem.CorruptItem(corruptedItem);
+                    tmp.Add(new(){ResultCode=InventoryResultCode.HOLD_UPDATE, InventoryItem=item}); 
+                }
+            }); 
 
-                    // handle item relationship changes 
-                    GridPosition rootPos = _itemRoot[invItem];
-                    UnsetItemAt(invItem, rootPos);
-                    SetItemAt(invItem, rootPos);
+            _nonEquipList.ForEach(item =>
+            {
+                if(item.InventoryIndex == inventoryIndex)
+                {
+                    tmp.Add(new(){ResultCode=InventoryResultCode.NONEQUP_UPDATE, InventoryItem=item}); 
+                }
+            }); 
+
+            foreach(InventoryItem item in _itemRoot.Keys)
+            {
+                if(item.InventoryIndex == inventoryIndex)
+                {
+                    tmp.Add(new(){ResultCode=InventoryResultCode.GRID_UPDATE, InventoryItem=item, Pos=_itemRoot[item]}); 
                 }
             }
 
-
-            foreach (InventoryItem holdItem in _holdList)
+            tmp.Sort((item1, item2) =>
             {
-                if (baseItems.Contains(holdItem.ItemCode)) holdItem.CorruptItem(corruptedItem);
-            }
+                if(item1.ResultCode == item2.ResultCode)
+                    return item1.InventoryItem.StackCount - item2.InventoryItem.StackCount; 
+                return item1.ResultCode - item2.ResultCode; 
+            }); 
 
-            return true;
+            int removeCount = 0; 
+
+            for(int i = 0; i < tmp.Count && removeCount < count; i++)
+            {
+                InventoryUpdateResult result = tmp[i]; 
+                int remDiff = count - removeCount;
+                if(result.InventoryItem.StackCount > remDiff)
+                {
+                    result.InventoryItem.StackCount -= remDiff; 
+                    removedItems.Add(result); 
+                    break; 
+                }
+
+                // delete items from inventory
+                switch(result.ResultCode)
+                {
+                    case InventoryResultCode.GRID_UPDATE: 
+                        UnsetItemAt(result.InventoryItem, result.Pos); 
+                        result.ResultCode = InventoryResultCode.GRID_REMOVE;  
+                    break; 
+                    case InventoryResultCode.HOLD_UPDATE: 
+                        RemoveFromHold(result.InventoryItem);  
+                        result.ResultCode = InventoryResultCode.HOLD_REMOVE; 
+                    break; 
+                    case InventoryResultCode.NONEQUP_UPDATE: 
+                        RemoveFromNonEquip(result.InventoryItem); 
+                        result.ResultCode = InventoryResultCode.NONEQUIP_REMOVE; 
+                    break; 
+                }
+
+                removedItems.Add(result); 
+                removeCount += result.InventoryItem.StackCount;   
+            }; 
+
+            return removedItems; 
         }
 
-        public static void DropItem(InventoryItem item) { }
+        public static void RemoveFromNonEquip(InventoryItem item)
+        {
+            _nonEquipList.Remove(item); 
+        }
+
+        // private static R2ItemCode TryGetCorruptItemCodeInInventory(R2ItemCode code)
+        // {
+        //     // check to see if corrupted item is already in inventory
+        //     if(R2ItemService.Normal2Corrupt.ContainsKey(code))
+        //     {
+        //         R2ItemCode corruptCode = R2ItemService.Normal2Corrupt[code]; 
+        //         foreach(InventoryItem item in _itemRoot.Keys) if(item.ItemCode == corruptCode) return item.ItemCode; 
+        //         foreach(InventoryItem item in _holdList) if(item.ItemCode == corruptCode) return item.ItemCode; 
+        //         foreach(InventoryItem item in _nonEquipList) if(item.ItemCode == corruptCode) return item.ItemCode; 
+        //     }
+
+        //     return code; 
+        // }
+
+        // public static bool TryCorruptInventory(R2ItemCode corruptedItemCode)
+        // {
+        //     if (!R2ItemService.Corrupt2Normal.ContainsKey(corruptedItemCode))
+        //         return false;
+
+        //     R2Item corruptedItem = R2ItemService.GetR2Item(corruptedItemCode);
+        //     List<R2ItemCode> baseItems = R2ItemService.Corrupt2Normal[corruptedItemCode];
+
+        //     // Corrupted item conversion
+        //     // corrupted items maintain the original items max stack count & shape, new items have their own stack count and shape
+        //     // corrupted items cannot be dropped
+        //     List<InventoryItem> keys = new List<InventoryItem>(_itemRoot.Keys);
+
+        //     foreach (InventoryItem invItem in keys)
+        //     {
+        //         // InventoryItem invItem = _inventory[r,c];  
+        //         if (baseItems.Contains(invItem.ItemCode))
+        //         {
+        //             invItem.CorruptItem(corruptedItem);
+
+        //             // handle item relationship changes 
+        //             GridPosition rootPos = _itemRoot[invItem];
+        //             UnsetItemAt(invItem, rootPos);
+        //             SetItemAt(invItem, rootPos);
+        //         }
+        //     }
+
+
+        //     foreach (InventoryItem holdItem in _holdList)
+        //     {
+        //         if (baseItems.Contains(holdItem.ItemCode)) holdItem.CorruptItem(corruptedItem);
+        //     }
+
+        //     return true;
+        // }
 
         public static bool IsPositionLocked(GridPosition pos)
         {
@@ -354,6 +434,18 @@ namespace R2InventoryArtifact.Model
             }
 
             return string.Join("\n", lines);
+        }
+
+        internal static List<InventoryUpdateResult> DiscardHold()
+        {
+            if(_holdList.Count == 0) return new(); 
+
+            List<InventoryUpdateResult> res = _holdList
+                .Select(item => new InventoryUpdateResult(InventoryResultCode.HOLD_REMOVE, item))
+                .ToList(); 
+
+            res.ForEach(res => RemoveFromHold(res.InventoryItem)); 
+            return res; 
         }
     }
 }

@@ -16,7 +16,7 @@
 		</PackageReference>
 
 		<PackageReference Include="BepInEx.Core" Version="5.4.21" />
-		
+
 		<PackageReference Include="R2API.ContentManagement" Version="1.0.10" />
 		<PackageReference Include="R2API.Language" Version="1.1.0" />
 		<PackageReference Include="R2API.Networking" Version="1.0.3" />
@@ -25,5 +25,30 @@
 		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.4.1-r.0" />
 		<PackageReference Include="MMHOOK.RoR2" Version="2025.12.9" NoWarn="NU1701" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="RiskOfOptions">
+			<HintPath>.\Lib\RiskOfOptions.dll</HintPath>
+		</Reference>
+		<Reference Include="LookingGlass">
+			<HintPath>.\Lib\LookingGlass.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Assets\*.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<Target Name="CopyOutputToPluginFolder" AfterTargets="Build">
+		<ItemGroup>
+			<PluginOutputFiles Include="$(OutDir)\**\*.*"/>
+		</ItemGroup>
+		<Copy
+			SourceFiles="@(PluginOutputFiles)"
+			DestinationFolder="$(AppData)\r2modmanPlus-local\RiskOfRain2\profiles\dev\BepInEx\plugins\foxfen64-R2InventoryArtifact\%(RecursiveDir)"
+		/>
+	</Target>
 
 </Project>

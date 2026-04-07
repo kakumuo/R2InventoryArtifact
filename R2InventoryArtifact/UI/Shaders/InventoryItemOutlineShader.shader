@@ -1,6 +1,6 @@
 // Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
-Shader "Custom/UI/InventoryItemOutlineShader"
+Shader "Hidden/Custom/R2InventoryArtifact/InventoryItemOutlineShader"
 {
     Properties
     {

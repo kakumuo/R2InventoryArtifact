@@ -52,14 +52,14 @@ namespace R2InventoryArtifact.Model
 
         private void ValidateAdjacency(InventoryItem parent)
         {
-            HashSet<R2ItemCode> adjacentTo = _adjList.GetValueOrDefault(parent, new HashSet<InventoryItem>())
-                .Select(i => i.ItemCode)
+            HashSet<InventoryIndex> adjacentTo = _adjList.GetValueOrDefault(parent, new HashSet<InventoryItem>())
+                .Select(i => i.InventoryIndex)
                 .ToHashSet();
             Dictionary<InventoryEffectCode, int> effectFreqs = _itemEffectMap.GetValueOrDefault(parent, new Dictionary<InventoryEffectCode, int>())
                 .Select(kvPair => new KeyValuePair<InventoryEffectCode, int>(kvPair.Key, 0))
                 .ToDictionary(k => k.Key, v => v.Value);
             
-            InventoryEffectCode resCode = InventoryService.GetInventoryEffectCode(parent.ItemCode, adjacentTo); 
+            InventoryEffectCode resCode = InventoryService.GetInventoryEffectCode(parent.InventoryIndex, adjacentTo); 
             if(resCode != InventoryEffectCode.None)
             effectFreqs[resCode] = effectFreqs.GetValueOrDefault(resCode, 0) + 1; 
 

@@ -2,12 +2,48 @@
 using System; 
 using System.Collections.Generic; 
 using R2InventoryArtifact.Util.R2API; 
-using R2InventoryArtifact.Util.Math; 
+using R2InventoryArtifact.Util;
+using RoR2;
 
 namespace R2InventoryArtifact.Model
-{   [Serializable] public class InventoryItem
+{   
+    public class InventoryIndex
     {
-        private R2Item _item; 
+        public ItemIndex ItemIndex = ItemIndex.None; 
+        public EquipmentIndex EquipmentIndex = EquipmentIndex.None;
+
+        public InventoryIndex(ItemIndex itemIndex)
+        {
+            Reset(); 
+            ItemIndex = itemIndex; 
+        }
+
+        public InventoryIndex(EquipmentIndex equipmentIndex)
+        {
+            Reset(); 
+            EquipmentIndex = equipmentIndex; 
+        }
+
+        private void Reset()
+        {
+            ItemIndex = ItemIndex.None; 
+            EquipmentIndex = EquipmentIndex.None; 
+        }
+
+        public static bool operator ==(InventoryIndex a, InventoryIndex b)
+        {
+            return a.ItemIndex == b.ItemIndex && a.EquipmentIndex == b.EquipmentIndex; 
+        }
+
+        public static bool operator !=(InventoryIndex a, InventoryIndex b)
+        {
+            return !(a == b); 
+        }
+    }
+
+    [Serializable] public class InventoryItem
+    {
+        public InventoryIndex InventoryIndex; 
 
         private List<GridPosition> _nodeOrigin;
         private List<GridPosition> _activeOrigin;  
@@ -24,21 +60,23 @@ namespace R2InventoryArtifact.Model
         public int MaxStackCount = 4; 
         public event Action OnStackCountChanged;  
 
-        public R2ItemTier ItemTier
+        public ItemTier ItemTier
         {
-            get => _item.ItemTier; 
+            get => ItemTier.Tier1; 
         }
-        public R2ItemCode ItemCode
-        {
-            get => _item.ItemCode; 
-        }
-        public event Action<R2Item> OnItemCorrupted; 
+
+        // public event Action<R2Item> OnItemCorrupted; 
         public bool IsDroppable = true; 
         public bool IsEquippable = true; 
 
-        public InventoryItem(R2Item item, List<GridPosition> nodeOrigin, List<GridPosition> activeOrigin)
+        public InventoryItem(InventoryIndex inventoryIndex, List<GridPosition> nodeOrigin, List<GridPosition> activeOrigin)
         {
-            _item = item; 
+            InventoryIndex = inventoryIndex; 
+            InitHelper(nodeOrigin, activeOrigin); 
+        }
+
+        private void InitHelper(List<GridPosition> nodeOrigin, List<GridPosition> activeOrigin)
+        {
             _nodeOrigin = nodeOrigin; 
             _activeOrigin = activeOrigin; 
 
@@ -61,21 +99,23 @@ namespace R2InventoryArtifact.Model
             }
         }
 
-        public void CorruptItem(R2Item corruptedItem)
-        {
-            OnItemCorrupted?.Invoke(corruptedItem); 
-            _item = corruptedItem; 
-            IsDroppable = false; 
-        }
+        // public void CorruptItem(R2Item corruptedItem)
+        // {
+        //     OnItemCorrupted?.Invoke(corruptedItem); 
+        //     _item = corruptedItem; 
+        //     IsDroppable = false; 
+        // }
 
         public string GetItemName()
         {
-            return _item.Name; 
+            if(InventoryIndex.ItemIndex != ItemIndex.None) return ItemCatalog.itemDefs[(int)InventoryIndex.ItemIndex].name; 
+            if(InventoryIndex.EquipmentIndex != EquipmentIndex.None) return EquipmentCatalog.equipmentDefs[(int)InventoryIndex.EquipmentIndex].name; 
+            return "NameNotFound"; 
         }
 
         public string GetDescription()
         {
-            return _item.Description; 
+            return "GetDescriptionNotImplemented"; 
         }
     }
         

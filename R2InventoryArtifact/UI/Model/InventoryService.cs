@@ -1,62 +1,28 @@
 
 using System.Collections.Generic;
+using IL.RoR2;
 using R2InventoryArtifact.Util.R2API;
+using RoR2;
 
 
 namespace R2InventoryArtifact.Model
 {
-    public class InventoryService
+    public partial class InventoryService
     {
-        public static InventoryItem GetInventoryItem(R2ItemCode itemCode)
+        public static InventoryItem GetInventoryItem(InventoryIndex inventoryIndex)
         {
-            R2Item targetItem = R2ItemService.GetR2Item(itemCode); 
-            switch(itemCode)
-            {
-                case R2ItemCode.BundleOfFireworks: 
-                    return new InventoryItem(
-                        item: targetItem, 
-                        nodeOrigin: new(){new(0, 0), new(0, 1)}, 
-                        activeOrigin: new(){new(-1, 0), new(1, 0)}
-                    ){MaxStackCount = 1}; 
-                case R2ItemCode.BisonSteak: 
-                    return new InventoryItem(
-                        item: targetItem, 
-                        nodeOrigin: new(){new(0, 0), new(0, 1), new(0, 2)}, 
-                        activeOrigin: new(){new(-1, 0), new(1, 0)}
-                    ){MaxStackCount = 1}; 
-                case R2ItemCode.IgnitionTank: 
-                    return new InventoryItem(
-                        item: targetItem, 
-                        nodeOrigin: new(){new(0, 0), new(0, 1), new(0, 2)}, 
-                        activeOrigin: new(){new(-1, 0), new(1, 0)}
-                    ){MaxStackCount = 1}; 
-                case R2ItemCode.RunaldsBand:
-                    return new InventoryItem(
-                        item: targetItem, 
-                        nodeOrigin: new(){new(0, 0), new(0, 1), new(0, 2)}, 
-                        activeOrigin: new(){new(-1, 0), new(1, 0)}
-                    ); 
-                case R2ItemCode.SingularityBand: 
-                    return new InventoryItem(
-                        item: targetItem, 
-                        nodeOrigin: new(){new(0, 0), new(0, 1), new(0, 2)}, 
-                        activeOrigin: new(){new(-1, 0), new(1, 0)}
-                    ){IsDroppable = false}; 
-                case R2ItemCode.EmptyBottle: 
-                    return new InventoryItem(
-                        item: targetItem, 
-                        nodeOrigin: new(){new(0, 0)}, 
-                        activeOrigin: new(){new(-1, 0)}
-                    ){IsEquippable = false}; 
-                default: return null; 
-            }
+            return new InventoryItem(
+                inventoryIndex, 
+                new(){new(0, 0), new(0, 1)}, 
+                new(){new(-1, 0), new(1, 0)}
+            ); 
         }
 
-        public static InventoryEffectCode GetInventoryEffectCode(R2ItemCode parent, HashSet<R2ItemCode> adjacent)
+        public static InventoryEffectCode GetInventoryEffectCode(InventoryIndex inventoryIndex, HashSet<InventoryIndex> adjacent)
         {
             InventoryEffectCode resCode = InventoryEffectCode.None; 
-            if(parent == R2ItemCode.BundleOfFireworks && adjacent.Contains(R2ItemCode.BisonSteak) && adjacent.Contains(R2ItemCode.IgnitionTank)) 
-                resCode = InventoryEffectCode.BundleOfFireworks_BisonSteak_IgnitionTank; 
+            // if(parent == R2ItemCode.BundleofFireworks && adjacent.Contains(R2ItemCode.BisonSteak) && adjacent.Contains(R2ItemCode.IgnitionTank)) 
+            //     resCode = InventoryEffectCode.BundleOfFireworks_BisonSteak_IgnitionTank; 
 
             return resCode; 
         }

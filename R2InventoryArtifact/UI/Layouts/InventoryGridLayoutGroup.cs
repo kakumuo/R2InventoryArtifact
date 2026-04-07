@@ -10,10 +10,12 @@ namespace R2InventoryArtifact.UI.Layouts
     {
         private int _cols = 5; 
         private float _cellSize = 100; 
+        private float _spacing = 0f; 
 
-        public void Initialize(int cols)
+        public void Initialize(int cols, int spacing)
         {
             _cols = cols; 
+            _spacing = spacing; 
         }
 
         public override void CalculateLayoutInputHorizontal()

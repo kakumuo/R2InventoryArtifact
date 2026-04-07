@@ -17,8 +17,9 @@ namespace R2InventoryArtifact.UI.Builders
             obj.AddComponent<HorizontalLayoutGroup>();
 
             Image img = obj.AddComponent<Image>();
-            var shader = Shader.Find("Custom/UI/InventoryItemOutlineShader");
-            img.material = new Material(shader);
+            //TODO: find way to import shader
+            // var shader = Shader.Find("Hidden/Custom/R2InventoryArtifact/InventoryItemOutlineShader");
+            // img.material = new Material(shader);
 
             return obj.AddComponent<InventorySlotComponent>();
         }

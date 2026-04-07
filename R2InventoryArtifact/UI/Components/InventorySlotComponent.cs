@@ -1,7 +1,7 @@
 
 
 using R2InventoryArtifact.Model;
-using R2InventoryArtifact.Util.Math;
+using R2InventoryArtifact.Util;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -61,6 +61,11 @@ namespace R2InventoryArtifact.UI.Components
             bool AdjT, bool AdjB, bool AdjL, bool AdjR
         )
         {
+            if(!img.materialForRendering)
+            {
+                img.color = baseColor; 
+                return; 
+            }
             img.materialForRendering.SetColor("_Color", baseColor);
             img.materialForRendering.SetColor("_OutlineColor", outlineColor);
             img.materialForRendering.SetFloat("_Thickness", OUTLINE_THICKNESS);

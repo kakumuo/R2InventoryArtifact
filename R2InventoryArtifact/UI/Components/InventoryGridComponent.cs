@@ -1,5 +1,5 @@
 
-using R2InventoryArtifact.Util.Math;
+using R2InventoryArtifact.Util;
 using UnityEngine;
 using R2InventoryArtifact.Model;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace R2InventoryArtifact.UI.Components
 
             // init layout
             InventoryGridLayoutGroup inventoryLayout = gameObject.AddComponent<InventoryGridLayoutGroup>();
-            inventoryLayout.Initialize(_gridRect.Width);
+            inventoryLayout.Initialize(_gridRect.Width, 4);
 
             // create slots
             for (int r = 0; r < gridSize.Height; r++)
@@ -55,18 +55,28 @@ namespace R2InventoryArtifact.UI.Components
             element.transform.SetParent(_slots[pos.Row, pos.Col].transform);
         }
 
+        internal void RemoveAt(GridPosition pos)
+        {
+            if(_slots[pos.Row, pos.Col].transform.childCount == 0) return; //slots should only have one child 
+
+            Transform elementTrans = _slots[pos.Row, pos.Col].transform.GetChild(0); 
+            InventoryItemElement element; 
+            if(elementTrans && (element = elementTrans.GetComponent<InventoryItemElement>()))
+            {
+                Destroy(element.gameObject); // triggers slot's transform children updated listener
+            }
+        }
+
         public void UnsetItemAt(InventoryItem item, GridPosition pos)
         {
-            SetHelper(item, pos, set: false);
             InventoryModel.UnsetItemAt(item, pos);
-            RepaintGrid();
+            SetHelper(item, pos, set: false);
         }
 
         public void SetItemAt(InventoryItem item, GridPosition pos)
         {
-            SetHelper(item, pos, set: true);
             InventoryModel.SetItemAt(item, pos);
-            RepaintGrid();
+            SetHelper(item, pos, set: true);
         }
 
         private void SetHelper(InventoryItem item, GridPosition pos, bool set)
@@ -78,6 +88,7 @@ namespace R2InventoryArtifact.UI.Components
                 if (set) curSlot.Occupy(item);
                 else curSlot.UnOccupy();
             }
+            RepaintGrid();
         }
 
         public void UpdateCursorPosition(GridPosition pos)

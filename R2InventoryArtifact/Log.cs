@@ -1,12 +1,12 @@
 ﻿using BepInEx.Logging;
 
-namespace ExamplePlugin
+namespace R2InventoryArtifact
 {
     internal static class Log
     {
         private static ManualLogSource _logSource;
 
-        internal static void Init(ManualLogSource logSource)
+        internal static void Initialize(ManualLogSource logSource)
         {
             _logSource = logSource;
         }

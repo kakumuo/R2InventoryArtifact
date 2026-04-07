@@ -4,6 +4,7 @@
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.UI.Services;
 using R2InventoryArtifact.Util.R2API;
+using RoR2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,7 +29,7 @@ namespace R2InventoryArtifact.UI.Components
         private Transform dropTarget; 
         private int _orientationTarget; 
         public DragSource DragSource; 
-        private R2TooltipProvider _tooltip; 
+        private TooltipProvider _tooltip; 
 
         public void Initialize(InventoryItem item, DragSource dragSource)
         {
@@ -39,33 +40,33 @@ namespace R2InventoryArtifact.UI.Components
 
             if(!item.IsEquippable) _canvasGroup.blocksRaycasts = false; 
 
-            _icon.sprite = UIAssetService.GetSprite(Item.ItemCode); 
+            _icon.sprite = UIAssetService.GetSprite(Item.InventoryIndex); 
             _label.text = Item.StackCount.ToString();
             
             item.OnStackCountChanged += UpdateStackCountLabel; 
-            item.OnItemCorrupted += HandleItemCorruption;
+            // item.OnItemCorrupted += HandleItemCorruption;
 
             DragSource = dragSource; 
 
-            _tooltip = gameObject.AddComponent<R2TooltipProvider>(); 
-            _tooltip.Initialize(new(){
-                Title = Item.GetItemName(), 
-                Body = Item.GetDescription(), 
-                HeaderBkg = UIConstants.GetItemTeirColor(Item.ItemTier).Item1
+            _tooltip = gameObject.AddComponent<TooltipProvider>(); 
+            _tooltip.SetContent(new(){
+                titleToken = Item.GetItemName(), 
+                bodyToken = Item.GetDescription(), 
+                titleColor = UIConstants.GetItemTeirColor(Item.ItemTier).Item1
             }); 
         }
 
-        public void HandleItemCorruption(R2Item targetItem)
-        {
-            Debug.Log("corrupting item"); 
-            _icon.sprite = UIAssetService.GetSprite(targetItem.ItemCode); 
+        // public void HandleItemCorruption(R2Item targetItem)
+        // {
+        //     Debug.Log("corrupting item"); 
+        //     _icon.sprite = UIAssetService.GetSprite(targetItem.ItemCode); 
 
-            _tooltip.Initialize(new(){
-                Title = Item.GetItemName(), 
-                Body = Item.GetDescription(), 
-                HeaderBkg = UIConstants.GetItemTeirColor(Item.ItemTier).Item1
-            }); 
-        }
+        //     _tooltip.Initialize(new(){
+        //         Title = Item.GetItemName(), 
+        //         Body = Item.GetDescription(), 
+        //         HeaderBkg = UIConstants.GetItemTeirColor(Item.ItemTier).Item1
+        //     }); 
+        // }
 
         public void UpdateStackCountLabel()
         {
@@ -75,7 +76,7 @@ namespace R2InventoryArtifact.UI.Components
         void OnDestroy()
         {
             Item.OnStackCountChanged -= UpdateStackCountLabel; 
-            Item.OnItemCorrupted -= HandleItemCorruption; 
+            // Item.OnItemCorrupted -= HandleItemCorruption; 
         }
 
         public void Rotate()

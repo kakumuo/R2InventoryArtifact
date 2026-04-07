@@ -1,25 +1,28 @@
+using System.Collections;
+using IL.RoR2;
+using R2InventoryArtifact.Model;
 using R2InventoryArtifact.Util.R2API;
+using RoR2;
+using RoR2.ContentManagement;
 using UnityEngine;
 
 namespace R2InventoryArtifact.UI.Services
 {
     public static class UIAssetService
     {
-        public static Sprite GetSprite(R2ItemCode itemCode)
-        {
-            string spritePath = ""; 
-            switch(itemCode)
-            {
-                case R2ItemCode.BisonSteak:         spritePath = "Sprites/Bison_Steak"; break; 
-                case R2ItemCode.BundleOfFireworks:  spritePath = "Sprites/Bundle_Of_Fireworks"; break; 
-                case R2ItemCode.IgnitionTank:       spritePath = "Sprites/Ignition_Tank"; break; 
-                case R2ItemCode.RunaldsBand:        spritePath = "Sprites/Runalds_Band"; break; 
-                case R2ItemCode.SingularityBand:    spritePath = "Sprites/Singularity_Band"; break; 
-                case R2ItemCode.EmptyBottle:        spritePath = "Sprites/Empty_Bottle"; break; 
-                default: break; 
-            }
+        public static void Initialize(){}
 
-            return Resources.Load<Sprite>(spritePath); 
+        public static Sprite GetSprite(InventoryIndex inventoryIndex)
+        {
+            Texture targetTexture;
+            if (inventoryIndex.ItemIndex != ItemIndex.None)
+                targetTexture = ContentManager.itemDefs[(int)inventoryIndex.ItemIndex].pickupIconTexture; 
+            else if(inventoryIndex.EquipmentIndex != EquipmentIndex.None)
+                targetTexture = ContentManager.equipmentDefs[(int)inventoryIndex.ItemIndex].pickupIconTexture;  
+            else return null; 
+            
+            // TODO: find how to make sprite not transparent
+            return Sprite.Create(targetTexture as Texture2D, new(0, 0, 128, 128), Vector2.zero); 
         }
     }
 }

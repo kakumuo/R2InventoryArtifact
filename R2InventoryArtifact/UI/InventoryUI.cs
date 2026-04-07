@@ -1,11 +1,14 @@
 
 using R2InventoryArtifact.UI.Builders;
 using R2InventoryArtifact.Model;
-using R2InventoryArtifact.Util.Math;
+using R2InventoryArtifact.Util;
 using UnityEngine;
 using R2InventoryArtifact.Util.R2API;
 using UnityEngine.EventSystems;
 using R2InventoryArtifact.UI.Components;
+using RoR2;
+using System.Collections.Generic;
+using System;
 
 namespace R2InventoryArtifact.UI
 {
@@ -17,14 +20,19 @@ namespace R2InventoryArtifact.UI
 
         private InventoryGridComponent _inventoryGrid;
         private InventoryHoldComponent _inventoryHoldList;
-        private InventoryEffectComponent _inventoryEffectList;
         private InventoryNonEquipComponent _inventoryNonEquipList; 
         private InventoryDropComponent _inventoryDropArea; 
+        // private InventoryEffectComponent _inventoryEffectList;
 
         public InventoryItemElement CursorElement;
         public int PlayerLevel; 
 
         private bool _isVisible = true;
+
+
+        public event Action<InventoryItem> OnInventoryItemDropped; 
+        public event Action OnInventoryShow; 
+        public event Action OnInventoryHide; 
 
         public void Initialize(IntRect rect)
         {
@@ -40,6 +48,12 @@ namespace R2InventoryArtifact.UI
 
             _inventoryGrid.Initialize(rect);
             // _inventoryEffectList.Initialize();
+            _inventoryDropArea.OnInventoryItemDropped += HandleItemDrop; 
+        }
+
+        public void Destroy()
+        {
+            _inventoryDropArea.OnInventoryItemDropped -= HandleItemDrop;
         }
 
         public void ShowUI()
@@ -47,6 +61,7 @@ namespace R2InventoryArtifact.UI
             _canvasGroup.alpha = 1;
             _canvasGroup.blocksRaycasts = true;
             _isVisible = true;
+            OnInventoryShow?.Invoke(); 
         }
 
         public void HideUI()
@@ -54,34 +69,80 @@ namespace R2InventoryArtifact.UI
             _canvasGroup.alpha = 0;
             _canvasGroup.blocksRaycasts = false;
             _isVisible = false;
+
+            List<InventoryUpdateResult> results = InventoryModel.DiscardHold(); 
+            results.ForEach(res =>
+            {
+                 _inventoryHoldList.RemoveFromHold(res.InventoryItem);  
+                 HandleItemDrop(res.InventoryItem); 
+            });
+            OnInventoryHide?.Invoke(); 
         }
 
-
-        //TODO: move to InventoryGrid
-        public void AddToInventory(R2ItemCode itemCode)
+        public void HandleItemDrop(InventoryItem item)
         {
-            InventoryItem item;
-            GridPosition itemPos;
+            OnInventoryItemDropped.Invoke(item); 
+        }
 
-            if(InventoryModel.TryCorruptInventory(itemCode))
-            {
-                _inventoryGrid.RepaintGrid(); 
-            } 
+        public bool AddToInventory(EquipmentIndex equipmentIndex)
+        {
+            Debug.Log($"InventoryUI | AddToInventory | :{equipmentIndex}");
+            return AddToInventoryHelper(new(equipmentIndex)); 
+        }
 
-            switch (InventoryModel.AddToInventory(itemCode, out item, out itemPos))
+        public bool AddToInventory(ItemIndex itemIndex)
+        {
+            Debug.Log($"InventoryUI | AddToInventory | :{itemIndex}");
+            return AddToInventoryHelper(new(itemIndex)); 
+        }
+
+        private bool AddToInventoryHelper(InventoryIndex inventoryIndex)
+        {
+            InventoryUpdateResult result = InventoryModel.AddToInventory(inventoryIndex); 
+            switch (result.ResultCode)
             {
-                case InventoryAddCode.NONEQUIP_INSERT: 
-                    _inventoryNonEquipList.AddItem(item); 
-                    break; 
-                case InventoryAddCode.GRID_INSERT:
-                    _inventoryGrid.InsertItemAt(item, itemPos);
-                    break;
-                case InventoryAddCode.HOLD_INSERT:
-                    _inventoryHoldList.AddToHold(item);
-                    break;
+                case InventoryResultCode.NONEQUIP_INSERT: 
+                    _inventoryNonEquipList.AddItem(result.InventoryItem); 
+                    return true; 
+                case InventoryResultCode.GRID_INSERT:
+                    _inventoryGrid.InsertItemAt(result.InventoryItem, result.Pos);
+                    return true;
+                case InventoryResultCode.HOLD_INSERT:
+                    _inventoryHoldList.AddToHold(result.InventoryItem);
+                    return true; 
                 default: break;
             }
+
+            return false; 
         }
+
+        // public void AddToHold(R2ItemCode itemCode){}
+        public void AddToHold(InventoryItem item)
+        {
+            InventoryModel.AddToHold(item); 
+            _inventoryHoldList.AddToHold(item); 
+        }
+
+        public void RemoveItem(InventoryIndex inventoryIndex)
+        {
+            List<InventoryUpdateResult> removeResult = InventoryModel.RemoveItems(inventoryIndex); 
+            removeResult.ForEach(result =>
+            {
+                switch(result.ResultCode)
+                {
+                    case InventoryResultCode.GRID_REMOVE:
+                        _inventoryGrid.RemoveAt(result.Pos); 
+                    break; 
+                    case InventoryResultCode.HOLD_REMOVE: 
+                        _inventoryHoldList.RemoveFromHold(result.InventoryItem); 
+                    break; 
+                    case InventoryResultCode.NONEQUIP_REMOVE: 
+                        _inventoryNonEquipList.RemoveFromNonEquip(result.InventoryItem); 
+                    break; 
+                }
+            });
+        }
+
 
         public void SetCursorElement(InventoryItemElement element)
         {
@@ -118,7 +179,7 @@ namespace R2InventoryArtifact.UI
             InventoryItemElement element = eventData.pointerDrag.GetComponent<InventoryItemElement>();
             if (element != null && element.DragSource == DragSource.HOLD)
             {
-                _inventoryHoldList.AddToHold(element.Item);
+                AddToHold(element.Item);
                 Destroy(element.gameObject);
             }
         }

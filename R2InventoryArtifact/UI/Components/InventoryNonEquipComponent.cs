@@ -32,5 +32,11 @@ namespace R2InventoryArtifact.UI.Components
             _elements.Add(element);
         }
 
+        internal void RemoveFromNonEquip(InventoryItem inventoryItem)
+        {
+            InventoryItemElement element = _elements.Find(item => item.Item == inventoryItem); 
+            _elements.Remove(element); 
+            Destroy(element.gameObject); 
+        }
     }
 }
