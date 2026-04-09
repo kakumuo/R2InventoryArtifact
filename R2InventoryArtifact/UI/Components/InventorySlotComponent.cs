@@ -2,6 +2,7 @@
 
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.Util;
+using Rewired.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;

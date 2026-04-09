@@ -22,7 +22,8 @@ namespace R2InventoryArtifact.UI.Services
             else return null; 
             
             // TODO: find how to make sprite not transparent
-            return Sprite.Create(targetTexture as Texture2D, new(0, 0, 128, 128), Vector2.zero); 
+            Sprite s = Sprite.Create(targetTexture as Texture2D, new(0, 0, 128, 128), Vector2.zero); 
+            return s; 
         }
     }
 }

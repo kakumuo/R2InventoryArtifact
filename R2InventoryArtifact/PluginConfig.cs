@@ -39,8 +39,8 @@ namespace R2InventoryArtifact
             InventoryWidth  = config.Bind(
                 section:            "Inventory", 
                 key:                "Inventory Width", 
-                defaultValue:       5,
-                configDescription:  new ConfigDescription( "Number of cells for the width of the inventory", new AcceptableValueRange<int>(5, 10)) 
+                defaultValue:       10,
+                configDescription:  new ConfigDescription( "Number of cells for the width of the inventory", new AcceptableValueRange<int>(7, 12)) 
             ); 
 
             InventoryHeight  = config.Bind(

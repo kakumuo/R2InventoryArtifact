@@ -30,9 +30,8 @@ namespace R2InventoryArtifact.UI
         private bool _isVisible = true;
 
 
-        public event Action<InventoryItem> OnInventoryItemDropped; 
-        public event Action OnInventoryShow; 
-        public event Action OnInventoryHide; 
+        public event Action<InventoryIndex, int> OnInventoryItemDropped; 
+        public event Action<bool> OnUIVisibilityChanged; 
 
         public void Initialize(IntRect rect)
         {
@@ -56,32 +55,28 @@ namespace R2InventoryArtifact.UI
             _inventoryDropArea.OnInventoryItemDropped -= HandleItemDrop;
         }
 
-        public void ShowUI()
+        public void SetUIVisibility(bool show)
         {
-            _canvasGroup.alpha = 1;
-            _canvasGroup.blocksRaycasts = true;
-            _isVisible = true;
-            OnInventoryShow?.Invoke(); 
-        }
+            _canvasGroup.alpha = show ? 1 : 0;
+            _canvasGroup.blocksRaycasts = show;
+            _isVisible = show;
 
-        public void HideUI()
-        {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.blocksRaycasts = false;
-            _isVisible = false;
 
-            List<InventoryUpdateResult> results = InventoryModel.DiscardHold(); 
-            results.ForEach(res =>
+            if(!show)
             {
-                 _inventoryHoldList.RemoveFromHold(res.InventoryItem);  
-                 HandleItemDrop(res.InventoryItem); 
-            });
-            OnInventoryHide?.Invoke(); 
+                List<InventoryUpdateResult> results = InventoryModel.DiscardHold(); 
+                results.ForEach(res =>
+                {
+                    _inventoryHoldList.RemoveFromHold(res.InventoryItem);  
+                    HandleItemDrop(res.InventoryItem); 
+                });  
+            }
+            OnUIVisibilityChanged?.Invoke(show); 
         }
 
         public void HandleItemDrop(InventoryItem item)
         {
-            OnInventoryItemDropped.Invoke(item); 
+            OnInventoryItemDropped.Invoke(item.InventoryIndex, item.StackCount); 
         }
 
         public bool AddToInventory(EquipmentIndex equipmentIndex)
@@ -159,11 +154,21 @@ namespace R2InventoryArtifact.UI
             _inventoryGrid.RepaintGrid(); 
         }
 
+        public void ResetInventory()
+        {
+            // MAYBE: reset InventoryModel
+            _inventoryHoldList.Clear(); 
+            _inventoryNonEquipList.Clear(); 
+            _inventoryGrid.Clear(); 
+
+            InventoryModel.Reset(); 
+        }
+
         void Update()
         {
             if (Input.GetKeyUp(KeyCode.Q))
             {
-                if (_isVisible) HideUI(); else ShowUI();
+                SetUIVisibility(!_isVisible); 
             }
 
             if (Input.GetKeyUp(KeyCode.R) && CursorElement != null)

@@ -181,5 +181,17 @@ namespace R2InventoryArtifact.UI.Components
             _cursorPosition = null;
             RepaintGrid();
         }
+
+        internal void Clear()
+        {
+            for(int r = 0; r < _slots.GetLength(0); r++)
+            {
+                for(int c = 0; c < _slots.GetLength(1); c++)
+                {
+                    if(_slots[r,c].transform.childCount > 0)
+                        Destroy(_slots[r,c].transform.GetChild(0).gameObject); 
+                }
+            }
+        }
     }
 }

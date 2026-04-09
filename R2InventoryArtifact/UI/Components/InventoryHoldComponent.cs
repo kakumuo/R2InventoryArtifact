@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using R2InventoryArtifact.UI.Builders;
 using R2InventoryArtifact.Model;
 using System.Collections.Generic;
+using System;
 
 namespace R2InventoryArtifact.UI.Components
 {
@@ -50,6 +51,14 @@ namespace R2InventoryArtifact.UI.Components
             Destroy(element.gameObject);
 
             InventoryUI.Instance.AddToHold(item);
+        }
+
+        internal void Clear()
+        {
+            foreach(InventoryHoldElement child in _elements)
+            {
+                Destroy(child.gameObject); 
+            }
         }
     }
 }

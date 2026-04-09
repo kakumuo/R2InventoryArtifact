@@ -1,4 +1,5 @@
 using BepInEx;
+using IL.RoR2;
 using R2API;
 using R2API.ContentManagement;
 using R2InventoryArtifact.Hooks;

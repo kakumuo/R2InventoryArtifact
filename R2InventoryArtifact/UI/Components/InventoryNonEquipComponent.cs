@@ -38,5 +38,13 @@ namespace R2InventoryArtifact.UI.Components
             _elements.Remove(element); 
             Destroy(element.gameObject); 
         }
+
+        internal void Clear()
+        {
+            foreach(InventoryItemElement item in _elements)
+            {
+                Destroy(item.gameObject); 
+            }
+        }
     }
 }

@@ -69,16 +69,11 @@ namespace R2InventoryArtifact.Model
         public static void Initialize(IntRect grid, List<InventoryLock> locks)
         {
             _grid = grid;
-
-            _inventory = new InventoryItem[grid.Height, grid.Width];
-            _activeMap = new Dictionary<GridPosition, List<InventoryItem>>();
-            _holdList = new List<InventoryItem>();
-            _nonEquipList = new List<InventoryItem>();
-            _itemRoot = new Dictionary<InventoryItem, GridPosition>();
             _inventoryLocks = locks;             
 
             _effectObserver = new InventoryEffectObserver();
 
+            Reset(); 
         }
 
         public static bool SetItemAt(InventoryItem item, GridPosition pos)
@@ -446,6 +441,15 @@ namespace R2InventoryArtifact.Model
 
             res.ForEach(res => RemoveFromHold(res.InventoryItem)); 
             return res; 
+        }
+
+        internal static void Reset()
+        {
+            _inventory = new InventoryItem[_grid.Height, _grid.Width];
+            _activeMap = new Dictionary<GridPosition, List<InventoryItem>>();
+            _holdList = new List<InventoryItem>();
+            _nonEquipList = new List<InventoryItem>();
+            _itemRoot = new Dictionary<InventoryItem, GridPosition>();
         }
     }
 }

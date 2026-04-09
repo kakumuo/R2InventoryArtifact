@@ -4,6 +4,10 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using R2InventoryArtifact.UI.Components;
 using R2InventoryArtifact.UI.Layouts;
+using UnityEngine.AddressableAssets;
+using System.Linq;
+using System;
+using RoR2;
 
 
 namespace R2InventoryArtifact.UI.Builders
@@ -52,13 +56,24 @@ namespace R2InventoryArtifact.UI.Builders
 
         public static InventoryUI BuildInventoryUI(Transform parent)
         {
+            // GameObject panel = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/DefaultPanel.prefab").WaitForCompletion(); 
+            // panel.transform.SetParent(parent); 
+            // UnityEngine.Component.Destroy(panel.GetComponent<RectTransform>()); 
+            // panel.AddComponent<RectTransform>(); 
+            
+            
             RectTransform panelRect = BuildPanel(parent, "InventoryUI");
             GameObject panel = panelRect.gameObject; 
+            panel.layer = LayerIndex.ui.intVal; 
             Canvas canvas = panel.AddComponent<Canvas>(); 
+            canvas.sortingOrder = 10; 
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; 
 
             panel.AddComponent<CanvasGroup>(); 
-            panel.AddComponent<CanvasScaler>(); 
+            CanvasScaler canvasScaler = panel.AddComponent<CanvasScaler>(); 
+            canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            canvasScaler.referenceResolution = new Vector2(1920, 1080);
+            canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
             panel.AddComponent<GraphicRaycaster>(); 
 
 
@@ -72,10 +87,12 @@ namespace R2InventoryArtifact.UI.Builders
                 // new(){Col=8, Row=0, ColSpan=2, RowSpan=10},
             }; 
             int spacing = 8; 
+            int horipad = (int)(canvasScaler.referenceResolution.x * .20f); 
+            int vertpad = (int)(canvasScaler.referenceResolution.y * .20f); 
             bentoGroup.UnitWidth = 10; 
             bentoGroup.UnitHeight = 10; 
             bentoGroup.Spacing = spacing; 
-            bentoGroup.padding = new(spacing, spacing, spacing, spacing); 
+            bentoGroup.padding = new(horipad, horipad, vertpad, vertpad); 
 
             return panel.AddComponent<InventoryUI>(); 
         }

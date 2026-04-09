@@ -7,25 +7,34 @@ using RoR2;
 
 namespace R2InventoryArtifact.Model
 {   
+    public enum InventoryIndexType
+    {
+        None, Item, Equipment
+    }
+
     public class InventoryIndex
     {
         public ItemIndex ItemIndex = ItemIndex.None; 
         public EquipmentIndex EquipmentIndex = EquipmentIndex.None;
+        public InventoryIndexType IndexType = InventoryIndexType.None; 
 
         public InventoryIndex(ItemIndex itemIndex)
         {
             Reset(); 
             ItemIndex = itemIndex; 
+            IndexType = InventoryIndexType.Item; 
         }
 
         public InventoryIndex(EquipmentIndex equipmentIndex)
         {
             Reset(); 
             EquipmentIndex = equipmentIndex; 
+            IndexType = InventoryIndexType.Equipment; 
         }
 
         private void Reset()
         {
+            IndexType = InventoryIndexType.None; 
             ItemIndex = ItemIndex.None; 
             EquipmentIndex = EquipmentIndex.None; 
         }
@@ -38,6 +47,16 @@ namespace R2InventoryArtifact.Model
         public static bool operator !=(InventoryIndex a, InventoryIndex b)
         {
             return !(a == b); 
+        }
+
+        public static implicit operator ItemIndex(InventoryIndex x)
+        {
+            return x.ItemIndex; 
+        }
+
+        public static implicit operator EquipmentIndex(InventoryIndex x)
+        {
+            return x.EquipmentIndex; 
         }
     }
 
