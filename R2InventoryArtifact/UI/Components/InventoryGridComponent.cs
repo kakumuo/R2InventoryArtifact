@@ -26,7 +26,7 @@ namespace R2InventoryArtifact.UI.Components
 
         private static List<(int, int)> _DIRS = new(){(-1, 0), (1, 0), (0, -1), (0, 1)}; 
 
-        public void Initialize(IntRect gridSize)
+        public void Initialize(IntRect gridSize, List<InventoryLock> locks)
         {
             _gridRect = gridSize;
             _slots = new InventorySlotComponent[_gridRect.Height, _gridRect.Width];
@@ -46,6 +46,8 @@ namespace R2InventoryArtifact.UI.Components
                     _slots[r, c] = slot;
                 }
             }
+
+            UpdateGridLocks(locks); 
         }
 
         public void InsertItemAt(InventoryItem item, GridPosition pos)
@@ -180,6 +182,22 @@ namespace R2InventoryArtifact.UI.Components
         {
             _cursorPosition = null;
             RepaintGrid();
+        }
+
+        public void UpdateGridLocks(List<InventoryLock> locks)
+        {
+            foreach(InventoryLock invLock in locks)
+            {
+                invLock.Nodes.ForEach(node =>
+                {
+                    GridPosition target = node + invLock.Root; 
+                    if(_gridRect.Contains(target))
+                    {
+                        if(invLock.IsLocked) _slots[target.Row, target.Col].LockSlot(invLock); 
+                        else _slots[target.Row, target.Col].UnlockSlot(); 
+                    }
+                }); 
+            }
         }
 
         internal void Clear()

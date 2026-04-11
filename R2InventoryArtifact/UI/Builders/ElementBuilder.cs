@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using R2InventoryArtifact.UI.Components;
 using R2InventoryArtifact.UI.Layouts;
+using RoR2.UI;
 
 namespace R2InventoryArtifact.UI.Builders
 {    
@@ -15,6 +16,7 @@ namespace R2InventoryArtifact.UI.Builders
             GameObject obj = new GameObject(objName);
             obj.AddComponent<RectTransform>();
             obj.AddComponent<HorizontalLayoutGroup>();
+            obj.AddComponent<TooltipProvider>(); 
 
             Image img = obj.AddComponent<Image>();
             //TODO: find way to import shader

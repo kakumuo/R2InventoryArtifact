@@ -8,9 +8,6 @@ namespace R2InventoryArtifact.UI.Builders
 {
     public static partial class ComponentBuilder
     {
-        // MAYBE: initialize assets before importing
-        public static void Initialize() { }
-
         /// <summary>
         /// Builds a scroll view, returns the content's gameobject reference
         /// </summary>

@@ -11,12 +11,17 @@ namespace R2InventoryArtifact.Model
     {
         None, Item, Equipment
     }
-
+    
     public class InventoryIndex
     {
         public ItemIndex ItemIndex = ItemIndex.None; 
         public EquipmentIndex EquipmentIndex = EquipmentIndex.None;
         public InventoryIndexType IndexType = InventoryIndexType.None; 
+
+        public InventoryIndex()
+        {
+            Reset(); 
+        }
 
         public InventoryIndex(ItemIndex itemIndex)
         {
@@ -32,11 +37,16 @@ namespace R2InventoryArtifact.Model
             IndexType = InventoryIndexType.Equipment; 
         }
 
-        private void Reset()
+        public void Reset()
         {
             IndexType = InventoryIndexType.None; 
             ItemIndex = ItemIndex.None; 
             EquipmentIndex = EquipmentIndex.None; 
+        }
+
+        public bool IsNull()
+        {
+            return ItemIndex == ItemIndex.None && EquipmentIndex == EquipmentIndex.None; 
         }
 
         public static bool operator ==(InventoryIndex a, InventoryIndex b)
@@ -63,6 +73,9 @@ namespace R2InventoryArtifact.Model
     [Serializable] public class InventoryItem
     {
         public InventoryIndex InventoryIndex; 
+        public ItemDef ItemDef; 
+        public EquipmentDef EquipmentDef; 
+        public InventoryIndexType IndexType {get => InventoryIndex.IndexType; } 
 
         private List<GridPosition> _nodeOrigin;
         private List<GridPosition> _activeOrigin;  
@@ -91,6 +104,11 @@ namespace R2InventoryArtifact.Model
         public InventoryItem(InventoryIndex inventoryIndex, List<GridPosition> nodeOrigin, List<GridPosition> activeOrigin)
         {
             InventoryIndex = inventoryIndex; 
+            switch(IndexType)
+            {
+                case InventoryIndexType.Item:       ItemDef = ItemCatalog.GetItemDef(inventoryIndex); break; 
+                case InventoryIndexType.Equipment:  EquipmentDef = EquipmentCatalog.GetEquipmentDef(inventoryIndex); break; 
+            }
             InitHelper(nodeOrigin, activeOrigin); 
         }
 

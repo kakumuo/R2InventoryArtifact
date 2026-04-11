@@ -27,15 +27,17 @@ namespace R2InventoryArtifact.UI
         public InventoryItemElement CursorElement;
         public int PlayerLevel; 
 
-        private bool _isVisible = true;
+        public bool IsVisible = true;
 
 
         public event Action<InventoryIndex, int> OnInventoryItemDropped; 
         public event Action<bool> OnUIVisibilityChanged; 
 
-        public void Initialize(IntRect rect)
+        public void Initialize(IntRect rect, List<InventoryLock> locks)
         {
+            if(Instance) Destroy(Instance); 
             Instance = this;
+            InventoryModel.Initialize(rect, locks);
 
             _canvasGroup = GetComponent<CanvasGroup>();
 
@@ -45,8 +47,7 @@ namespace R2InventoryArtifact.UI
             _inventoryNonEquipList  = ComponentBuilder.BuildInventoryNonEquipComponent(transform); 
             // _inventoryEffectList    = ComponentBuilder.BuildInventoryEffectComponent(transform);
 
-            _inventoryGrid.Initialize(rect);
-            // _inventoryEffectList.Initialize();
+            _inventoryGrid.Initialize(rect, locks);
             _inventoryDropArea.OnInventoryItemDropped += HandleItemDrop; 
         }
 
@@ -59,7 +60,7 @@ namespace R2InventoryArtifact.UI
         {
             _canvasGroup.alpha = show ? 1 : 0;
             _canvasGroup.blocksRaycasts = show;
-            _isVisible = show;
+            IsVisible = show;
 
 
             if(!show)
@@ -79,36 +80,38 @@ namespace R2InventoryArtifact.UI
             OnInventoryItemDropped.Invoke(item.InventoryIndex, item.StackCount); 
         }
 
-        public bool AddToInventory(EquipmentIndex equipmentIndex)
+        public bool AddToInventory(EquipmentIndex equipmentIndex, bool toNonEquip)
         {
             Debug.Log($"InventoryUI | AddToInventory | :{equipmentIndex}");
-            return AddToInventoryHelper(new(equipmentIndex)); 
+            return AddToInventory(new(equipmentIndex), toNonEquip); 
         }
 
-        public bool AddToInventory(ItemIndex itemIndex)
+        public bool AddToInventory(ItemIndex itemIndex, bool toNonEquip)
         {
             Debug.Log($"InventoryUI | AddToInventory | :{itemIndex}");
-            return AddToInventoryHelper(new(itemIndex)); 
+            return AddToInventory(new(itemIndex), toNonEquip); 
         }
 
-        private bool AddToInventoryHelper(InventoryIndex inventoryIndex)
+        private bool AddToInventory(InventoryIndex inventoryIndex, bool toNonEquip)
         {
-            InventoryUpdateResult result = InventoryModel.AddToInventory(inventoryIndex); 
+            InventoryUpdateResult result = InventoryModel.AddToInventory(inventoryIndex, toNonEquip); 
+            if(result.ResultCode == InventoryResultCode.FAILED)
+                return false; 
+                
             switch (result.ResultCode)
             {
                 case InventoryResultCode.NONEQUIP_INSERT: 
                     _inventoryNonEquipList.AddItem(result.InventoryItem); 
-                    return true; 
+                break; 
                 case InventoryResultCode.GRID_INSERT:
                     _inventoryGrid.InsertItemAt(result.InventoryItem, result.Pos);
-                    return true;
+                break; 
                 case InventoryResultCode.HOLD_INSERT:
                     _inventoryHoldList.AddToHold(result.InventoryItem);
-                    return true; 
-                default: break;
+                break; 
             }
 
-            return false; 
+            return true; 
         }
 
         // public void AddToHold(R2ItemCode itemCode){}
@@ -118,9 +121,21 @@ namespace R2InventoryArtifact.UI
             _inventoryHoldList.AddToHold(item); 
         }
 
-        public void RemoveItem(InventoryIndex inventoryIndex)
+        public void RemoveFromInventory(ItemIndex itemIndex, bool isTemp)
         {
-            List<InventoryUpdateResult> removeResult = InventoryModel.RemoveItems(inventoryIndex); 
+            Debug.Log($"InventoryUI | RemoveFromInventory | :{itemIndex}");
+            RemoveFromInventory(new InventoryIndex(itemIndex), isTemp); 
+        }
+
+        public void RemoveFromInventory(EquipmentIndex equipmentIndex)
+        {
+            Debug.Log($"InventoryUI | RemoveFromInventory | :{equipmentIndex}");
+            RemoveFromInventory(new InventoryIndex(equipmentIndex)); 
+        }
+
+        public void RemoveFromInventory(InventoryIndex inventoryIndex, bool isTemp)
+        {
+            List<InventoryUpdateResult> removeResult = InventoryModel.RemoveItems(inventoryIndex, isTemp); 
             removeResult.ForEach(result =>
             {
                 switch(result.ResultCode)
@@ -150,28 +165,41 @@ namespace R2InventoryArtifact.UI
         {
             PlayerLevel += 1; 
             Debug.Log($"Increasing player level to: {PlayerLevel}"); 
-            InventoryModel.SetUnlocksAtLevel(PlayerLevel); 
+            List<InventoryLock> unlocks = InventoryModel.SetUnlocksAtLevel(PlayerLevel); 
+            _inventoryGrid.UpdateGridLocks(unlocks); 
             _inventoryGrid.RepaintGrid(); 
         }
 
         public void ResetInventory()
         {
             // MAYBE: reset InventoryModel
+            InventoryModel.Reset(); 
+
             _inventoryHoldList.Clear(); 
             _inventoryNonEquipList.Clear(); 
             _inventoryGrid.Clear(); 
+            _inventoryGrid.UpdateGridLocks(InventoryModel.InventoryLocks); 
 
-            InventoryModel.Reset(); 
+            _inventoryGrid.RepaintGrid(); 
         }
 
-        void Update()
-        {
-            if (Input.GetKeyUp(KeyCode.Q))
-            {
-                SetUIVisibility(!_isVisible); 
-            }
+        // void Update()
+        // {
+        //     if (Input.GetKeyUp(KeyCode.Q))
+        //     {
+        //         SetUIVisibility(!IsVisible); 
+        //     }
 
-            if (Input.GetKeyUp(KeyCode.R) && CursorElement != null)
+        //     if (Input.GetKeyUp(KeyCode.R) && CursorElement != null)
+        //     {
+        //         CursorElement.Rotate();
+        //         _inventoryGrid.RepaintGrid();
+        //     }
+        // }
+
+        public void RotateCursorItem()
+        {
+            if(CursorElement != null)
             {
                 CursorElement.Rotate();
                 _inventoryGrid.RepaintGrid();

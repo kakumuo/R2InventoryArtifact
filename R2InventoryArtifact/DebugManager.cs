@@ -28,10 +28,35 @@ namespace R2InventoryArtifact
 
                 // And then drop our defined item in front of the player.
 
-                Log.Info($"Player pressed F2. Spawning our custom item at coordinates {transform.position}");
+                Log.Info($"Player pressed 1. Spawning our custom item at coordinates {transform.position}");
                 var dropList = Run.instance.availableTier1DropList;
-                PickupDropletController.CreatePickupDroplet(dropList[(int)R2ItemCode.Bandolier], transform.position, transform.forward * 20f);
+                var unique = new UniquePickup(dropList[(int)R2ItemCode.Bandolier]); 
+                PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false, false);
             }
+
+            if(Input.GetKeyUp(KeyCode.Alpha2))
+            {
+                Log.Info($"Player pressed 2. Adding temp item");
+                    
+                var dropList = Run.instance.availableTier1DropList;
+                var unique = new UniquePickup(dropList[(int)R2ItemCode.Bandolier]); 
+                PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, true, false);
+            }
+
+            // if(Input.GetKeyUp(KeyCode.Alpha2))
+            // {
+            //     Log.Info($"Player pressed 2. Removing item from player");
+            //     CharacterBody body;
+
+            //     if(body = LocalUserManager.GetFirstLocalUser().cachedBody)
+            //     {
+            //         var dropList = Run.instance.availableTier1DropList;
+            //         var unique = new UniquePickup(dropList[(int)R2ItemCode.Bandolier]); 
+            //         body.inventory.RemoveItemPermanent(dropList[(int)R2ItemCode.Bandolier].pickupDef.itemIndex, 1); 
+            //     }
+            // }
+
+
         }
     }
 }

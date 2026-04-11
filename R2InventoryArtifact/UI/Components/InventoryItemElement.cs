@@ -3,9 +3,7 @@
 
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.UI.Services;
-using R2InventoryArtifact.Util.R2API;
 using RoR2.UI;
-using RoR2BepInExPack.GameAssetPaths.Version_1_35_0;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,7 +22,6 @@ namespace R2InventoryArtifact.UI.Components
         const int MAX_ROTATION = 4; 
 
         private Image _icon; 
-        private SpriteRenderer _spriteRenderer; 
         private TextMeshProUGUI _label; 
         public InventoryItem Item; 
         private CanvasGroup _canvasGroup; 
@@ -43,7 +40,6 @@ namespace R2InventoryArtifact.UI.Components
             if(!item.IsEquippable) _canvasGroup.blocksRaycasts = false; 
 
             _icon.sprite = UIAssetService.GetSprite(Item.InventoryIndex); 
-            _spriteRenderer.color = Color.white; 
             _label.text = Item.StackCount.ToString();
             
             item.OnStackCountChanged += UpdateStackCountLabel; 

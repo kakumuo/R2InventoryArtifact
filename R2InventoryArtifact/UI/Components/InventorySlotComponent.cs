@@ -1,11 +1,13 @@
 
 
+using RoR2.UI;
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.Util;
 using Rewired.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
 
 namespace R2InventoryArtifact.UI.Components
 {
@@ -23,15 +25,21 @@ namespace R2InventoryArtifact.UI.Components
         private GridPosition _pos; 
         private InventoryGridComponent _parentGrid; 
         private InventoryItem _item; 
+        private InventoryLock _slotLock; 
+        private TooltipProvider _tooltipProvider; 
 
-        private Image img; 
+        private Image _img; 
 
         public void Initialize(InventoryGridComponent parentGrid, GridPosition pos)
         {
-            img = GetComponent<Image>(); 
-            Paint(UIConstants.COLOR_ITEM_SLOT_NEUTRAL);
+            _img = GetComponent<Image>(); 
+            _tooltipProvider = GetComponent<TooltipProvider>(); 
+
+            // Paint(UIConstants.COLOR_ITEM_SLOT_NEUTRAL);
             _parentGrid = parentGrid; 
             _pos = pos; 
+
+            _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
         }
 
         public void Occupy(InventoryItem item)
@@ -62,18 +70,20 @@ namespace R2InventoryArtifact.UI.Components
             bool AdjT, bool AdjB, bool AdjL, bool AdjR
         )
         {
-            if(!img.materialForRendering)
-            {
-                img.color = baseColor; 
-                return; 
-            }
-            img.materialForRendering.SetColor("_Color", baseColor);
-            img.materialForRendering.SetColor("_OutlineColor", outlineColor);
-            img.materialForRendering.SetFloat("_Thickness", OUTLINE_THICKNESS);
-            img.materialForRendering.SetFloat("_AdjT", AdjT ? 1 : 0);
-            img.materialForRendering.SetFloat("_AdjB", AdjB ? 1 : 0);
-            img.materialForRendering.SetFloat("_AdjL", AdjL ? 1 : 0);
-            img.materialForRendering.SetFloat("_AdjR", AdjR ? 1 : 0);
+            _img.color = baseColor; 
+            // if(!img.materialForRendering)
+            // {
+            //     img.color = baseColor; 
+            //     return; 
+            // }
+
+            // img.materialForRendering.SetColor("_Color", baseColor);
+            // img.materialForRendering.SetColor("_OutlineColor", outlineColor);
+            // img.materialForRendering.SetFloat("_Thickness", OUTLINE_THICKNESS);
+            // img.materialForRendering.SetFloat("_AdjT", AdjT ? 1 : 0);
+            // img.materialForRendering.SetFloat("_AdjB", AdjB ? 1 : 0);
+            // img.materialForRendering.SetFloat("_AdjL", AdjL ? 1 : 0);
+            // img.materialForRendering.SetFloat("_AdjR", AdjR ? 1 : 0);
         }
 
         public void OnTransformChildrenChanged()
@@ -108,6 +118,27 @@ namespace R2InventoryArtifact.UI.Components
         public void OnPointerEnter(PointerEventData eventData)
         {
             _parentGrid.UpdateCursorPosition(_pos); 
+        }
+
+        public void LockSlot(InventoryLock slotLock)
+        {
+            _slotLock = slotLock; 
+            _tooltipProvider.AllowTooltipOnNavigationSelect = true; 
+            _tooltipProvider.SetContent(new()
+            {
+                titleColor  = UIConstants.COLOR_TOOLTIP_TITLE_SLOT_LOCKED, 
+                bodyColor   = UIConstants.COLOR_TOOLTIP_BODY_SLOT_LOCKED, 
+                titleToken  = "Slot Locked", 
+                bodyToken   = String.Join("\n", 
+                    "Slot Locked", $"Unlocks at Level <style=cIsHealth>{slotLock.UnlockLevel}</style>."
+                )
+            });
+        }
+
+        public void UnlockSlot()
+        {
+            _slotLock = null; 
+            _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
         }
     }
 }

@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using System.Collections.ObjectModel;
 using RoR2;
+using EntityStates.VultureHunter.Weapon;
 
 namespace R2InventoryArtifact.Model
 {
@@ -14,7 +15,7 @@ namespace R2InventoryArtifact.Model
         FAILED, 
         GRID_INSERT, GRID_UPDATE, GRID_REMOVE, 
         HOLD_INSERT, HOLD_UPDATE, HOLD_REMOVE,
-        NONEQUIP_INSERT, NONEQUP_UPDATE, NONEQUIP_REMOVE
+        NONEQUIP_INSERT, NONEQUIP_UPDATE, NONEQUIP_REMOVE
     }
 
     public struct InventoryUpdateResult
@@ -47,7 +48,7 @@ namespace R2InventoryArtifact.Model
         private static List<InventoryItem> _holdList;
         private static List<InventoryItem> _nonEquipList;
         private static InventoryItem[,] _inventory;
-        private static List<InventoryLock> _inventoryLocks; 
+        public static List<InventoryLock> InventoryLocks; 
         private static Dictionary<InventoryItem, GridPosition> _itemRoot;
 
         private static Dictionary<GridPosition, List<InventoryItem>> _activeMap;
@@ -69,7 +70,7 @@ namespace R2InventoryArtifact.Model
         public static void Initialize(IntRect grid, List<InventoryLock> locks)
         {
             _grid = grid;
-            _inventoryLocks = locks;             
+            InventoryLocks = locks;             
 
             _effectObserver = new InventoryEffectObserver();
 
@@ -177,17 +178,17 @@ namespace R2InventoryArtifact.Model
         /// <returns>
         /// InventoryAddCode - INSERT, STACK, NONE
         /// </returns>
-        public static InventoryUpdateResult AddToInventory(InventoryIndex inventoryIndex)
+        public static InventoryUpdateResult AddToInventory(InventoryIndex inventoryIndex, bool toNonEquip)
         {
             InventoryItem next = InventoryService.GetInventoryItem(inventoryIndex);
-            if(!next.IsEquippable)
+            if(toNonEquip)
             {
                 foreach(InventoryItem nonEquip in _nonEquipList)
                 {
                     if(nonEquip.InventoryIndex == next.InventoryIndex)
                     {
                         nonEquip.StackCount += 1; 
-                        return new (InventoryResultCode.NONEQUP_UPDATE, nonEquip); 
+                        return new (InventoryResultCode.NONEQUIP_UPDATE, nonEquip); 
                     }
                 }
 
@@ -242,8 +243,27 @@ namespace R2InventoryArtifact.Model
             return new (InventoryResultCode.HOLD_INSERT, next); 
         }
 
-        public static List<InventoryUpdateResult> RemoveItems(InventoryIndex inventoryIndex, int count=1)
+        private static List<InventoryUpdateResult> RemoveFromNonEquip(InventoryIndex inventoryIndex, int count)
+        {
+            List<InventoryUpdateResult> removedItems = new(); 
+            
+            InventoryItem targetItem = _nonEquipList.Find(ne => ne.InventoryIndex == inventoryIndex);
+            if(targetItem == null) return removedItems; 
+
+            InventoryUpdateResult result = new(){InventoryItem=targetItem, Pos=new(), ResultCode=InventoryResultCode.NONEQUIP_UPDATE}; 
+            targetItem.StackCount = Math.Max(targetItem.StackCount - count, 0); 
+
+            if(targetItem.StackCount == 0) result.ResultCode = InventoryResultCode.NONEQUIP_REMOVE; 
+
+            removedItems.Add(result); 
+            return removedItems;
+        }
+
+        public static List<InventoryUpdateResult> RemoveItems(InventoryIndex inventoryIndex, bool isTemp, int count=1)
         {            
+            // all temp items go to non-equip, so remove from there
+            if(isTemp) return RemoveFromNonEquip(inventoryIndex, count); 
+
             List<InventoryUpdateResult> removedItems = new(); 
             List<InventoryUpdateResult> tmp = new(); 
 
@@ -252,14 +272,6 @@ namespace R2InventoryArtifact.Model
                 if(item.InventoryIndex == inventoryIndex)
                 {
                     tmp.Add(new(){ResultCode=InventoryResultCode.HOLD_UPDATE, InventoryItem=item}); 
-                }
-            }); 
-
-            _nonEquipList.ForEach(item =>
-            {
-                if(item.InventoryIndex == inventoryIndex)
-                {
-                    tmp.Add(new(){ResultCode=InventoryResultCode.NONEQUP_UPDATE, InventoryItem=item}); 
                 }
             }); 
 
@@ -302,7 +314,7 @@ namespace R2InventoryArtifact.Model
                         RemoveFromHold(result.InventoryItem);  
                         result.ResultCode = InventoryResultCode.HOLD_REMOVE; 
                     break; 
-                    case InventoryResultCode.NONEQUP_UPDATE: 
+                    case InventoryResultCode.NONEQUIP_UPDATE: 
                         RemoveFromNonEquip(result.InventoryItem); 
                         result.ResultCode = InventoryResultCode.NONEQUIP_REMOVE; 
                     break; 
@@ -372,7 +384,7 @@ namespace R2InventoryArtifact.Model
 
         public static bool IsPositionLocked(GridPosition pos)
         {
-            foreach(InventoryLock invLock in _inventoryLocks)
+            foreach(InventoryLock invLock in InventoryLocks)
             {
                 foreach(GridPosition node in invLock.Nodes)
                 {
@@ -383,13 +395,19 @@ namespace R2InventoryArtifact.Model
             return false; 
         } 
 
-        public static void SetUnlocksAtLevel(int level)
+        public static List<InventoryLock> SetUnlocksAtLevel(int level)
         {
-            for(int i = 0; i < _inventoryLocks.Count; i++)
+            List<InventoryLock> unlocks = new(); 
+            for(int i = 0; i < InventoryLocks.Count; i++)
             {
-                if(_inventoryLocks[i].IsLocked && _inventoryLocks[i].UnlockLevel <= level) 
-                    _inventoryLocks[i].IsLocked = false; 
+                if(InventoryLocks[i].IsLocked && InventoryLocks[i].UnlockLevel <= level)
+                {
+                    InventoryLocks[i].IsLocked = false; 
+                    unlocks.Add(InventoryLocks[i]); 
+                }
             }
+
+            return unlocks; 
         }
 
         public static bool IsValidItemPosition(InventoryItem item, GridPosition pos)
@@ -450,6 +468,11 @@ namespace R2InventoryArtifact.Model
             _holdList = new List<InventoryItem>();
             _nonEquipList = new List<InventoryItem>();
             _itemRoot = new Dictionary<InventoryItem, GridPosition>();
+
+            for(int i = 0; i < InventoryLocks.Count; i++)
+            {
+                InventoryLocks[i].IsLocked = true; 
+            }
         }
     }
 }
