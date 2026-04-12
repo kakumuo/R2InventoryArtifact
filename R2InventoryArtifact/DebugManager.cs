@@ -1,9 +1,4 @@
 
-
-
-
-
-using R2InventoryArtifact.Util.R2API;
 using RoR2;
 using UnityEngine;
 
@@ -19,44 +14,31 @@ namespace R2InventoryArtifact
             Instance = this;  
         }
 
+        private void SpawnItem(ItemIndex itemindex, bool isTemp=false)
+        {
+            var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
+            var unique = new UniquePickup(PickupCatalog.FindPickupIndex(itemindex)); 
+            Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
+            PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
+        }
+
         // DEBUG: test item setting
         private void Update()
         {
-            if(Input.GetKeyUp(KeyCode.Alpha1))
-            { 
-                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                // And then drop our defined item in front of the player.
-
-                Log.Info($"Player pressed 1. Spawning our custom item at coordinates {transform.position}");
-                var dropList = Run.instance.availableTier1DropList;
-                var unique = new UniquePickup(dropList[(int)R2ItemCode.Bandolier]); 
-                PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false, false);
-            }
-
-            if(Input.GetKeyUp(KeyCode.Alpha2))
+            if(Input.GetKeyUp(KeyCode.Alpha1)) SpawnItem(RoR2Content.Items.Crowbar.itemIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha2)) SpawnItem(RoR2Content.Items.Crowbar.itemIndex, true);
+            if(Input.GetKeyUp(KeyCode.Alpha3)) SpawnItem(RoR2Content.Items.Mushroom.itemIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha4)) SpawnItem(DLC1Content.Items.MushroomVoid.itemIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha5)) SpawnItem(DLC2Content.Items.LowerPricedChests.itemIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha7))
             {
-                Log.Info($"Player pressed 2. Adding temp item");
-                    
-                var dropList = Run.instance.availableTier1DropList;
-                var unique = new UniquePickup(dropList[(int)R2ItemCode.Bandolier]); 
-                PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, true, false);
+                var body = PlayerCharacterMasterController.instances[0].master;
+                body.GetBody().InflictLavaDamage(); 
             }
-
-            // if(Input.GetKeyUp(KeyCode.Alpha2))
-            // {
-            //     Log.Info($"Player pressed 2. Removing item from player");
-            //     CharacterBody body;
-
-            //     if(body = LocalUserManager.GetFirstLocalUser().cachedBody)
-            //     {
-            //         var dropList = Run.instance.availableTier1DropList;
-            //         var unique = new UniquePickup(dropList[(int)R2ItemCode.Bandolier]); 
-            //         body.inventory.RemoveItemPermanent(dropList[(int)R2ItemCode.Bandolier].pickupDef.itemIndex, 1); 
-            //     }
-            // }
-
-
+            // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
+            // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
+            // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
         }
     }
 }

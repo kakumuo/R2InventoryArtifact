@@ -21,7 +21,7 @@ namespace R2InventoryArtifact.UI
         public readonly static Color COLOR_ITEM_SLOT_ACTIVE_OUTLINE  = ColorFromHex("#b8860b", ALPHA);
         public readonly static Color COLOR_ITEM_SLOT_HOVER_VALID     = ColorFromHex("#008000", ALPHA);
         public readonly static Color COLOR_ITEM_SLOT_HOVER_INVALID   = ColorFromHex("#FF0000", ALPHA);
-        public readonly static Color COLOR_ITEM_SLOT_LOCKED          = ColorFromHex("#6b6b6b", ALPHA);
+        public readonly static Color COLOR_ITEM_SLOT_LOCKED          = ColorFromHex("#414141", ALPHA);
 
         // tooltip
         public readonly static Color COLOR_TOOLTIP_TITLE_SLOT_LOCKED = ColorFromHex("#414141", ALPHA);

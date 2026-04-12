@@ -12,7 +12,8 @@ namespace R2InventoryArtifact
 {
     public enum InventoryShowType
     {
-        HoldToShow=0, ToggleShow
+        ToggleShow,
+        HoldToShow, 
     }
 
     // TODO: add configs for item properties

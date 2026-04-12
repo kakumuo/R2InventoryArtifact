@@ -178,14 +178,14 @@ namespace R2InventoryArtifact.Model
         /// <returns>
         /// InventoryAddCode - INSERT, STACK, NONE
         /// </returns>
-        public static InventoryUpdateResult AddToInventory(InventoryIndex inventoryIndex, bool toNonEquip)
+        public static InventoryUpdateResult AddToInventory(UniquePickup pickup, bool toNonEquip)
         {
-            InventoryItem next = InventoryService.GetInventoryItem(inventoryIndex);
+            InventoryItem next = InventoryService.GetInventoryItem(pickup);
             if(toNonEquip)
             {
                 foreach(InventoryItem nonEquip in _nonEquipList)
                 {
-                    if(nonEquip.InventoryIndex == next.InventoryIndex)
+                    if(nonEquip.Pickup == next.Pickup)
                     {
                         nonEquip.StackCount += 1; 
                         return new (InventoryResultCode.NONEQUIP_UPDATE, nonEquip); 
@@ -201,7 +201,7 @@ namespace R2InventoryArtifact.Model
             {
                 for (int c = 0; c < _grid.Width; c++)
                 {
-                    if (_inventory[r, c] != null && _inventory[r, c].InventoryIndex == next.InventoryIndex && _inventory[r, c].StackCount < _inventory[r, c].MaxStackCount)
+                    if (_inventory[r, c] != null && _inventory[r, c].Pickup == next.Pickup && _inventory[r, c].StackCount < _inventory[r, c].MaxStackCount)
                     {
                         _inventory[r, c].StackCount += 1;
                         return new (InventoryResultCode.GRID_UPDATE, _inventory[r, c], new GridPosition(c, r)) ;
@@ -212,7 +212,7 @@ namespace R2InventoryArtifact.Model
             // try increase item in item hold 
             foreach (InventoryItem holdItem in _holdList)
             {
-                if (holdItem.InventoryIndex == next.InventoryIndex && holdItem.StackCount < holdItem.MaxStackCount)
+                if (holdItem.Pickup == next.Pickup && holdItem.StackCount < holdItem.MaxStackCount)
                 {
                     holdItem.StackCount += 1;
                     return new (InventoryResultCode.HOLD_UPDATE, holdItem);
@@ -243,11 +243,11 @@ namespace R2InventoryArtifact.Model
             return new (InventoryResultCode.HOLD_INSERT, next); 
         }
 
-        private static List<InventoryUpdateResult> RemoveFromNonEquip(InventoryIndex inventoryIndex, int count)
+        private static List<InventoryUpdateResult> RemoveFromNonEquip(UniquePickup pickup, int count)
         {
             List<InventoryUpdateResult> removedItems = new(); 
             
-            InventoryItem targetItem = _nonEquipList.Find(ne => ne.InventoryIndex == inventoryIndex);
+            InventoryItem targetItem = _nonEquipList.Find(ne => ne.Pickup == pickup);
             if(targetItem == null) return removedItems; 
 
             InventoryUpdateResult result = new(){InventoryItem=targetItem, Pos=new(), ResultCode=InventoryResultCode.NONEQUIP_UPDATE}; 
@@ -259,17 +259,17 @@ namespace R2InventoryArtifact.Model
             return removedItems;
         }
 
-        public static List<InventoryUpdateResult> RemoveItems(InventoryIndex inventoryIndex, bool isTemp, int count=1)
+        public static List<InventoryUpdateResult> RemoveItems(UniquePickup pickup, int count=1)
         {            
             // all temp items go to non-equip, so remove from there
-            if(isTemp) return RemoveFromNonEquip(inventoryIndex, count); 
+            if(pickup.isTempItem) return RemoveFromNonEquip(pickup, count); 
 
             List<InventoryUpdateResult> removedItems = new(); 
             List<InventoryUpdateResult> tmp = new(); 
 
             _holdList.ForEach(item =>
             {
-                if(item.InventoryIndex == inventoryIndex)
+                if(item.Pickup == pickup)
                 {
                     tmp.Add(new(){ResultCode=InventoryResultCode.HOLD_UPDATE, InventoryItem=item}); 
                 }
@@ -277,7 +277,7 @@ namespace R2InventoryArtifact.Model
 
             foreach(InventoryItem item in _itemRoot.Keys)
             {
-                if(item.InventoryIndex == inventoryIndex)
+                if(item.Pickup == pickup)
                 {
                     tmp.Add(new(){ResultCode=InventoryResultCode.GRID_UPDATE, InventoryItem=item, Pos=_itemRoot[item]}); 
                 }

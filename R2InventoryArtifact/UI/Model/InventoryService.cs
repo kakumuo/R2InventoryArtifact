@@ -1,24 +1,24 @@
 
 using System.Collections.Generic;
-using IL.RoR2;
 using R2InventoryArtifact.Util.R2API;
 using RoR2;
+using R2InventoryArtifact.Util; 
 
 
 namespace R2InventoryArtifact.Model
 {
     public partial class InventoryService
     {
-        public static InventoryItem GetInventoryItem(InventoryIndex inventoryIndex)
+        public static InventoryItem GetInventoryItem(UniquePickup pickup)
         {
             return new InventoryItem(
-                inventoryIndex, 
-                new(){new(0, 0), new(0, 1)}, 
-                new(){new(-1, 0), new(1, 0)}
+                pickup, 
+                new List<GridPosition>(){new(0, 0), new(0, 1)}, 
+                new List<GridPosition>(){new(0, 0), new(0, 1)}
             ); 
         }
 
-        public static InventoryEffectCode GetInventoryEffectCode(InventoryIndex inventoryIndex, HashSet<InventoryIndex> adjacent)
+        public static InventoryEffectCode GetInventoryEffectCode(UniquePickup pickup, HashSet<UniquePickup> adjacent)
         {
             InventoryEffectCode resCode = InventoryEffectCode.None; 
             // if(parent == R2ItemCode.BundleofFireworks && adjacent.Contains(R2ItemCode.BisonSteak) && adjacent.Contains(R2ItemCode.IgnitionTank)) 

@@ -129,9 +129,7 @@ namespace R2InventoryArtifact.UI.Components
                 titleColor  = UIConstants.COLOR_TOOLTIP_TITLE_SLOT_LOCKED, 
                 bodyColor   = UIConstants.COLOR_TOOLTIP_BODY_SLOT_LOCKED, 
                 titleToken  = "Slot Locked", 
-                bodyToken   = String.Join("\n", 
-                    "Slot Locked", $"Unlocks at Level <style=cIsHealth>{slotLock.UnlockLevel}</style>."
-                )
+                bodyToken   = $"Unlocks at Level <style=cIsHealth>{slotLock.UnlockLevel}</style>."
             });
         }
 

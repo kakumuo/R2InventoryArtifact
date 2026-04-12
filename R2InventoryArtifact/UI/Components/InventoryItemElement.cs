@@ -39,7 +39,7 @@ namespace R2InventoryArtifact.UI.Components
 
             if(!item.IsEquippable) _canvasGroup.blocksRaycasts = false; 
 
-            _icon.sprite = UIAssetService.GetSprite(Item.InventoryIndex); 
+            _icon.sprite = UIAssetService.GetSprite(Item.Pickup); 
             _label.text = Item.StackCount.ToString();
             
             item.OnStackCountChanged += UpdateStackCountLabel; 

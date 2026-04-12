@@ -60,24 +60,23 @@ namespace R2InventoryArtifact.UI.Builders
             // panel.transform.SetParent(parent); 
             // UnityEngine.Component.Destroy(panel.GetComponent<RectTransform>()); 
             // panel.AddComponent<RectTransform>(); 
-            
-            
+        
             RectTransform panelRect = BuildPanel(parent, "InventoryUI");
-            GameObject panel = panelRect.gameObject; 
-            panel.layer = LayerIndex.ui.intVal; 
-            Canvas canvas = panel.AddComponent<Canvas>(); 
+            GameObject panelObj = panelRect.gameObject; 
+            panelObj.layer = LayerIndex.ui.intVal; 
+            Canvas canvas = panelObj.AddComponent<Canvas>(); 
             canvas.sortingOrder = 10; 
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; 
 
-            panel.AddComponent<CanvasGroup>(); 
-            CanvasScaler canvasScaler = panel.AddComponent<CanvasScaler>(); 
+            panelObj.AddComponent<CanvasGroup>(); 
+            CanvasScaler canvasScaler = panelObj.AddComponent<CanvasScaler>(); 
             canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             canvasScaler.referenceResolution = new Vector2(1920, 1080);
             canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
-            panel.AddComponent<GraphicRaycaster>(); 
+            
+            panelObj.AddComponent<GraphicRaycaster>(); 
 
-
-            BentoLayoutGroup bentoGroup = panel.AddComponent<BentoLayoutGroup>(); 
+            BentoLayoutGroup bentoGroup = panelObj.AddComponent<BentoLayoutGroup>(); 
             bentoGroup.Spans = new List<BentoSpan>()
             {
                 new(){Col=0, Row=0, ColSpan=2, RowSpan=7},
@@ -94,7 +93,13 @@ namespace R2InventoryArtifact.UI.Builders
             bentoGroup.Spacing = spacing; 
             bentoGroup.padding = new(horipad, horipad, vertpad, vertpad); 
 
-            return panel.AddComponent<InventoryUI>(); 
+            InventoryUI ui = panelObj.AddComponent<InventoryUI>(); 
+            
+            //MAYBE:
+            // void Close() => ui.SetUIVisibility(show: false); 
+            // panelObj.AddComponent<RiskOfOptions.Components.Options.RooEscapeRouter>().escapePressed.AddListener(Close); 
+
+            return ui; 
         }
     }
 }

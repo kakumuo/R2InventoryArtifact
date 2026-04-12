@@ -9,6 +9,8 @@ using R2InventoryArtifact.UI.Components;
 using RoR2;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace R2InventoryArtifact.UI
 {
@@ -30,7 +32,7 @@ namespace R2InventoryArtifact.UI
         public bool IsVisible = true;
 
 
-        public event Action<InventoryIndex, int> OnInventoryItemDropped; 
+        public event Action<UniquePickup, int> OnInventoryItemDropped; 
         public event Action<bool> OnUIVisibilityChanged; 
 
         public void Initialize(IntRect rect, List<InventoryLock> locks)
@@ -77,27 +79,24 @@ namespace R2InventoryArtifact.UI
 
         public void HandleItemDrop(InventoryItem item)
         {
-            OnInventoryItemDropped.Invoke(item.InventoryIndex, item.StackCount); 
+            OnInventoryItemDropped.Invoke(item.Pickup, item.StackCount); 
         }
 
-        public bool AddToInventory(EquipmentIndex equipmentIndex, bool toNonEquip)
-        {
-            Debug.Log($"InventoryUI | AddToInventory | :{equipmentIndex}");
-            return AddToInventory(new(equipmentIndex), toNonEquip); 
-        }
+        // public bool AddToInventory(EquipmentIndex equipmentIndex, bool toNonEquip)
+        // {
+        //     Debug.Log($"InventoryUI | AddToInventory | :{equipmentIndex}");
+        //     return AddToInventory(new(equipmentIndex), toNonEquip); 
+        // }
 
-        public bool AddToInventory(ItemIndex itemIndex, bool toNonEquip)
-        {
-            Debug.Log($"InventoryUI | AddToInventory | :{itemIndex}");
-            return AddToInventory(new(itemIndex), toNonEquip); 
-        }
+        // public bool AddToInventory(ItemIndex itemIndex, bool toNonEquip)
+        // {
+        //     Debug.Log($"InventoryUI | AddToInventory | :{itemIndex}");
+        //     return AddToInventory(new(itemIndex), toNonEquip); 
+        // }
 
-        private bool AddToInventory(InventoryIndex inventoryIndex, bool toNonEquip)
+        public InventoryResultCode AddToInventory(UniquePickup pickup, bool toNonEquip)
         {
-            InventoryUpdateResult result = InventoryModel.AddToInventory(inventoryIndex, toNonEquip); 
-            if(result.ResultCode == InventoryResultCode.FAILED)
-                return false; 
-                
+            InventoryUpdateResult result = InventoryModel.AddToInventory(pickup, toNonEquip); 
             switch (result.ResultCode)
             {
                 case InventoryResultCode.NONEQUIP_INSERT: 
@@ -111,7 +110,7 @@ namespace R2InventoryArtifact.UI
                 break; 
             }
 
-            return true; 
+            return result.ResultCode; 
         }
 
         // public void AddToHold(R2ItemCode itemCode){}
@@ -121,21 +120,23 @@ namespace R2InventoryArtifact.UI
             _inventoryHoldList.AddToHold(item); 
         }
 
-        public void RemoveFromInventory(ItemIndex itemIndex, bool isTemp)
-        {
-            Debug.Log($"InventoryUI | RemoveFromInventory | :{itemIndex}");
-            RemoveFromInventory(new InventoryIndex(itemIndex), isTemp); 
-        }
+        // public void RemoveFromInventory(ItemIndex itemIndex, bool isTemp)
+        // {
+        //     Debug.Log($"InventoryUI | RemoveFromInventory | :{itemIndex}");
+        //     UniquePickup pickup = new UniquePickup(PickupCatalog.FindPickupIndex(itemIndex)); 
+        //     pickup.isTempItem = isTemp; 
+        //     RemoveFromInventory(PickupCatalog.FindPickupIndex(itemIndex), isTemp); 
+        // }
 
-        public void RemoveFromInventory(EquipmentIndex equipmentIndex)
-        {
-            Debug.Log($"InventoryUI | RemoveFromInventory | :{equipmentIndex}");
-            RemoveFromInventory(new InventoryIndex(equipmentIndex)); 
-        }
+        // public void RemoveFromInventory(EquipmentIndex equipmentIndex)
+        // {
+        //     Debug.Log($"InventoryUI | RemoveFromInventory | :{equipmentIndex}");
+        //     RemoveFromInventory(PickupCatalog.FindPickupIndex(equipmentIndex), false); 
+        // }
 
-        public void RemoveFromInventory(InventoryIndex inventoryIndex, bool isTemp)
+        public void RemoveFromInventory(UniquePickup pickup, int count)
         {
-            List<InventoryUpdateResult> removeResult = InventoryModel.RemoveItems(inventoryIndex, isTemp); 
+            List<InventoryUpdateResult> removeResult = InventoryModel.RemoveItems(pickup, count); 
             removeResult.ForEach(result =>
             {
                 switch(result.ResultCode)
@@ -161,10 +162,10 @@ namespace R2InventoryArtifact.UI
             _inventoryGrid.RepaintGrid();
         }
 
-        public void IncreasePlayerLevel()
+        public void SetPlayerLevel(int playerLevel)
         {
-            PlayerLevel += 1; 
-            Debug.Log($"Increasing player level to: {PlayerLevel}"); 
+            PlayerLevel = playerLevel; 
+            Debug.Log($"Setting player level to: {PlayerLevel}"); 
             List<InventoryLock> unlocks = InventoryModel.SetUnlocksAtLevel(PlayerLevel); 
             _inventoryGrid.UpdateGridLocks(unlocks); 
             _inventoryGrid.RepaintGrid(); 
@@ -172,7 +173,6 @@ namespace R2InventoryArtifact.UI
 
         public void ResetInventory()
         {
-            // MAYBE: reset InventoryModel
             InventoryModel.Reset(); 
 
             _inventoryHoldList.Clear(); 
@@ -181,6 +181,7 @@ namespace R2InventoryArtifact.UI
             _inventoryGrid.UpdateGridLocks(InventoryModel.InventoryLocks); 
 
             _inventoryGrid.RepaintGrid(); 
+            PlayerLevel = 0; 
         }
 
         // void Update()

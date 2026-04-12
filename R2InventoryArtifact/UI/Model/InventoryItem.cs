@@ -7,75 +7,16 @@ using RoR2;
 
 namespace R2InventoryArtifact.Model
 {   
-    public enum InventoryIndexType
+    public enum PickupType
     {
         None, Item, Equipment
     }
     
-    public class InventoryIndex
-    {
-        public ItemIndex ItemIndex = ItemIndex.None; 
-        public EquipmentIndex EquipmentIndex = EquipmentIndex.None;
-        public InventoryIndexType IndexType = InventoryIndexType.None; 
-
-        public InventoryIndex()
-        {
-            Reset(); 
-        }
-
-        public InventoryIndex(ItemIndex itemIndex)
-        {
-            Reset(); 
-            ItemIndex = itemIndex; 
-            IndexType = InventoryIndexType.Item; 
-        }
-
-        public InventoryIndex(EquipmentIndex equipmentIndex)
-        {
-            Reset(); 
-            EquipmentIndex = equipmentIndex; 
-            IndexType = InventoryIndexType.Equipment; 
-        }
-
-        public void Reset()
-        {
-            IndexType = InventoryIndexType.None; 
-            ItemIndex = ItemIndex.None; 
-            EquipmentIndex = EquipmentIndex.None; 
-        }
-
-        public bool IsNull()
-        {
-            return ItemIndex == ItemIndex.None && EquipmentIndex == EquipmentIndex.None; 
-        }
-
-        public static bool operator ==(InventoryIndex a, InventoryIndex b)
-        {
-            return a.ItemIndex == b.ItemIndex && a.EquipmentIndex == b.EquipmentIndex; 
-        }
-
-        public static bool operator !=(InventoryIndex a, InventoryIndex b)
-        {
-            return !(a == b); 
-        }
-
-        public static implicit operator ItemIndex(InventoryIndex x)
-        {
-            return x.ItemIndex; 
-        }
-
-        public static implicit operator EquipmentIndex(InventoryIndex x)
-        {
-            return x.EquipmentIndex; 
-        }
-    }
-
     [Serializable] public class InventoryItem
     {
-        public InventoryIndex InventoryIndex; 
-        public ItemDef ItemDef; 
-        public EquipmentDef EquipmentDef; 
-        public InventoryIndexType IndexType {get => InventoryIndex.IndexType; } 
+        // TODO: MAYBE: use unique pickup isntead of pickup index
+        public UniquePickup Pickup; 
+        public PickupType PickupType = PickupType.None;   
 
         private List<GridPosition> _nodeOrigin;
         private List<GridPosition> _activeOrigin;  
@@ -94,21 +35,16 @@ namespace R2InventoryArtifact.Model
 
         public ItemTier ItemTier
         {
-            get => ItemTier.Tier1; 
+            get => Pickup.pickupIndex.pickupDef.itemTier; 
         }
 
         // public event Action<R2Item> OnItemCorrupted; 
         public bool IsDroppable = true; 
         public bool IsEquippable = true; 
 
-        public InventoryItem(InventoryIndex inventoryIndex, List<GridPosition> nodeOrigin, List<GridPosition> activeOrigin)
+        public InventoryItem(UniquePickup pickup, List<GridPosition> nodeOrigin, List<GridPosition> activeOrigin)
         {
-            InventoryIndex = inventoryIndex; 
-            switch(IndexType)
-            {
-                case InventoryIndexType.Item:       ItemDef = ItemCatalog.GetItemDef(inventoryIndex); break; 
-                case InventoryIndexType.Equipment:  EquipmentDef = EquipmentCatalog.GetEquipmentDef(inventoryIndex); break; 
-            }
+            Pickup = pickup; 
             InitHelper(nodeOrigin, activeOrigin); 
         }
 
@@ -143,13 +79,13 @@ namespace R2InventoryArtifact.Model
         //     IsDroppable = false; 
         // }
 
+        // TODO: implement
         public string GetItemName()
         {
-            if(InventoryIndex.ItemIndex != ItemIndex.None) return ItemCatalog.itemDefs[(int)InventoryIndex.ItemIndex].name; 
-            if(InventoryIndex.EquipmentIndex != EquipmentIndex.None) return EquipmentCatalog.equipmentDefs[(int)InventoryIndex.EquipmentIndex].name; 
             return "NameNotFound"; 
         }
 
+        // TODO: implement
         public string GetDescription()
         {
             return "GetDescriptionNotImplemented"; 
