@@ -52,7 +52,7 @@ namespace R2InventoryArtifact.UI.Components
 
         public void InsertItemAt(InventoryItem item, GridPosition pos)
         {
-            InventoryItemElement element = ComponentBuilder.BuildItemElement($"{item.GetItemName()}");
+            InventoryItemElement element = ComponentBuilder.BuildItemElement($"{item.Pickup.ToString()}");
             element.Initialize(item, DragSource.GRID);
             element.transform.SetParent(_slots[pos.Row, pos.Col].transform);
         }
@@ -160,9 +160,10 @@ namespace R2InventoryArtifact.UI.Components
                     // }
                     else if (item != null)
                     {
-                        var (baseColor, outlineColor) = UIConstants.GetItemTeirColor(item.ItemTier); 
+                        // var (baseColor, outlineColor) = UIConstants.GetItemTeirColor(item.ItemTier); 
+                        Color baseColor = item.GetTooltipContent().titleColor; 
                         slot.Paint(
-                            baseColor: baseColor, outlineColor: outlineColor
+                            baseColor: baseColor, outlineColor: baseColor
                             , AdjT: adjList[0], AdjB: adjList[1], AdjL: adjList[2], AdjR: adjList[3]
                         );
                     }

@@ -267,6 +267,14 @@ namespace R2InventoryArtifact.Model
             List<InventoryUpdateResult> removedItems = new(); 
             List<InventoryUpdateResult> tmp = new(); 
 
+            _nonEquipList.ForEach(item =>
+            {
+                if(item.Pickup == pickup)
+                {
+                    tmp.Add(new(){ResultCode=InventoryResultCode.NONEQUIP_UPDATE, InventoryItem=item}); 
+                }
+            });
+
             _holdList.ForEach(item =>
             {
                 if(item.Pickup == pickup)

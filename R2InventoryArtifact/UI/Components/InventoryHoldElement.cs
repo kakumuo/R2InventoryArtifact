@@ -1,8 +1,11 @@
+using LookingGlass.LookingGlassLanguage;
+using R2API;
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.UI;
 using R2InventoryArtifact.UI.Builders;
 using R2InventoryArtifact.UI.Services;
 using R2InventoryArtifact.Util.R2API;
+using RoR2;
 using RoR2.UI;
 using TMPro;
 using UnityEngine;
@@ -32,12 +35,7 @@ namespace R2InventoryArtifact.UI.Components
             // Item.OnItemCorrupted += HandleItemCorruption;
 
             _tooltip = gameObject.AddComponent<TooltipProvider>();
-            _tooltip.SetContent(new()
-            {
-                titleToken = Item.GetItemName(), 
-                bodyToken = Item.GetDescription(), 
-                titleColor = UIConstants.GetItemTeirColor(Item.ItemTier).Item1, 
-            }); 
+            _tooltip.SetContent(Item.GetTooltipContent()); 
 
             UpdateLabels();
         }
@@ -56,13 +54,13 @@ namespace R2InventoryArtifact.UI.Components
 
         public void UpdateLabels()
         {
-            if (_titleLbl != null) _titleLbl.text = Item.GetItemName();
+            if (_titleLbl != null) _titleLbl.text = Language.GetString(Item.GetTooltipContent().titleToken);
             if (_stackLbl != null) _stackLbl.text = $"Stack: {Item.StackCount}";
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            InventoryItemElement element = ComponentBuilder.BuildItemElement(Item.GetItemName());
+            InventoryItemElement element = ComponentBuilder.BuildItemElement(Item.Pickup.ToString());
             element.Initialize(Item, DragSource.HOLD);
             element.transform.SetParent(InventoryUI.Instance.transform); // need to add to canvas, otheriwse elements don't appear
             eventData.pointerDrag = element.gameObject;

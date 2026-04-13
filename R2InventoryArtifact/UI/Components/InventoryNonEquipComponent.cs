@@ -26,7 +26,7 @@ namespace R2InventoryArtifact.UI.Components
 
         public void AddItem(InventoryItem item)
         {
-            InventoryItemElement element = ComponentBuilder.BuildItemElement(item.GetItemName());
+            InventoryItemElement element = ComponentBuilder.BuildItemElement(item.Pickup.ToString());
             element.Initialize(item, DragSource.NONEQUIP);
             element.transform.SetParent(_listTarget);
             _elements.Add(element);

@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using R2InventoryArtifact.Util.R2API; 
 using R2InventoryArtifact.Util;
 using RoR2;
+using RoR2.UI;
+using UnityEngine;
+using R2InventoryArtifact.UI.Services;
+using R2InventoryArtifact.UI;
 
 namespace R2InventoryArtifact.Model
 {   
@@ -45,6 +49,14 @@ namespace R2InventoryArtifact.Model
         public InventoryItem(UniquePickup pickup, List<GridPosition> nodeOrigin, List<GridPosition> activeOrigin)
         {
             Pickup = pickup; 
+            if(pickup.pickupIndex.pickupDef.itemIndex != ItemIndex.None)
+            {
+                PickupType = PickupType.Item; 
+            } else if (pickup.pickupIndex.pickupDef.equipmentIndex != EquipmentIndex.None)
+            {
+                PickupType = PickupType.Equipment; 
+            }
+
             InitHelper(nodeOrigin, activeOrigin); 
         }
 
@@ -79,16 +91,31 @@ namespace R2InventoryArtifact.Model
         //     IsDroppable = false; 
         // }
 
-        // TODO: implement
-        public string GetItemName()
+        public TooltipContent GetTooltipContent()
         {
-            return "NameNotFound"; 
-        }
+            TooltipContent content = new TooltipContent();
+            switch(PickupType)
+            {
+                case PickupType.Item: 
+                    // ItemIcon icon = new ItemIcon(); 
+                    // icon.SetItemIndex(Pickup.pickupIndex.pickupDef.itemIndex, 1, 1);
+                    // Log.Info($"{icon.tooltipProvider.bodyText}");  
+                    ItemDef itemDef = ItemCatalog.GetItemDef(Pickup.pickupIndex.pickupDef.itemIndex); //TODO: move to constructor
+                    content.titleToken = itemDef.nameToken; 
+                    content.bodyToken = itemDef.descriptionToken;
+                    content.bodyColor = Pickup.pickupIndex.pickupDef.baseColor; 
+                    content.titleColor = Pickup.pickupIndex.pickupDef.darkColor; 
+                break; 
+                case PickupType.Equipment: 
+                    EquipmentDef equipDef = EquipmentCatalog.GetEquipmentDef(Pickup.pickupIndex.pickupDef.equipmentIndex); 
+                    content.titleToken = equipDef.nameToken; 
+                    content.bodyToken = equipDef.descriptionToken;
+                    content.bodyColor = Pickup.pickupIndex.pickupDef.baseColor; 
+                    content.titleColor = Pickup.pickupIndex.pickupDef.darkColor; 
+                break; 
+            }
 
-        // TODO: implement
-        public string GetDescription()
-        {
-            return "GetDescriptionNotImplemented"; 
+            return content; 
         }
     }
         

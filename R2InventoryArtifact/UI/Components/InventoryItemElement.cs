@@ -47,11 +47,7 @@ namespace R2InventoryArtifact.UI.Components
             DragSource = dragSource; 
 
             _tooltip = gameObject.AddComponent<TooltipProvider>(); 
-            _tooltip.SetContent(new(){
-                titleToken = Item.GetItemName(), 
-                bodyToken = Item.GetDescription(), 
-                titleColor = UIConstants.GetItemTeirColor(Item.ItemTier).Item1
-            }); 
+            _tooltip.SetContent(Item.GetTooltipContent()); 
         }
 
         // public void HandleItemCorruption(R2Item targetItem)

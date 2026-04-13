@@ -29,7 +29,7 @@ namespace R2InventoryArtifact.UI.Components
 
         public void AddToHold(InventoryItem item)
         {
-            InventoryHoldElement holdElement = ComponentBuilder.BuildHoldElement(item.GetItemName());
+            InventoryHoldElement holdElement = ComponentBuilder.BuildHoldElement(item.Pickup.ToString());
             holdElement.Initialize(item);
             holdElement.transform.SetParent(_listTarget);
             _elements.Add(holdElement);
