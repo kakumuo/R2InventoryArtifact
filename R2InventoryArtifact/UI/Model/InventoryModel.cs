@@ -259,10 +259,10 @@ namespace R2InventoryArtifact.Model
             return removedItems;
         }
 
-        public static List<InventoryUpdateResult> RemoveItems(UniquePickup pickup, int count=1)
+        public static List<InventoryUpdateResult> RemoveItems(UniquePickup pickup, bool fromNonEquip, int count=1)
         {            
             // all temp items go to non-equip, so remove from there
-            if(pickup.isTempItem) return RemoveFromNonEquip(pickup, count); 
+            if(fromNonEquip || pickup.isTempItem) return RemoveFromNonEquip(pickup, count); 
 
             List<InventoryUpdateResult> removedItems = new(); 
             List<InventoryUpdateResult> tmp = new(); 

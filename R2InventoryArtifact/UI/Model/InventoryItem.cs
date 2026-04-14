@@ -52,16 +52,25 @@ namespace R2InventoryArtifact.Model
             if(pickup.pickupIndex.pickupDef.itemIndex != ItemIndex.None)
             {
                 PickupType = PickupType.Item; 
-            } else if (pickup.pickupIndex.pickupDef.equipmentIndex != EquipmentIndex.None)
+            } 
+            else if (pickup.pickupIndex.pickupDef.equipmentIndex != EquipmentIndex.None)
             {
                 PickupType = PickupType.Equipment; 
             }
 
-            InitHelper(nodeOrigin, activeOrigin); 
-        }
+            ItemTier teir = pickup.pickupIndex.pickupDef.itemTier; 
+            switch(teir)
+            {
+                case ItemTier.VoidBoss: 
+                case ItemTier.VoidTier1:
+                case ItemTier.VoidTier2:
+                case ItemTier.VoidTier3:
+                case ItemTier.NoTier:
+                case ItemTier.Lunar: 
+                    IsDroppable = false; 
+                break; 
+            }
 
-        private void InitHelper(List<GridPosition> nodeOrigin, List<GridPosition> activeOrigin)
-        {
             _nodeOrigin = nodeOrigin; 
             _activeOrigin = activeOrigin; 
 

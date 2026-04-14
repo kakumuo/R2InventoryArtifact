@@ -134,9 +134,9 @@ namespace R2InventoryArtifact.UI
         //     RemoveFromInventory(PickupCatalog.FindPickupIndex(equipmentIndex), false); 
         // }
 
-        public void RemoveFromInventory(UniquePickup pickup, int count)
+        public void RemoveFromInventory(UniquePickup pickup, bool fromNonEquip, int count)
         {
-            List<InventoryUpdateResult> removeResult = InventoryModel.RemoveItems(pickup, count); 
+            List<InventoryUpdateResult> removeResult = InventoryModel.RemoveItems(pickup, fromNonEquip, count); 
             removeResult.ForEach(result =>
             {
                 switch(result.ResultCode)
