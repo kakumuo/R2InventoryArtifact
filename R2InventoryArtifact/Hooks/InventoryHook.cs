@@ -114,32 +114,34 @@ namespace R2InventoryArtifact.Hooks
 
         private void Inventory_RemoveItemTemp(On.RoR2.Inventory.orig_RemoveItemTemp orig, Inventory self, ItemIndex itemIndex, float count)
         {
+            Log.Info(""); 
             UniquePickup pickup = new UniquePickup(PickupCatalog.FindPickupIndex(itemIndex)); 
-            HandleItemRemoved(pickup, false, (int) count);
+            HandleItemRemoved(pickup, true, (int) count);
             orig(self, itemIndex, count);
         }
 
         private void Inventory_RemoveItemChanneled(On.RoR2.Inventory.orig_RemoveItemChanneled orig, Inventory self, ItemIndex itemIndex, int count)
         {
+            Log.Info(""); 
             UniquePickup pickup = new UniquePickup(PickupCatalog.FindPickupIndex(itemIndex)); 
-            HandleItemRemoved(pickup, false, count);
+            HandleItemRemoved(pickup, true, count);
             orig(self, itemIndex, count);
         }
         
         private void Inventory_RemoveEquipment(On.RoR2.Inventory.orig_RemoveEquipment orig, Inventory self, EquipmentIndex equipmentIndex)
         {
+            Log.Info(""); 
             UniquePickup pickup = new UniquePickup(PickupCatalog.FindPickupIndex(equipmentIndex)); 
             HandleItemRemoved(pickup, false, 1);
             orig(self, equipmentIndex);
         }
-        
-        // private void Inventory_RemoveEquipmentSet(On.RoR2.Inventory.orig_RemoveEquipmentSet orig, Inventory self)
-        // {
-        //     // UniquePickup pickup = new UniquePickup(PickupCatalog.FindPickupIndex(equipmentIndex)); 
-        //     // HandleItemRemoved(pickup, 1);
-        //     orig(self);
-        // }
 
+        private void Inventory_RemoveEquipmentSet(On.RoR2.Inventory.orig_RemoveEquipmentSet orig, Inventory self)
+        {
+            Log.Info("");
+            orig(self); 
+        }
+        
         /*************************** INVENTORY ADD ***************************/
         private bool HandleItemAdd(UniquePickup pickup, int count)
         {
@@ -156,7 +158,7 @@ namespace R2InventoryArtifact.Hooks
             if (pickupDef.itemIndex == ItemIndex.None && pickupDef.equipmentIndex == EquipmentIndex.None) // only allow items and equiptment in inventory
                 return false; 
 
-            Log.Info($"Adding... {pickup.pickupIndex}");
+            Log.Info($"{pickup.pickupIndex}");
             
             // if adding consumed item, try remove base from player TODO: see if there is a better way to do this
             // foreach(var pair in _BASE2CONSUME)
@@ -307,7 +309,12 @@ namespace R2InventoryArtifact.Hooks
             On.RoR2.Inventory.RemoveItem_ItemDef_int            += Inventory_RemoveItem_ItemDef_int;  
             On.RoR2.Inventory.RemoveItem_ItemIndex_int          += Inventory_RemoveItem_ItemIndex_int; 
             On.RoR2.Inventory.RemoveEquipment                   += Inventory_RemoveEquipment;
+            On.RoR2.Inventory.RemoveEquipmentSet                += Inventory_RemoveEquipmentSet;
             On.RoR2.Inventory.RemoveItemTemp                    += Inventory_RemoveItemTemp;
+            // On.RoR2.Inventory.GiveEquipmentString               += Inventory_GiveEquipmentString;
+            // On.RoR2.Inventory.AddEquipmentSet                   += Inventory_AddEquipmentSet;
+            // On.RoR2.CharacterBody.OnEquipmentGained             += CharacterBody_OnEquipmentGained;
+            On.RoR2.CharacterBody.OnEquipmentLost               += CharacterBody_OnEquipmentLost;
             
             On.RoR2.Inventory.ItemTransformation.TryTransform += Inventory_ItemTransformation_TryTransform; 
 
@@ -317,6 +324,31 @@ namespace R2InventoryArtifact.Hooks
             // On.RoR2.Items.ContagiousItemManager.StepInventoryInfection += Items_ContagiousItemManager_StepInventoryInfection;
             // On.RoR2.Items.ContagiousItemManager.TryQueueReplacement += Items_ContagiousItemManager_TryQueueReplacement;
         }
+
+        private void CharacterBody_OnEquipmentLost(On.RoR2.CharacterBody.orig_OnEquipmentLost orig, CharacterBody self, EquipmentDef equipmentDef)
+        {
+            UniquePickup pickup = new UniquePickup(PickupCatalog.FindPickupIndex(equipmentDef.equipmentIndex)); 
+            HandleItemRemoved(pickup, false, 1); 
+            orig(self, equipmentDef); 
+        }
+
+        // private void CharacterBody_OnEquipmentGained(On.RoR2.CharacterBody.orig_OnEquipmentGained orig, CharacterBody self, EquipmentDef equipmentDef)
+        // {
+        //     Log.Info(""); 
+        //     orig(self, equipmentDef); 
+        // }
+
+        // private void Inventory_AddEquipmentSet(On.RoR2.Inventory.orig_AddEquipmentSet orig, Inventory self)
+        // {
+        //     Log.Info(""); 
+        //     orig(self); 
+        // }
+
+        // private void Inventory_GiveEquipmentString(On.RoR2.Inventory.orig_GiveEquipmentString orig, Inventory self, string equipmentString)
+        // {
+        //     Log.Info(equipmentString); 
+        //     orig(self, equipmentString); 
+        // }
 
         // private void Items_ContagiousItemManager_TryQueueReplacement(On.RoR2.Items.ContagiousItemManager.orig_TryQueueReplacement orig, Inventory inventory, ItemIndex originalItemIndex, ItemIndex transformedItemIndex, bool isForced)
         // {

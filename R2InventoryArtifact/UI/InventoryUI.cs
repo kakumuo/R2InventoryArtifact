@@ -73,7 +73,20 @@ namespace R2InventoryArtifact.UI
                     _inventoryHoldList.RemoveFromHold(res.InventoryItem);  
                     HandleItemDrop(res.InventoryItem); 
                 });  
+
+                
+                if(CursorElement != null)
+                {
+                    PointerEventData pointerData = new PointerEventData(EventSystem.current); 
+                    if(CursorElement.DragSource == DragSource.HOLD)
+                    {
+                        pointerData.pointerDrag = CursorElement.gameObject;    
+                        ExecuteEvents.endDragHandler(CursorElement, pointerData); 
+                        _inventoryHoldList.OnDrop(pointerData); 
+                    }
+                }
             }
+
             OnUIVisibilityChanged?.Invoke(show); 
         }
 

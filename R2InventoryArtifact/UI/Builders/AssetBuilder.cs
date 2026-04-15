@@ -24,8 +24,7 @@ namespace R2InventoryArtifact.UI.Builders
             scrollRect.vertical = vertical;
             scrollRect.inertia = false;
             scrollRect.movementType = ScrollRect.MovementType.Clamped;
-            scrollRect.scrollSensitivity = 5; //TODO: change sensitivity based off ui size 
-
+            
             RectTransform viewportRect = BuildPanel(obj.transform, "Viewport");
             SetRectTransformAnchor(viewportRect, horizontal: AnchorPreset.STRETCH, vertical: AnchorPreset.STRETCH);
             viewportRect.pivot = Vector2.zero; 

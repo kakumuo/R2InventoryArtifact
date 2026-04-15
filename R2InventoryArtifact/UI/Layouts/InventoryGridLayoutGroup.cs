@@ -1,5 +1,6 @@
 
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ namespace R2InventoryArtifact.UI.Layouts
         private int _cols = 5; 
         private float _cellSize = 100; 
         private float _spacing = 0f; 
+
+        public Action<float> OnCellSizeChanged; 
 
         public void Initialize(int cols, int spacing)
         {
@@ -24,6 +27,7 @@ namespace R2InventoryArtifact.UI.Layouts
             float width = rectTransform.rect.width - padding.horizontal; 
             _cellSize = width / _cols; 
             SetLayoutInputForAxis(width, width, width, 0); 
+            OnCellSizeChanged.Invoke(_cellSize); 
         }
 
         public override void CalculateLayoutInputVertical()

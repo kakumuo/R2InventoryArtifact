@@ -1,0 +1,7 @@
+{    
+    "ITEM_DRONEWEAPONSDISPLAY2_NAME": {
+        "MaxStackCount": 5,
+        "NodeOrigin": [{"Row": 6, "Col": 0}],
+        "ActiveOrigin": [{"Row": 0, "Col": 2}]
+    }
+}

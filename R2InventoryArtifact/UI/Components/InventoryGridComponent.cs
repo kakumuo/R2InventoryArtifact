@@ -7,6 +7,9 @@ using System.Linq;
 using UnityEngine.EventSystems;
 using R2InventoryArtifact.UI.Builders;
 using R2InventoryArtifact.UI.Layouts;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
+using IL.RoR2;
 
 namespace R2InventoryArtifact.UI.Components
 {
@@ -34,6 +37,19 @@ namespace R2InventoryArtifact.UI.Components
             // init layout
             InventoryGridLayoutGroup inventoryLayout = gameObject.AddComponent<InventoryGridLayoutGroup>();
             inventoryLayout.Initialize(_gridRect.Width, 4);
+            
+            // update scroll speed based off ui size
+            
+            ScrollRect scrollRect; 
+            if(scrollRect = gameObject.transform.parent.parent.GetComponent<ScrollRect>())
+            {
+                void HandleCellSizeChanged(float size) => scrollRect.scrollSensitivity = size / 2; // each scroll step = 1/2 grid size
+                inventoryLayout.OnCellSizeChanged += HandleCellSizeChanged; 
+            }
+
+            // TODO: see if there is a way do this with only the component bulider
+            // ScrollRect scrollView = GetComponentInChildren<ScrollRect>(); 
+            // scrollView.scrollSensitivity = _gridRect.Height * 2; 
 
             // create slots
             for (int r = 0; r < gridSize.Height; r++)

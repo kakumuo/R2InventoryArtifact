@@ -18,7 +18,7 @@ namespace R2InventoryArtifact
         {
             var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
             var unique = new UniquePickup(PickupCatalog.FindPickupIndex(itemindex)); 
-            Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
+            // Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
             PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
         }
 
@@ -27,15 +27,15 @@ namespace R2InventoryArtifact
         {
             var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
             var unique = new UniquePickup(PickupCatalog.FindPickupIndex(itemindex)); 
-            Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
+            // Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
             PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
         }
 
         // DEBUG: test item setting
         private void Update()
         {
-            if(Input.GetKeyUp(KeyCode.Alpha1)) SpawnItem(RoR2Content.Items.Crowbar.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha2)) SpawnItem(RoR2Content.Items.Crowbar.itemIndex, true);
+            if(Input.GetKeyUp(KeyCode.Alpha1)) SpawnItem(DLC1Content.Equipment.GummyClone.equipmentIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha2)) SpawnItem(DLC1Content.Equipment.Molotov.equipmentIndex);
             if(Input.GetKeyUp(KeyCode.Alpha3)) SpawnItem(RoR2Content.Items.Mushroom.itemIndex);
             if(Input.GetKeyUp(KeyCode.Alpha4)) SpawnItem(DLC1Content.Items.MushroomVoid.itemIndex);
             if(Input.GetKeyUp(KeyCode.Alpha5)) SpawnItem(DLC2Content.Items.LowerPricedChests.itemIndex);
@@ -45,7 +45,7 @@ namespace R2InventoryArtifact
                 var body = PlayerCharacterMasterController.instances[0].master;
                 body.GetBody().InflictLavaDamage(); 
             }
-            if(Input.GetKeyUp(KeyCode.Alpha8)) SpawnItem(DLC1Content.Equipment.GummyClone.equipmentIndex);
+            // if(Input.GetKeyUp(KeyCode.Alpha8)) SpawnItem(DLC1Content.Equipment.GummyClone.equipmentIndex);
             // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
             // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
         }

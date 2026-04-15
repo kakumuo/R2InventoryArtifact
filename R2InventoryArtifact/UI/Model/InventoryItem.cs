@@ -59,17 +59,17 @@ namespace R2InventoryArtifact.Model
             }
 
             ItemTier teir = pickup.pickupIndex.pickupDef.itemTier; 
-            switch(teir)
-            {
-                case ItemTier.VoidBoss: 
-                case ItemTier.VoidTier1:
-                case ItemTier.VoidTier2:
-                case ItemTier.VoidTier3:
-                case ItemTier.NoTier:
-                case ItemTier.Lunar: 
-                    IsDroppable = false; 
-                break; 
-            }
+            if(PickupType == PickupType.Item)
+                switch(teir)
+                {
+                    case ItemTier.VoidBoss: 
+                    case ItemTier.VoidTier1:
+                    case ItemTier.VoidTier2:
+                    case ItemTier.VoidTier3:
+                    case ItemTier.NoTier:
+                    case ItemTier.Lunar:  IsDroppable = false; 
+                    break; 
+                }
 
             _nodeOrigin = nodeOrigin; 
             _activeOrigin = activeOrigin; 

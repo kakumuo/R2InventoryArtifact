@@ -3,6 +3,7 @@ using IL.RoR2;
 using R2API;
 using R2API.ContentManagement;
 using R2InventoryArtifact.Hooks;
+using R2InventoryArtifact.Model;
 using R2InventoryArtifact.UI;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace R2InventoryArtifact
 
             PluginConfig.Initialize(Config, Info); 
             InventoryArtifactProvider.Initialize(Info); 
+            InventoryService.Initialize(Info); 
 
             GameObject pluginObj = new GameObject("R2InventoryArtifactPlugin"); 
             DontDestroyOnLoad(pluginObj); 

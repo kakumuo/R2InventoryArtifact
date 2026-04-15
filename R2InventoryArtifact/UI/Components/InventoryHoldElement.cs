@@ -64,7 +64,8 @@ namespace R2InventoryArtifact.UI.Components
             element.Initialize(Item, DragSource.HOLD);
             element.transform.SetParent(InventoryUI.Instance.transform); // need to add to canvas, otheriwse elements don't appear
             eventData.pointerDrag = element.gameObject;
-            element.OnBeginDrag(eventData);
+            ExecuteEvents.beginDragHandler(element, eventData); 
+            // element.OnBeginDrag(eventData);
 
             InventoryModel.RemoveFromHold(Item);
             Destroy(gameObject);

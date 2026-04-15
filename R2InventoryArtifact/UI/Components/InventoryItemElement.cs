@@ -1,6 +1,7 @@
 
 
 
+using IL.RoR2;
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.UI.Services;
 using RoR2.UI;
@@ -87,6 +88,9 @@ namespace R2InventoryArtifact.UI.Components
 
             _orientationTarget = 0; 
 
+            // InventoryItemElement targetElement = eventData.pointerDrag.GetComponent<InventoryItemElement>(); 
+            // if(targetElement == null) targetElement = this; 
+
             InventoryUI.Instance.SetCursorElement(this); 
             _canvasGroup.alpha = .5f; 
             _canvasGroup.blocksRaycasts = false; 
@@ -104,11 +108,11 @@ namespace R2InventoryArtifact.UI.Components
             {
                 Rotate(); 
             }
-
+            
             transform.SetParent(dropTarget);
             _canvasGroup.alpha = 1f; 
             _canvasGroup.blocksRaycasts = true; 
-            InventoryUI.Instance.SetCursorElement(null); 
+            InventoryUI.Instance.SetCursorElement(null);    
         }
 
         public void SetDropTarget(Transform target)

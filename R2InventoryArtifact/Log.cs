@@ -26,7 +26,7 @@ namespace R2InventoryArtifact
             System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace(1, false);
             System.Diagnostics.StackFrame prevFrame = st.GetFrame(1); 
 
-            List<string> tokens = [$"{System.DateTime.Now:yy-MM-dd HH::mm::ss zzz}"]; 
+            List<string> tokens = [$"{System.DateTime.Now:yy-MM-dd HH::mm::ss}"]; 
             
             if(prevFrame != null)
             {

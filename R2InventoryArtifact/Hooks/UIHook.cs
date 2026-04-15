@@ -4,7 +4,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.UI;
 using R2InventoryArtifact.UI.Builders;
@@ -39,7 +38,7 @@ namespace R2InventoryArtifact.Hooks
         public static InventoryUI InventoryUI;
         public static CharacterBody PlayerBody; 
 
-        private void HUD_OnAwake(On.RoR2.UI.HUD.orig_Awake orig, HUD self)
+        private void UI_HUD_OnAwake(On.RoR2.UI.HUD.orig_Awake orig, HUD self)
         {
             orig(self);
 
@@ -54,14 +53,12 @@ namespace R2InventoryArtifact.Hooks
                 PluginConfig.InventoryHeight.IsNullOrDestroyed() ? 10 : PluginConfig.InventoryHeight.Value
             );
 
-            // _playerBody = LocalUserManager.GetFirstLocalUser().cachedBody; 
-
-            //MAYBE: embed ui into the base game ui
             if(!_isInRun && InventoryArtifactProvider.IsEnabled())
             {
                 _isInRun = true; 
-                InventoryUI = ComponentBuilder.BuildInventoryUI(null);
+                InventoryUI = ComponentBuilder.BuildInventoryUI(null); //MAYBE: use null or embed into base game ui
                 InventoryUI.Initialize(rect, _locks);
+                InventoryUI.ResetInventory(); 
                 InventoryUI.SetUIVisibility(show: false);
                 InventoryUI.OnUIVisibilityChanged += HandleCursorVisibility;
                 InventoryUI.OnInventoryItemDropped += OnInventoryItemDropped; 
@@ -70,19 +67,6 @@ namespace R2InventoryArtifact.Hooks
                 OnInitializeUI.Invoke(); 
             }
         }
-
-        // private void GenericPickupController_OnInteractionBegin(On.RoR2.GenericPickupController.orig_OnInteractionBegin orig, GenericPickupController self, Interactor activator)
-        // {
-        //     if(!IsArtifactEnabled) orig(self, activator); 
-        //     if(self.pickup.pickupIndex == PickupIndex.none) orig(self, activator); 
-
-        //     PickupDef pickup = PickupCatalog.GetPickupDef(self.pickup.pickupIndex); 
-        //     if(pickup.itemIndex != ItemIndex.None) _nextItemToPickUp = new(pickup.itemIndex);
-        //     if(pickup.equipmentIndex != EquipmentIndex.None) _nextItemToPickUp = new(pickup.equipmentIndex);
-
-        //     orig(self, activator); 
-        // }
-
 
         private void HandleCursorVisibility(bool show)
         {
@@ -100,52 +84,53 @@ namespace R2InventoryArtifact.Hooks
 
         private void Run_EndStage(On.RoR2.Run.orig_EndStage orig, Run self)
         {
-           if(InventoryUI) InventoryUI.SetUIVisibility(false);
+            Log.Info(""); 
+            if(InventoryUI) InventoryUI.SetUIVisibility(false);
             orig(self);
         }
 
-        // private void PauseScreenController_OnPauseEnd(On.RoR2.UI.PauseScreenController.orig_OnPauseEnd orig, PauseScreenController self)
-        // {
-        //     _preventInventoryMenuShow = false; 
-        //     // if(_inventoryUI) _inventoryUI.SetUIVisibility(false); 
-        //     orig(self);
-        // }
-
-        // private void PauseScreenController_OnPauseStart(On.RoR2.UI.PauseScreenController.orig_OnPauseStart orig, PauseScreenController self)
-        // {
-        //     _preventInventoryMenuShow = true; 
-        //     if(_inventoryUI) _inventoryUI.SetUIVisibility(false); 
-        //     HandleMouseVisibility(true); 
-        //     orig(self);
-        // }
-
-        private GameEndReportPanelController GameOverController_GenerateReportScreen(On.RoR2.GameOverController.orig_GenerateReportScreen orig, GameOverController self, HUD hud)
+        private void UI_PauseScreenController_OnPauseEnd(On.RoR2.UI.PauseScreenController.orig_OnPauseEnd orig, PauseScreenController self)
         {
-            if(InventoryUI) InventoryUI.SetUIVisibility(false);
-            return orig(self, hud);
+            Log.Info(""); 
+            orig(self);
+        }
+
+        private void UI_PauseScreenController_OnPauseStart(On.RoR2.UI.PauseScreenController.orig_OnPauseStart orig, PauseScreenController self)
+        {
+            Log.Info(""); 
+            orig(self);
+        }
+
+        private void GameOverController_RpcClientGameOver(On.RoR2.GameOverController.orig_RpcClientGameOver orig, GameOverController self)
+        {
+            Log.Info(""); 
+            _isInRun = false; 
+            Destroy(InventoryUI.gameObject); 
+            orig(self); 
         }
        
         private void Start()
         {
-            // On.RoR2.UI.PauseScreenController.OnPauseStart   += PauseScreenController_OnPauseStart; 
-            // On.RoR2.UI.PauseScreenController.OnPauseEnd     += PauseScreenController_OnPauseEnd; 
-            On.RoR2.UI.HUD.Awake    += HUD_OnAwake;
             On.RoR2.Run.BeginStage  += Run_BeginStage;
             On.RoR2.Run.EndStage    += Run_EndStage;
 
-            On.RoR2.GameOverController.GenerateReportScreen     += GameOverController_GenerateReportScreen;
+            On.RoR2.UI.HUD.Awake                            += UI_HUD_OnAwake;
+            On.RoR2.UI.PauseScreenController.OnPauseStart   += UI_PauseScreenController_OnPauseStart; 
+            On.RoR2.UI.PauseScreenController.OnPauseEnd     += UI_PauseScreenController_OnPauseEnd; 
+
+            On.RoR2.GameOverController.RpcClientGameOver    += GameOverController_RpcClientGameOver;
         }
 
         private void OnDestroy()
         {
-
-            // On.RoR2.UI.PauseScreenController.OnPauseStart   -= PauseScreenController_OnPauseStart; 
-            // On.RoR2.UI.PauseScreenController.OnPauseEnd     -= PauseScreenController_OnPauseEnd; 
-            On.RoR2.UI.HUD.Awake    -= HUD_OnAwake;
             On.RoR2.Run.BeginStage  -= Run_BeginStage;
             On.RoR2.Run.EndStage    -= Run_EndStage;
 
-            On.RoR2.GameOverController.GenerateReportScreen -= GameOverController_GenerateReportScreen;
+            On.RoR2.UI.HUD.Awake                            -= UI_HUD_OnAwake;
+            On.RoR2.UI.PauseScreenController.OnPauseStart   -= UI_PauseScreenController_OnPauseStart; 
+            On.RoR2.UI.PauseScreenController.OnPauseEnd     -= UI_PauseScreenController_OnPauseEnd; 
+
+            On.RoR2.GameOverController.RpcClientGameOver  -= GameOverController_RpcClientGameOver;
         }
 
         void Update()
