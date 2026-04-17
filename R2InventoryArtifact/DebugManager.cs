@@ -19,7 +19,7 @@ namespace R2InventoryArtifact
             var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
             var unique = new UniquePickup(PickupCatalog.FindPickupIndex(itemindex)); 
             // Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
-            PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
+            if(transform) PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
         }
 
         
@@ -28,7 +28,7 @@ namespace R2InventoryArtifact
             var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
             var unique = new UniquePickup(PickupCatalog.FindPickupIndex(itemindex)); 
             // Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
-            PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
+            if(transform) PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
         }
 
         // DEBUG: test item setting
@@ -43,7 +43,7 @@ namespace R2InventoryArtifact
             if(Input.GetKeyUp(KeyCode.Alpha7))
             {
                 var body = PlayerCharacterMasterController.instances[0].master;
-                body.GetBody().InflictLavaDamage(); 
+                if(body) body.GetBody().InflictLavaDamage(); 
             }
             // if(Input.GetKeyUp(KeyCode.Alpha8)) SpawnItem(DLC1Content.Equipment.GummyClone.equipmentIndex);
             // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);

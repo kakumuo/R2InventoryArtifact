@@ -84,8 +84,8 @@ namespace R2InventoryArtifact.Hooks
 
         private void Run_EndStage(On.RoR2.Run.orig_EndStage orig, Run self)
         {
-            Log.Info(""); 
-            if(InventoryUI) InventoryUI.SetUIVisibility(false);
+            // Log.Info(""); 
+            // if(InventoryUI) InventoryUI.SetUIVisibility(false);
             orig(self);
         }
 
@@ -101,36 +101,35 @@ namespace R2InventoryArtifact.Hooks
             orig(self);
         }
 
-        private void GameOverController_RpcClientGameOver(On.RoR2.GameOverController.orig_RpcClientGameOver orig, GameOverController self)
+        private void Run_BeginGameOver(On.RoR2.Run.orig_BeginGameOver orig, Run self, GameEndingDef gameEndingDef)
         {
             Log.Info(""); 
             _isInRun = false; 
             Destroy(InventoryUI.gameObject); 
-            orig(self); 
+            orig(self, gameEndingDef);
         }
-       
+
         private void Start()
         {
-            On.RoR2.Run.BeginStage  += Run_BeginStage;
-            On.RoR2.Run.EndStage    += Run_EndStage;
+            On.RoR2.Run.BeginStage      += Run_BeginStage;
+            On.RoR2.Run.EndStage        += Run_EndStage;
+            On.RoR2.Run.BeginGameOver   += Run_BeginGameOver;
 
             On.RoR2.UI.HUD.Awake                            += UI_HUD_OnAwake;
             On.RoR2.UI.PauseScreenController.OnPauseStart   += UI_PauseScreenController_OnPauseStart; 
             On.RoR2.UI.PauseScreenController.OnPauseEnd     += UI_PauseScreenController_OnPauseEnd; 
-
-            On.RoR2.GameOverController.RpcClientGameOver    += GameOverController_RpcClientGameOver;
         }
 
         private void OnDestroy()
         {
-            On.RoR2.Run.BeginStage  -= Run_BeginStage;
-            On.RoR2.Run.EndStage    -= Run_EndStage;
+            On.RoR2.Run.BeginStage      -= Run_BeginStage;
+            On.RoR2.Run.EndStage        -= Run_EndStage;
+            On.RoR2.Run.BeginGameOver   -= Run_BeginGameOver;
 
             On.RoR2.UI.HUD.Awake                            -= UI_HUD_OnAwake;
             On.RoR2.UI.PauseScreenController.OnPauseStart   -= UI_PauseScreenController_OnPauseStart; 
             On.RoR2.UI.PauseScreenController.OnPauseEnd     -= UI_PauseScreenController_OnPauseEnd; 
 
-            On.RoR2.GameOverController.RpcClientGameOver  -= GameOverController_RpcClientGameOver;
         }
 
         void Update()

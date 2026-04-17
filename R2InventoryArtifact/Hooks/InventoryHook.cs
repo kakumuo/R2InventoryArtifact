@@ -16,7 +16,10 @@ namespace R2InventoryArtifact.Hooks
     /// </summary>
     public class InventoryHook : MonoBehaviour
     {
+        // 
         private List<UniquePickup> _FORCE_PICKUPS_TO_NONEQUIP = new(); 
+        // private List<PickupIndex> _FORCE_PICKUPS_TO_NONEQUIP = new(); 
+        // private List<PickupIndex> _FORCE_PICKUP_IGNORE = new(); 
         private List<ItemDef.Pair> _BASE2CONSUME = new(); 
         
         public void InitializeInventoryHook() {

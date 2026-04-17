@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using RoR2;
 using EntityStates.VultureHunter.Weapon;
+using R2InventoryArtifact.UI.Services;
 
 namespace R2InventoryArtifact.Model
 {

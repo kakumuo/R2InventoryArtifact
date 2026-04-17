@@ -1,18 +1,13 @@
 
 using System.Collections.Generic;
-using R2InventoryArtifact.Util.R2API;
 using RoR2;
 using R2InventoryArtifact.Util;
 using System.IO;
 using Newtonsoft.Json;
 using System;
-using System.Diagnostics.Tracing;
-using RoR2BepInExPack.GameAssetPaths.Version_1_35_0;
-using System.Linq;
-using UnityEngine.UIElements.Collections;
+using R2InventoryArtifact.Model;
 
-
-namespace R2InventoryArtifact.Model
+namespace R2InventoryArtifact.UI.Services
 {
     public class InventoryItemProps
     {
