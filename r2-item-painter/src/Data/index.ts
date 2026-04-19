@@ -6,7 +6,7 @@ export type GridPosition = {
 
 export type ItemProps = {
     Label:string, 
-    Token:string, 
+    // Token:string, 
     IconString:string,
 }
 
@@ -18,10 +18,18 @@ export type Item = {
     MaxStackCount:number
 }
 
-export type DataModelState = {[key:string]: Item}
+export type DataModelState = {
+    ItemDict: {[key:string]: Item}, 
+    SelectedItemToken:null|string, 
+    UpdateTimestamp:number
+}
 
 export type DataModelAction = {
     Label:string, 
     Args:string
     State:DataModelState
+}
+
+export enum PaintType {
+    BASE, ACTIVE, ERASER
 }

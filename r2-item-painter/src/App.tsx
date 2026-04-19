@@ -1,12 +1,13 @@
 import { Sidebar, MainView, PropsList } from "./Components"
 
-
-export function App() {
-    return <div className={styles.container}>
-        <Sidebar />
-        <MainView />
-        <PropsList />
-    </div>
+export function App() {    
+    return (
+        <div className={styles.container}>
+            <Sidebar />
+            <MainView />
+            <PropsList />
+        </div>
+    )
 }
 
 const styles = {
