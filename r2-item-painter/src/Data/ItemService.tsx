@@ -260,17 +260,22 @@ export class ItemService {
 
     
 
-    static SearchItem(item:string, limit:number=5) {
+    static SearchItem(searchStr:string, limit:number=5) {
         let queue:{token:string, dist:number}[] = []; 
 
         Object.entries(this.ItemMap).forEach(([token, details]) => {
-            const dist = Math.min(
-                levenshtein(item, token), 
-                levenshtein(item, details.BaseLabel), 
-                levenshtein(item, details.Label)
-            ); 
-
+            const criteria = [token.toLowerCase(), details.BaseLabel.toLowerCase(), details.Label.toLowerCase()]; 
+            const searchStrLower = searchStr.toLowerCase(); 
+            // if(searchStrLower.length >= 3 && criteria.findIndex(c => c.includes(searchStrLower)) != -1)
+            //     queue.push({token, dist: 0})
+            // else  {
+            //     const dist = Math.min(...criteria.map(c => levenshtein(c, searchStrLower))); 
+            //     queue.push({token, dist}); 
+            // }
+            const dist = Math.min(...criteria.map(c => levenshtein(c, searchStrLower))); 
             queue.push({token, dist}); 
+            
+
             queue.sort((a, b) => a.dist - b.dist); 
             queue = queue.filter((_, i) => i < limit); 
         }); 
