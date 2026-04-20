@@ -2,7 +2,7 @@ import { ItemService } from "./ItemService";
 import { PaintType, type DataModelAction, type DataModelState, type GridPosition, type Item } from ".";
 
 export class DataModel {
-    
+
     private _state:DataModelState; 
     private _history:DataModelAction[]; 
     private _historyIndex:number; 
@@ -40,6 +40,12 @@ export class DataModel {
 
         return this.SetState("LoadData", [data], jsonData as DataModelState); 
     }
+    
+    LoadHistory(history: string) {
+        const historyObj = JSON.parse(history); 
+        this._history = historyObj.history; 
+        this._historyIndex = historyObj.historyIndex;
+    }
 
     /* ITEM LIST */
     AddItem = (token:string) => {
@@ -76,6 +82,9 @@ export class DataModel {
     /* ITEM PROPS */
     SetSelectedItem = (token:string|null) => {
         if(!token || token == "" || !Object.prototype.hasOwnProperty.call(this._state.ItemDict, token)) 
+            return null; 
+
+        if(this._state.SelectedItemToken == token)
             return null; 
 
         this._state.SelectedItemToken = token; 
@@ -155,13 +164,16 @@ export class DataModel {
         this._state = JSON.parse(JSON.stringify(state));
         this._state.UpdateTimestamp = Date.now();  
 
+        this._history = this._history.slice(0, this._historyIndex + 1)
         this._history.push({
             Label: label, 
             Args: args.join(" "), 
             State: JSON.parse(JSON.stringify(state))
         })
 
-        this._historyIndex += 1; 
+        console.log(this._history, this._historyIndex)
+
+        this._historyIndex = this._history.length - 1; 
         this.InvokeListeners(); 
         return this._state; 
     }
@@ -178,18 +190,32 @@ export class DataModel {
         this._listeners.forEach(l => l());
     }
 
-    UndoAction = (step:number=1) => {
-        this._historyIndex = Math.max(0, this._historyIndex-step); 
-        return this._history[this._historyIndex]; 
+
+    StepAction = (dir:'forward'|'backward', step:number=1) => {
+        if(this._historyIndex - step < 0 && dir == 'backward' || this._historyIndex + step >= this._history.length && dir == 'forward')
+            return null; 
+        
+        console.log("Stepping: ", dir, step)
+        step = Math.abs(step); 
+        const curAction = this._history[this._historyIndex]; 
+        if(dir == "forward") 
+            this._historyIndex = Math.min(this._history.length - 1, this._historyIndex + step); 
+        else 
+            this._historyIndex = Math.max(0, this._historyIndex - step); 
+        this._state = this._history[this._historyIndex].State; 
+
+        this.InvokeListeners(); 
+        return curAction;
     }
 
-    RedoAction = (step:number=1) => {
-        this._historyIndex = Math.min(this._history.length, this._historyIndex + step); 
-        return this._history[this._historyIndex]; 
-    }
+    GetHistory = () => {
+        return {
+            history: this._history, 
+            historyIndex: this._historyIndex
+        }; 
+    }    
 
     GetSnapshot = () => {
-        // console.log(this._state.ItemDict)
-        return  this._state; 
+        return this._state; 
     }
 }

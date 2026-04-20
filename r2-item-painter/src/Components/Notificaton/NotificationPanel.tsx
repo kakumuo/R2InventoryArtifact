@@ -68,6 +68,6 @@ const styles = {
         textGroup:`grid grid-cols-1 grid-rows-[auto_1fr]`, 
         icons: `w-8 h-8`,
         title: `font-bold`,
-        body: `text-small`,
+        body: `text-small truncate`,
     }
 }
