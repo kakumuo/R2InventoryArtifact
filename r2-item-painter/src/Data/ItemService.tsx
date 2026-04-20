@@ -3,7 +3,7 @@ import levenshtein from 'js-levenshtein'
 type ItemDetails  = { IconPath: string, BaseLabel: string, Label: string }
 
 export class ItemService {
-    static ICON_PATH = "/src/Assets/ItemIcons"
+    static ICON_PATH = "./ItemIcons"
     static ItemMap: { [key: string]: ItemDetails } = {
         "ITEM_ALIENHEAD_NAME":                       	 {IconPath: "Alien_Head.webp", BaseLabel:"AlienHead", Label:"Alien Head"},
         "ITEM_REPULSIONARMORPLATE_NAME":             	 {IconPath: "Repulsion_Armor_Plate.webp", BaseLabel:"ArmorPlate", Label:"Repulsion Armor Plate"},

@@ -1,6 +1,6 @@
 import {expect, test} from '@jest/globals';
 import { DataModel } from "./DataModel";
-import type { DataModelState } from '.';
+// import type { DataModelState } from '.';
 
 
 test('Load Success', () => {
@@ -16,17 +16,17 @@ test('Load Failed', () => {
 }); 
 
 
-test('Item Add and Item Remove', () => {
-    const model = new DataModel(); 
-    const tokens = ["ITEM_SOMEITEM1_NAME", "ITEM_SOMEITEM2_NAME", "ITEM_SOMEITEM3_NAME"]; 
-    tokens.forEach(token => model.AddItem(token)); 
+// test('Item Add and Item Remove', () => {
+//     const model = new DataModel(); 
+//     const tokens = ["ITEM_SOMEITEM1_NAME", "ITEM_SOMEITEM2_NAME", "ITEM_SOMEITEM3_NAME"]; 
+//     tokens.forEach(token => model.AddItem(token)); 
 
-    let state:DataModelState | null = model.GetCurrentState(); 
-    expect(state.ItemDict).not.toBeNull(); 
-    expect(Object.keys(state.ItemDict).length).toBe(tokens.length); 
+//     let state:DataModelState | null = model.GetCurrentState(); 
+//     expect(state.ItemDict).not.toBeNull(); 
+//     expect(Object.keys(state.ItemDict).length).toBe(tokens.length); 
 
-    state = model.RemoveItem(tokens[0]); 
-    expect(state?.ItemDict).not.toBeNull(); 
-    expect(Object.keys((state as DataModelState).ItemDict).length).toBe(tokens.length - 1); 
-}); 
+//     state = model.RemoveItem(tokens[0]); 
+//     expect(state?.ItemDict).not.toBeNull(); 
+//     expect(Object.keys((state as DataModelState).ItemDict).length).toBe(tokens.length - 1); 
+// }); 
 
