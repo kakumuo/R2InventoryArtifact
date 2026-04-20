@@ -1,30 +1,47 @@
 import { createContext, useContext, useSyncExternalStore } from "react";
 import { DataModel } from "./DataModel";
+import React from "react";
 
 
 const DataModelContext = createContext<DataModel | null>(null); 
+const dataModel = new DataModel(); 
+const LOCAL_STORAGE_KEY = 'R2_ITEM_PAINTER_MODEL_STATE'; 
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useDataModelContext = () => {
-    const model = useContext(DataModelContext); 
+    const dataModel = useContext(DataModelContext); 
+    const [isInitialized, setIsInitialized] = React.useState(false); 
 
-    if(!model) throw new Error("Wrap with DataModelProvider"); 
+    React.useEffect(() => {
+        if(!isInitialized) {
+            setIsInitialized(true); 
+            const target = localStorage.getItem(LOCAL_STORAGE_KEY); 
+            if(target && dataModel) {
+               dataModel.LoadData(target) 
+            }
+        }
+    }, [dataModel, isInitialized])
 
-    return model; 
+    if(!dataModel) throw new Error("Wrap with DataModelProvider"); 
+
+    return {dataModel, isInitialized}; 
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useDataModelState = () => {
-    const dataModel = useDataModelContext(); 
+    const {dataModel, isInitialized} = useDataModelContext(); 
     const modelState = useSyncExternalStore(dataModel.Subscribe, dataModel.GetSnapshot); 
+
+    // write to local storage
+    React.useEffect(() => {
+        if(isInitialized) localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(modelState)); 
+    }, [modelState, isInitialized])
 
     return {
         modelState, 
         dataModel
     }
 }
-
-const dataModel = new DataModel(); 
 
 export const DataModelProvider = ({children}:{children:React.ReactNode}) => {
     return <DataModelContext.Provider value={dataModel}>

@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using R2InventoryArtifact.UI.Services;
 using RoR2; 
-using R2InventoryArtifact.Util.R2API;
-using UnityEngine;
 
 namespace R2InventoryArtifact.Model
 {

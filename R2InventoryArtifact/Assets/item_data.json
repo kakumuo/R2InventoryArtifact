@@ -1,7 +1,16 @@
-{    
-    "ITEM_DRONEWEAPONSDISPLAY2_NAME": {
-        "MaxStackCount": 5,
-        "NodeOrigin": [{"Row": 6, "Col": 0}],
-        "ActiveOrigin": [{"Row": 0, "Col": 2}]
-    }
+{
+  "TEST_ITEM_TEST": {
+    "Label": "Test Items",
+    "ActiveOrigin": [],
+    "NodeOrigin": [],
+    "MaxStackCount": 5,
+    "Token": "TEST_ITEM_TEST"
+  },
+  "ITEM_TEST_NAME": {
+    "Label": "Test Item",
+    "Token": "ITEM_TEST_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [],
+    "ActiveOrigin": []
+  }
 }

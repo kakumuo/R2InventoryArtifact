@@ -17,12 +17,12 @@ export class DataModel {
         this._historyIndex = 0;
         this._listeners = new Set(); 
 
-        // DEBUG: remove later
-        this._state = {
-            ItemDict: {"TEST_ITEM": {Label: "Test Item", ActiveOrigin:[{Row: 0, Col: 1}], NodeOrigin: [{Row: 0, Col: 0}], MaxStackCount:5, Token: "TEST_ITEM"}},
-            SelectedItemToken: "TEST_ITEM", 
-            UpdateTimestamp: Date.now()
-        }
+        // // DEBUG: remove later
+        // this._state = {
+        //     ItemDict: {"TEST_ITEM": {Label: "Test Item", ActiveOrigin:[{Row: 0, Col: 1}], NodeOrigin: [{Row: 0, Col: 0}], MaxStackCount:5, Token: "TEST_ITEM"}},
+        //     SelectedItemToken: "TEST_ITEM", 
+        //     UpdateTimestamp: Date.now()
+        // }
 
         this.SetState("constructor", [], this._state); 
     }
@@ -46,23 +46,17 @@ export class DataModel {
         if(token == "" || Object.prototype.hasOwnProperty.call(this._state.ItemDict, token)) 
             return null;
 
-        let item:Item = {
+        const item:Item = {
             Label: "Untitled Item", 
             Token: token, 
             MaxStackCount: 5, 
-            NodeOrigin: [], 
+            NodeOrigin: [{Row: 0, Col: 0}], 
             ActiveOrigin: [], 
         }; 
         
         const itemLabel = ItemService.GetItemLabel(token); 
         if(itemLabel)
-            item = {
-                Label: itemLabel, 
-                Token: token, 
-                MaxStackCount: 5, 
-                NodeOrigin: [], 
-                ActiveOrigin: [], 
-            }
+            item.Label = itemLabel; 
 
         this._state.ItemDict[token] = item; 
         return this.SetState("AddItem", [token], this._state); 
@@ -92,12 +86,19 @@ export class DataModel {
         if(!token || token == "" || !Object.prototype.hasOwnProperty.call(this._state.ItemDict, token)) 
             return null;
 
+        // console.log(token, nodes, type); 
+
         switch(type) {
             case PaintType.BASE: 
                 this._state.ItemDict[token].NodeOrigin = [...new Set([...this._state.ItemDict[token].NodeOrigin, ...nodes])];  
+                this._state.ItemDict[token].NodeOrigin.sort((a, b) => (a.Col + a.Row) - (b.Col + b.Row)); // sort to make sure 0,0 is always first
+                this._state.ItemDict[token].ActiveOrigin = 
+                    this._state.ItemDict[token].ActiveOrigin.filter(pos => nodes.findIndex(curNode => curNode.Row === pos.Row && curNode.Col == pos.Col) == -1)
             break; 
             case PaintType.ACTIVE:
                 this._state.ItemDict[token].ActiveOrigin = [...new Set([...this._state.ItemDict[token].ActiveOrigin, ...nodes])];  
+                this._state.ItemDict[token].NodeOrigin = 
+                    this._state.ItemDict[token].NodeOrigin.filter(pos => nodes.findIndex(curNode => curNode.Row === pos.Row && curNode.Col == pos.Col) == -1)
             break;
             case PaintType.ERASER: 
                 this._state.ItemDict[token].ActiveOrigin = 
@@ -143,6 +144,8 @@ export class DataModel {
         this._state.ItemDict[newToken] = this._state.ItemDict[oldToken]; 
         this._state.ItemDict[newToken].Token = newToken; 
         delete(this._state.ItemDict[oldToken]); 
+
+        if(this._state.SelectedItemToken == oldToken) this._state.SelectedItemToken = newToken; 
         
         return this.SetState("SetToken", [oldToken, newToken], this._state); 
     }

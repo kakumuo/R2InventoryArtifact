@@ -1,11 +1,13 @@
 import { Sidebar, MainView, PropsList } from "./Components"
-
+import { NotificationPanel } from "./Components/Notificaton/NotificationPanel"
 export function App() {    
+
     return (
         <div className={styles.container}>
             <Sidebar />
             <MainView />
             <PropsList />
+            <NotificationPanel />
         </div>
     )
 }
