@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
+using R2InventoryArtifact.UI.Builders;
 
 namespace R2InventoryArtifact.UI.Components
 {
@@ -131,12 +132,14 @@ namespace R2InventoryArtifact.UI.Components
                 titleToken  = "Slot Locked", 
                 bodyToken   = $"Unlocks at Level <style=cIsHealth>{slotLock.UnlockLevel}</style>."
             });
+            _img.sprite = ComponentBuilder.GetSprite(ComponentBuilder.SpritePanelType.DISABLED_TILE); 
         }
 
         public void UnlockSlot()
         {
             _slotLock = null; 
             _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
+            _img.sprite = ComponentBuilder.GetSprite(ComponentBuilder.SpritePanelType.TILE); 
         }
     }
 }

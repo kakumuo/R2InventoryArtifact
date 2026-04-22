@@ -56,9 +56,10 @@ namespace R2InventoryArtifact.UI.Components
             {
                 for (int c = 0; c < gridSize.Width; c++)
                 {
-                    InventorySlotComponent slot = ComponentBuilder.BuildGridSlot($"{r}-{c}");
-                    slot.Initialize(this, new(c, r));
-                    slot.transform.SetParent(transform);
+                    GridPosition pos = new(c, r); 
+                    InventorySlotComponent slot = ComponentBuilder.BuildGridSlot(transform, $"{r}-{c}");
+                    slot.Initialize(this, pos);
+                    // slot.transform.SetParent(transform);
                     _slots[r, c] = slot;
                 }
             }

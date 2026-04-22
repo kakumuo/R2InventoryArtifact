@@ -1,12 +1,14 @@
 
 using System.Collections;
+using BepInEx;
+using BepInEx.Configuration;
 using R2API;
 using R2InventoryArtifact.Util;
 using RoR2;
 using RoR2.ContentManagement;
 using UnityEngine;
 
-namespace R2InventoryArtifact
+namespace R2InventoryArtifact.Artifact
 {
     public class InventoryArtifactProvider : IContentPackProvider
     {
@@ -19,9 +21,9 @@ namespace R2InventoryArtifact
         internal static void Initialize(BepInEx.PluginInfo pluginInfo)
         {
             _basePath = System.IO.Path.GetDirectoryName(pluginInfo.Location); 
-            
-            LanguageAPI.Add("ARTIFACT_INVENTORY_NAME", "Artifact of Inventory");
-            LanguageAPI.Add("ARTIFACT_INVENTORY_DESC", "Manage your inventory.");
+
+            LanguageAPI.Add("ARTIFACT_FOXFEN64_INVENTORY_NAME", "Artifact of Inventory");
+            LanguageAPI.Add("ARTIFACT_FOXFEN64_INVENTORY_DESC", "Manage your inventory.");
 
             ContentManager.collectContentPackProviders += ContentManager_collectContentPackProviders;
         }
@@ -47,9 +49,9 @@ namespace R2InventoryArtifact
         public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
         {
             ArtifactDef = ScriptableObject.CreateInstance<ArtifactDef>();
-            ArtifactDef.cachedName = "ARTIFACT_INVENTORY";
-            ArtifactDef.nameToken = "ARTIFACT_INVENTORY_NAME";
-            ArtifactDef.descriptionToken = "ARTIFACT_INVENTORY_DESC";
+            ArtifactDef.cachedName = "ARTIFACT_FOXFEN64_INVENTORY";
+            ArtifactDef.nameToken = "ARTIFACT_FOXFEN64_INVENTORY_NAME";
+            ArtifactDef.descriptionToken = "ARTIFACT_FOXFEN64_INVENTORY_DESC";
 
             if (!string.IsNullOrEmpty(_basePath))
             {

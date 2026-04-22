@@ -7,6 +7,7 @@ using R2InventoryArtifact.UI.Services;
 using RoR2.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.UI; 
 
@@ -37,6 +38,9 @@ namespace R2InventoryArtifact.UI.Components
             _icon = GetComponentInChildren<Image>(); 
             _label = GetComponentInChildren<TextMeshProUGUI>(); 
             _canvasGroup = GetComponent<CanvasGroup>(); 
+
+            // ItemIcon icon = this.GetComponent<ItemIcon>(); 
+            // icon.SetItemIndex(item.Pickup.pickupIndex.pickupDef.itemIndex, 1, 1); 
 
             if(!item.IsEquippable) _canvasGroup.blocksRaycasts = false; 
 

@@ -33,7 +33,13 @@ namespace R2InventoryArtifact.UI
 
 
         public event Action<UniquePickup, int> OnInventoryItemDropped; 
-        public event Action<bool> OnUIVisibilityChanged; 
+        public event Action<bool> OnUIVisibilityChanged;
+
+        private void Awake()
+        {
+            Log.Debug("InventoryUI Awake...."); 
+            DontDestroyOnLoad(this.gameObject); 
+        }
 
         public void Initialize(IntRect rect, List<InventoryLock> locks)
         {
@@ -53,11 +59,12 @@ namespace R2InventoryArtifact.UI
             _inventoryDropArea.OnInventoryItemDropped += HandleItemDrop; 
         }
 
-        public void Destroy()
+        void OnDestroy()
         {
             _inventoryDropArea.OnInventoryItemDropped -= HandleItemDrop;
+            Log.Info("destroyed inventoryui"); 
         }
-
+        
         public void SetUIVisibility(bool show)
         {
             _canvasGroup.alpha = show ? 1 : 0;

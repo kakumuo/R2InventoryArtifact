@@ -1,13 +1,11 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using R2InventoryArtifact.UI.Components;
 using R2InventoryArtifact.UI.Layouts;
-using UnityEngine.AddressableAssets;
-using System.Linq;
-using System;
 using RoR2;
+using UnityEngine.AddressableAssets;
+using RoR2.UI;
 
 
 namespace R2InventoryArtifact.UI.Builders
@@ -23,6 +21,7 @@ namespace R2InventoryArtifact.UI.Builders
         public static InventoryHoldComponent BuildInventoryHoldComponent(Transform parent)
         {
             GameObject contentObj = BuildScrollView(parent, "HoldList", vertical: true); 
+            // GameObject contentObj = BuildR2Panel(parent); 
             VerticalLayoutGroup verticalLayoutGroup = contentObj.AddComponent<VerticalLayoutGroup>(); 
             verticalLayoutGroup.childControlWidth = true; 
             verticalLayoutGroup.childControlHeight = false; 
@@ -61,9 +60,10 @@ namespace R2InventoryArtifact.UI.Builders
             // UnityEngine.Component.Destroy(panel.GetComponent<RectTransform>()); 
             // panel.AddComponent<RectTransform>(); 
         
-            RectTransform panelRect = BuildPanel(parent, "InventoryUI");
+            RectTransform panelRect = BuildPanel(parent, "InventoryUI", SpritePanelType.BACKDROP);
             GameObject panelObj = panelRect.gameObject; 
             panelObj.layer = LayerIndex.ui.intVal; 
+            panelObj.AddComponent<LayoutElement>(); 
             Canvas canvas = panelObj.AddComponent<Canvas>(); 
             canvas.sortingOrder = 10; 
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; 
@@ -94,7 +94,6 @@ namespace R2InventoryArtifact.UI.Builders
             bentoGroup.padding = new(horipad, horipad, vertpad, vertpad); 
 
             InventoryUI ui = panelObj.AddComponent<InventoryUI>(); 
-            
             //MAYBE:
             // void Close() => ui.SetUIVisibility(show: false); 
             // panelObj.AddComponent<RiskOfOptions.Components.Options.RooEscapeRouter>().escapePressed.AddListener(Close); 

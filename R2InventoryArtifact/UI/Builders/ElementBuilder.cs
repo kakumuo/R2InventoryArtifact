@@ -6,19 +6,19 @@ using System.Collections.Generic;
 using R2InventoryArtifact.UI.Components;
 using R2InventoryArtifact.UI.Layouts;
 using RoR2.UI;
+using UnityEngine.AddressableAssets;
 
 namespace R2InventoryArtifact.UI.Builders
 {    
     public static partial class ComponentBuilder
     {
-        public static InventorySlotComponent BuildGridSlot(string objName = "")
+        public static InventorySlotComponent BuildGridSlot(Transform parent, string objName = "")
         {
-            GameObject obj = new GameObject(objName);
-            obj.AddComponent<RectTransform>();
+            RectTransform slotRect = BuildPanel(parent, objName, SpritePanelType.TILE); 
+            GameObject obj = slotRect.gameObject; 
             obj.AddComponent<HorizontalLayoutGroup>();
             obj.AddComponent<TooltipProvider>(); 
-
-            Image img = obj.AddComponent<Image>();
+            
             //TODO: find way to import shader
             // var shader = Shader.Find("Hidden/Custom/R2InventoryArtifact/InventoryItemOutlineShader");
             // img.material = new Material(shader);
@@ -28,15 +28,19 @@ namespace R2InventoryArtifact.UI.Builders
 
         public static InventoryItemElement BuildItemElement(string objName="")
         {
+            // var obj = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/ItemIcon.prefab").WaitForCompletion();
+            // ItemIcon icon = obj.GetComponent<ItemIcon>(); 
+            // icon.SetItemIndex(item.Pickup.pickupIndex.pickupDef.itemIndex, 1, 1); 
+            
             GameObject obj = new GameObject(objName); 
             obj.AddComponent<RectTransform>(); 
             obj.AddComponent<Image>(); 
             obj.AddComponent<CanvasGroup>(); 
             obj.AddComponent<HorizontalLayoutGroup>(); 
             obj.AddComponent<LayoutElement>(); 
-            AspectRatioFitter fitter = obj.AddComponent<AspectRatioFitter>(); 
-            fitter.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth; 
-            fitter.aspectRatio = 1; 
+            // AspectRatioFitter fitter = obj.AddComponent<AspectRatioFitter>(); 
+            // fitter.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth; 
+            // fitter.aspectRatio = 1; 
 
                 GameObject labelObj = new GameObject("label");
                 labelObj.AddComponent<RectTransform>(); 
@@ -71,11 +75,15 @@ namespace R2InventoryArtifact.UI.Builders
             return obj.AddComponent<InventoryEffectElement>(); 
         }
 
-        public static InventoryHoldElement BuildHoldElement(string objName="")
+        public static InventoryHoldElement BuildHoldElement(Transform parent, string objName="")
         {
-            GameObject obj = new GameObject(objName); 
-            obj.AddComponent<RectTransform>(); 
-            obj.AddComponent<Image>(); 
+            // GameObject obj = new GameObject(objName); 
+            // obj.AddComponent<RectTransform>(); 
+            // obj.AddComponent<Image>(); 
+            RectTransform objRect = BuildPanel(parent, objName, SpritePanelType.TILE); 
+            SetRectTransformAnchor(objRect, AnchorPreset.STRETCH, AnchorPreset.STRETCH, new(10, 40));
+
+            GameObject obj = objRect.gameObject; 
             obj.AddComponent<CanvasGroup>(); 
             LayoutElement layoutElement = obj.AddComponent<LayoutElement>(); 
             layoutElement.flexibleHeight = 1; 

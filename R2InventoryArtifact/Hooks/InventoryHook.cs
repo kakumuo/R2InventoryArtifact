@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using EntityStates.VoidSurvivor.Weapon;
+using R2InventoryArtifact.Artifact;
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.UI;
 using RoR2;
@@ -51,23 +52,23 @@ namespace R2InventoryArtifact.Hooks
         /*************************** INVENTORY REMOVE ***************************/
         private void HandleInventoryItemDropped(UniquePickup pickup, int stackCount)
         {
-            CharacterBody playerBody = LocalUserManager.GetFirstLocalUser().cachedBody; 
-            Vector3 launchDir = (playerBody.transform.forward + playerBody.transform.up) * 10f; //MAYBE: launch in direction of the camera
+            // CharacterBody PlayerBody = LocalUserManager.GetFirstLocalUser().cachedBody; 
+            Vector3 launchDir = (UIHook.PlayerBody.transform.forward + UIHook.PlayerBody.transform.up) * 10f; //MAYBE: launch in direction of the camera
 
             for(int i = 0; i < stackCount; i++)
             {
-                PickupDropletController.CreatePickupDroplet(pickup, playerBody.transform.position, launchDir, false);
+                PickupDropletController.CreatePickupDroplet(pickup, UIHook.PlayerBody.transform.position, launchDir, false);
             }
             PickupDef pickupDef = pickup.pickupIndex.pickupDef; 
             // _lastInventoryItemDropped = pickup; 
 
             if(pickupDef.itemIndex != ItemIndex.None)
             {
-                playerBody.inventory.RemoveItemPermanent(pickupDef.itemIndex, stackCount);
+                UIHook.PlayerBody.inventory.RemoveItemPermanent(pickupDef.itemIndex, stackCount);
             }
             else if (pickupDef.equipmentIndex != EquipmentIndex.None)
             {
-                playerBody.inventory.RemoveEquipment(pickupDef.equipmentIndex);
+                UIHook.PlayerBody.inventory.RemoveEquipment(pickupDef.equipmentIndex);
             }
         }
 

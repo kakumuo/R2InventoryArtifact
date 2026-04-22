@@ -2,6 +2,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.AddressableAssets;
+using UnityEngine.U2D;
+using RoR2.UI;
+using RoR2;
 
 
 namespace R2InventoryArtifact.UI.Builders
@@ -17,7 +21,7 @@ namespace R2InventoryArtifact.UI.Builders
         /// <returns></returns>
         public static GameObject BuildScrollView(Transform parent, string objName = "", bool horizontal = false, bool vertical = false)
         {
-            RectTransform scrollViewRect = BuildPanel(parent, objName);
+            RectTransform scrollViewRect = BuildPanel(parent, objName, SpritePanelType.HEADER);
             GameObject obj = scrollViewRect.gameObject;
             ScrollRect scrollRect = scrollViewRect.gameObject.AddComponent<ScrollRect>();
             scrollRect.horizontal = horizontal;
@@ -31,7 +35,7 @@ namespace R2InventoryArtifact.UI.Builders
             viewportRect.gameObject.AddComponent<Mask>().showMaskGraphic = false;
             scrollRect.viewport = viewportRect.GetComponent<RectTransform>();
 
-            RectTransform contentRect = BuildPanel(viewportRect.transform, "Content", .25f);
+            RectTransform contentRect = BuildPanel(viewportRect.transform, "Content");
             SetRectTransformAnchor(
                 contentRect, 
                 horizontal: horizontal && !vertical ? AnchorPreset.START : AnchorPreset.STRETCH, 
@@ -100,21 +104,22 @@ namespace R2InventoryArtifact.UI.Builders
         }
 
 
-        public static RectTransform BuildPanel(Transform parent, string objName = "", float alpha = .25f)
+        public static RectTransform BuildPanel(Transform parent, string objName = "", SpritePanelType panelType = SpritePanelType.PANEL)
         {
             GameObject obj = new GameObject(objName);
+            obj.transform.SetParent(parent);
+
             RectTransform rect = obj.AddComponent<RectTransform>();
             obj.AddComponent<CanvasRenderer>();
-            Image bkg = obj.AddComponent<Image>();
-            Color c  = Color.white; 
-            c.a = alpha; 
-            bkg.color = c; 
+            Image img = obj.AddComponent<Image>();
+
+            img.sprite = GetSprite(panelType); 
+            img.type = Image.Type.Sliced;
 
             obj.transform.SetParent(parent);
 
             return rect;
         }
-
 
         enum AnchorPreset
         {

@@ -7,7 +7,7 @@
 <!-- - 0,0 should will always be node, cannot be erased -->
 <!-- - auto complete through search -->
 <!-- - auto save and load from browser storage -->
-- notifications
-- undo and redo
+<!-- - notifications -->
+<!-- - undo and redo -->
 ### brainstorming
-- search filtering (just 3 buttons (all, items, equip))
+<!-- - search filtering (just 3 buttons (all, items, equip)) -->
