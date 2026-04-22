@@ -34,9 +34,9 @@ namespace R2InventoryArtifact.Model
     }
 
     // unlocks upon achieving specific level
+    // TODO: `Root` is not needed, remove later
     [Serializable]public class InventoryLock
     {
-        public GridPosition Root; 
         public List<GridPosition> Nodes; 
         public int UnlockLevel; 
         public bool IsLocked = true; 
@@ -397,7 +397,7 @@ namespace R2InventoryArtifact.Model
             {
                 foreach(GridPosition node in invLock.Nodes)
                 {
-                    if(pos == node + invLock.Root) return invLock.IsLocked; 
+                    if(pos == node) return invLock.IsLocked; 
                 }
             }
 

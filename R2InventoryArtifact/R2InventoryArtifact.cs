@@ -37,9 +37,9 @@ namespace R2InventoryArtifact
 
             GameObject pluginObj = new GameObject("R2InventoryArtifactPlugin"); 
             DontDestroyOnLoad(pluginObj); 
+            pluginObj.AddComponent<InventoryHook>(); 
             pluginObj.AddComponent<UIHook>(); 
             pluginObj.AddComponent<LevelUpHook>(); 
-            pluginObj.AddComponent<InventoryHook>(); 
             pluginObj.AddComponent<DebugManager>(); 
 
             Log.Info("R2InventoryArtifactPlugin Initialized..."); 

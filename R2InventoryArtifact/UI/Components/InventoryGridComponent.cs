@@ -38,18 +38,13 @@ namespace R2InventoryArtifact.UI.Components
             InventoryGridLayoutGroup inventoryLayout = gameObject.AddComponent<InventoryGridLayoutGroup>();
             inventoryLayout.Initialize(_gridRect.Width, 4);
             
-            // update scroll speed based off ui size
-            
+            // update scroll speed based off slot tile size
             ScrollRect scrollRect; 
             if(scrollRect = gameObject.transform.parent.parent.GetComponent<ScrollRect>())
             {
                 void HandleCellSizeChanged(float size) => scrollRect.scrollSensitivity = size / 2; // each scroll step = 1/2 grid size
                 inventoryLayout.OnCellSizeChanged += HandleCellSizeChanged; 
             }
-
-            // TODO: see if there is a way do this with only the component bulider
-            // ScrollRect scrollView = GetComponentInChildren<ScrollRect>(); 
-            // scrollView.scrollSensitivity = _gridRect.Height * 2; 
 
             // create slots
             for (int r = 0; r < gridSize.Height; r++)
@@ -208,11 +203,10 @@ namespace R2InventoryArtifact.UI.Components
             {
                 invLock.Nodes.ForEach(node =>
                 {
-                    GridPosition target = node + invLock.Root; 
-                    if(_gridRect.Contains(target))
+                    if(_gridRect.Contains(node))
                     {
-                        if(invLock.IsLocked) _slots[target.Row, target.Col].LockSlot(invLock); 
-                        else _slots[target.Row, target.Col].UnlockSlot(); 
+                        if(invLock.IsLocked) _slots[node.Row, node.Col].LockSlot(invLock); 
+                        else _slots[node.Row, node.Col].UnlockSlot(); 
                     }
                 }); 
             }

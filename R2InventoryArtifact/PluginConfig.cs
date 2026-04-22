@@ -76,7 +76,7 @@ namespace R2InventoryArtifact
                 section:        "Keybinds", 
                 key:            "Rotate Inventory Item", 
                 description:    "Keybind for rotating the inventory",
-                defaultValue:   new KeyboardShortcut(UnityEngine.KeyCode.Q)
+                defaultValue:   new KeyboardShortcut(UnityEngine.KeyCode.Mouse1)
             ); 
 
 

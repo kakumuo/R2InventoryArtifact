@@ -10,7 +10,8 @@ namespace R2InventoryArtifact.UI.Services
 
         public static Sprite GetSprite(UniquePickup pickup)
         {
-            return Sprite.Create(pickup.pickupIndex.pickupDef.iconTexture as Texture2D, new(0, 0, 128, 128), Vector2.zero); 
+            // return Sprite.Create(pickup.pickupIndex.pickupDef.iconTexture as Texture2D, new(0, 0, 128, 128), Vector2.zero); 
+            return pickup.pickupIndex.pickupDef.iconSprite; 
         }
     }
 }

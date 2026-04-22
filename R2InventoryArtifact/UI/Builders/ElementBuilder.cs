@@ -80,9 +80,7 @@ namespace R2InventoryArtifact.UI.Builders
             // GameObject obj = new GameObject(objName); 
             // obj.AddComponent<RectTransform>(); 
             // obj.AddComponent<Image>(); 
-            RectTransform objRect = BuildPanel(parent, objName, SpritePanelType.TILE); 
-            SetRectTransformAnchor(objRect, AnchorPreset.STRETCH, AnchorPreset.STRETCH, new(10, 40));
-
+            RectTransform objRect = BuildPanel(null, objName, SpritePanelType.ELEMENT); 
             GameObject obj = objRect.gameObject; 
             obj.AddComponent<CanvasGroup>(); 
             LayoutElement layoutElement = obj.AddComponent<LayoutElement>(); 

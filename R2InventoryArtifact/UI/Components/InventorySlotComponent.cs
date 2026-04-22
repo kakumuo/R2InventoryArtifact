@@ -9,6 +9,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
 using R2InventoryArtifact.UI.Builders;
+using System.Diagnostics.Tracing;
+using RoR2BepInExPack.GameAssetPaths;
 
 namespace R2InventoryArtifact.UI.Components
 {
@@ -46,13 +48,14 @@ namespace R2InventoryArtifact.UI.Components
         public void Occupy(InventoryItem item)
         {
             _item = item; 
-            // img.color = UIConstants.COLOR_ITEM_SLOT_OCCUPY; 
+            // _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
+            // _tooltipProvider.SetContent(_item.GetTooltipContent()); 
         }
 
         public void UnOccupy()
         {
             _item = null; 
-            // img.color = UIConstants.COLOR_ITEM_SLOT_NEUTRAL;
+            // _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
         }   
 
         public void Paint(Color baseColor)
@@ -105,7 +108,11 @@ namespace R2InventoryArtifact.UI.Components
             if(element == null) return; 
 
             
-            if(InventoryModel.IsValidItemPosition(element.Item, _pos))
+            if(element.DragSource == DragSource.NONEQUIP) //nonequip items can only from non-equip to drop area
+            {
+                return; 
+            }
+            else if(InventoryModel.IsValidItemPosition(element.Item, _pos))
             {
                 element.SetDropTarget(transform);
                 element.DragSource = DragSource.GRID;  

@@ -103,21 +103,23 @@ namespace R2InventoryArtifact.UI.Builders
             return rect;
         }
 
-
-        public static RectTransform BuildPanel(Transform parent, string objName = "", SpritePanelType panelType = SpritePanelType.PANEL)
+        public static RectTransform BuildPanel(Transform parent, string objName = "", SpritePanelType panelType = SpritePanelType.NONE)
         {
             GameObject obj = new GameObject(objName);
-            obj.transform.SetParent(parent);
-
             RectTransform rect = obj.AddComponent<RectTransform>();
             obj.AddComponent<CanvasRenderer>();
             Image img = obj.AddComponent<Image>();
 
-            img.sprite = GetSprite(panelType); 
-            img.type = Image.Type.Sliced;
+            // Color c  = Color.white; 
+            // c.a = .25f; 
+            // img.color = c; 
+            if(panelType != SpritePanelType.NONE)
+            {
+                img.sprite = GetSprite(panelType); 
+                img.type = Image.Type.Sliced;
+            }
 
             obj.transform.SetParent(parent);
-
             return rect;
         }
 

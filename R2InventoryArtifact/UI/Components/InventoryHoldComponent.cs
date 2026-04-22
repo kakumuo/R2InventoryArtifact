@@ -31,7 +31,7 @@ namespace R2InventoryArtifact.UI.Components
         {
             InventoryHoldElement holdElement = ComponentBuilder.BuildHoldElement(_listTarget, item.Pickup.ToString());
             holdElement.Initialize(item);
-            // holdElement.transform.SetParent(_listTarget);
+            holdElement.transform.SetParent(_listTarget);
             _elements.Add(holdElement);
         }
 
@@ -45,7 +45,7 @@ namespace R2InventoryArtifact.UI.Components
         public void OnDrop(PointerEventData eventData)
         {
             InventoryItemElement element = eventData.pointerDrag.GetComponent<InventoryItemElement>();
-            if (element == null || (!element.Item.IsDroppable && element.DragSource == DragSource.GRID)) return;
+            if (element == null || (!element.Item.IsDroppable && element.DragSource == DragSource.GRID) || element.DragSource == DragSource.NONEQUIP) return;
 
             InventoryItem item = element.Item;
             Destroy(element.gameObject);

@@ -63,7 +63,7 @@ namespace R2InventoryArtifact.UI.Builders
             RectTransform panelRect = BuildPanel(parent, "InventoryUI", SpritePanelType.BACKDROP);
             GameObject panelObj = panelRect.gameObject; 
             panelObj.layer = LayerIndex.ui.intVal; 
-            panelObj.AddComponent<LayoutElement>(); 
+            // panelObj.AddComponent<LayoutElement>(); 
             Canvas canvas = panelObj.AddComponent<Canvas>(); 
             canvas.sortingOrder = 10; 
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; 
