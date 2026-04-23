@@ -1,21 +1,9 @@
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using R2InventoryArtifact.Model;
-using R2InventoryArtifact.UI;
-using R2InventoryArtifact.UI.Builders;
-using R2InventoryArtifact.Util;
-using Rewired.Utils;
 using RoR2;
-using RoR2.UI;
 using UnityEngine;
 namespace R2InventoryArtifact.Hooks
 {
-    /// <summary>
-    /// Hooks for all lifecycle methods (awake, destroy, etc...)
-    /// </summary>
     public class LevelUpHook : MonoBehaviour
     {
 

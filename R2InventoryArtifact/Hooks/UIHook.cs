@@ -8,12 +8,11 @@ using R2InventoryArtifact.Model;
 using R2InventoryArtifact.UI;
 using R2InventoryArtifact.UI.Builders;
 using R2InventoryArtifact.Util;
-using Rewired.Utils;
 using RoR2;
 using UnityEngine;
 using R2InventoryArtifact.Artifact;
 using System.Linq;
-using RoR2BepInExPack.GameAssetPaths;
+using UnityEngine.Networking;
 
 namespace R2InventoryArtifact.Hooks
 {
@@ -36,15 +35,22 @@ namespace R2InventoryArtifact.Hooks
         public static Action OnInitializeUI;
 
         public static InventoryUI InventoryUI;
-        public static CharacterBody PlayerBody;
+        public static CharacterBody PlayerBody => ClientUser.master.GetBody();
+        public static NetworkUser ClientUser; 
 
 
 
         private void HandleRunStart(Run run)
         {
             _isInRun = true;
-            IntRect rect = new IntRect(PluginConfig.InventoryWidth.Value, PluginConfig.InventoryHeight.Value);
 
+            if(NetworkServer.active)
+            {
+                // idk
+                ClientUser = NetworkUser.instancesList.Find(instance => instance.isClient); 
+            }
+
+            IntRect rect = new IntRect(PluginConfig.InventoryWidth.Value, PluginConfig.InventoryHeight.Value);
             _locks = GenerateGridLocks(rect, 3);
 
             InventoryUI = ComponentBuilder.BuildInventoryUI(null); //MAYBE: use null or embed into base game ui
@@ -78,17 +84,6 @@ namespace R2InventoryArtifact.Hooks
             Destroy(InventoryUI.gameObject);
         }
 
-        private void PlayerCharacterMasterController_OnBodyStart(On.RoR2.PlayerCharacterMasterController.orig_OnBodyStart orig, PlayerCharacterMasterController self)
-        {
-            orig(self);
-            // TODO: make sure to get main player during network game
-            UIHook.PlayerBody = self.master.GetBody();
-            // if(NetworkServer.active)
-            // {
-            //     NetworkUser.instancesList
-            // }
-        }
-
         private void PauseScreenController_OnEnable(On.RoR2.UI.PauseScreenController.orig_OnEnable orig, RoR2.UI.PauseScreenController self)
         {
             orig(self);
@@ -103,12 +98,14 @@ namespace R2InventoryArtifact.Hooks
         {
             orig(self);
             _isPaused = false;
+            InventoryUI.SetUIVisibility(false);
         }
 
         private void HandleCursorVisibility(bool show)
         {
             var pes = MPEventSystemManager.primaryEventSystem;
             // Log.Info($"Selected Obj: {pes.currentSelectedGameObject}");
+            pes.allowCursorPush = true; 
             pes.cursorOpenerCount = show || _isPaused ? 1 : 0;
             pes.SetSelectedGameObject(null); //make sure ui components are deselected   
         }
@@ -120,7 +117,6 @@ namespace R2InventoryArtifact.Hooks
                 if (!InventoryArtifactProvider.IsEnabled()) return;
                 _isInRun = false;
                 HandleRunStart(run);
-                On.RoR2.PlayerCharacterMasterController.OnBodyStart += PlayerCharacterMasterController_OnBodyStart;
                 On.RoR2.UI.PauseScreenController.OnDisable += PauseScreenController_OnDisable; 
                 On.RoR2.UI.PauseScreenController.OnEnable += PauseScreenController_OnEnable; 
             };
@@ -130,10 +126,11 @@ namespace R2InventoryArtifact.Hooks
                 if (!_isInRun) return;
                 _isInRun = false;
                 HandleRunEnd(run);
-                On.RoR2.PlayerCharacterMasterController.OnBodyStart -= PlayerCharacterMasterController_OnBodyStart;
                 On.RoR2.UI.PauseScreenController.OnDisable -= PauseScreenController_OnDisable; 
                 On.RoR2.UI.PauseScreenController.OnEnable -= PauseScreenController_OnEnable; 
             };
+
+            
         }
 
         // Handle Input
@@ -152,7 +149,7 @@ namespace R2InventoryArtifact.Hooks
                         break;
                 }
 
-                if (PluginConfig.RotateInventoryItemKey.Value.IsUp())
+                if (PluginConfig.RotateInventoryItemKey.Value.IsUp() && InventoryUI.IsVisible)
                 {
                     InventoryUI.RotateCursorItem();
                 }

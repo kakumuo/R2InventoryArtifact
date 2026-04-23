@@ -1,16 +1,114 @@
 {
-  "TEST_ITEM_TEST": {
-    "Label": "Test Items",
-    "ActiveOrigin": [],
-    "NodeOrigin": [],
+  "ITEM_BEAR_NAME": {
+    "Label": "Tougher Times",
+    "Token": "ITEM_BEAR_NAME",
     "MaxStackCount": 5,
-    "Token": "TEST_ITEM_TEST"
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
   },
-  "ITEM_TEST_NAME": {
-    "Label": "Test Item",
-    "Token": "ITEM_TEST_NAME",
+  "EQUIPMENT_BFG_NAME": {
+    "Label": "Preon Accumulator",
+    "Token": "EQUIPMENT_BFG_NAME",
     "MaxStackCount": 5,
-    "NodeOrigin": [],
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MUSHROOM_NAME": {
+    "Label": "Bustling Fungus",
+    "Token": "ITEM_MUSHROOM_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      }
+    ],
     "ActiveOrigin": []
   }
 }

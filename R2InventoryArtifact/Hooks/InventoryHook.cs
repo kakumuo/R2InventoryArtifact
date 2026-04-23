@@ -3,17 +3,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using EntityStates.VoidSurvivor.Weapon;
 using R2InventoryArtifact.Artifact;
 using R2InventoryArtifact.Model;
-using R2InventoryArtifact.UI;
 using RoR2;
-using RoR2.Items;
 using UnityEngine;
 namespace R2InventoryArtifact.Hooks
 {
     /// <summary>
-    /// Hooks for all lifecycle methods (awake, destroy, etc...)
+    /// Hooks for managing inventory
     /// </summary>
     public class InventoryHook : MonoBehaviour
     {
@@ -25,13 +22,14 @@ namespace R2InventoryArtifact.Hooks
             _FORCE_PICKUPS_TO_NONEQUIP = new ()
             {
                 new UniquePickup(PickupCatalog.FindPickupIndex(DLC2Content.Items.LowerPricedChests.itemIndex)),
+                new UniquePickup(PickupCatalog.FindPickupIndex(DLC2Content.Items.LowerPricedChestsConsumed.itemIndex)),
+                new UniquePickup(PickupCatalog.FindPickupIndex(DLC1Content.Items.RegeneratingScrap.itemIndex)),
                 new UniquePickup(PickupCatalog.FindPickupIndex(DLC1Content.Items.RegeneratingScrapConsumed.itemIndex)),
+
                 new UniquePickup(PickupCatalog.FindPickupIndex(RoR2Content.Items.ExtraLifeConsumed.itemIndex)),
                 new UniquePickup(PickupCatalog.FindPickupIndex(DLC1Content.Items.ExtraLifeVoidConsumed.itemIndex)),
                 new UniquePickup(PickupCatalog.FindPickupIndex(DLC1Content.Items.HealingPotionConsumed.itemIndex)),
-                new UniquePickup(PickupCatalog.FindPickupIndex(DLC1Content.Items.RegeneratingScrapConsumed.itemIndex)),
                 new UniquePickup(PickupCatalog.FindPickupIndex(DLC1Content.Items.FragileDamageBonusConsumed.itemIndex)),
-                new UniquePickup(PickupCatalog.FindPickupIndex(DLC2Content.Items.LowerPricedChestsConsumed.itemIndex)),
                 new UniquePickup(PickupCatalog.FindPickupIndex(DLC2Content.Items.TeleportOnLowHealthConsumed.itemIndex)),
             }; 
         }

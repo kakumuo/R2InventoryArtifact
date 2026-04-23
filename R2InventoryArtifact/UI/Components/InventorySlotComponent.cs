@@ -42,20 +42,20 @@ namespace R2InventoryArtifact.UI.Components
             _parentGrid = parentGrid; 
             _pos = pos; 
 
-            _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
+            _tooltipProvider.enabled = false; 
         }
 
         public void Occupy(InventoryItem item)
         {
             _item = item; 
-            // _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
-            // _tooltipProvider.SetContent(_item.GetTooltipContent()); 
+            _tooltipProvider.enabled = true; 
+            _tooltipProvider.SetContent(_item.GetTooltipContent()); 
         }
 
         public void UnOccupy()
         {
             _item = null; 
-            // _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
+            _tooltipProvider.enabled = false; 
         }   
 
         public void Paint(Color baseColor)
@@ -131,7 +131,7 @@ namespace R2InventoryArtifact.UI.Components
         public void LockSlot(InventoryLock slotLock)
         {
             _slotLock = slotLock; 
-            _tooltipProvider.AllowTooltipOnNavigationSelect = true; 
+            _tooltipProvider.enabled = true; 
             _tooltipProvider.SetContent(new()
             {
                 titleColor  = UIConstants.COLOR_TOOLTIP_TITLE_SLOT_LOCKED, 
@@ -145,7 +145,7 @@ namespace R2InventoryArtifact.UI.Components
         public void UnlockSlot()
         {
             _slotLock = null; 
-            _tooltipProvider.AllowTooltipOnNavigationSelect = false; 
+            _tooltipProvider.enabled = false;  
             _img.sprite = ComponentBuilder.GetSprite(ComponentBuilder.SpritePanelType.TILE); 
         }
     }

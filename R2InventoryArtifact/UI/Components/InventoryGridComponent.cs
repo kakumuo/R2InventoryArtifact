@@ -132,7 +132,7 @@ namespace R2InventoryArtifact.UI.Components
                     if (hoveredItem != null)
                     {
                         GridPosition itemRoot = InventoryModel.GetItemRoot(hoveredItem);
-                        activePos = hoveredItem.ActiveNodes.Select(n => n + itemRoot).Where(n => _gridRect.Contains(n)).ToList();
+                        activePos = hoveredItem.Nodes.Select(n => n + itemRoot).Where(n => _gridRect.Contains(n)).ToList();
                     }
                 }
             }
@@ -163,13 +163,13 @@ namespace R2InventoryArtifact.UI.Components
                         slot.Paint(UIConstants.COLOR_ITEM_SLOT_LOCKED); 
                     }
                     // TODO: re-enable when adding item buffs
-                    // else if (activePos.Contains(curPos))
-                    // {
-                    //     slot.Paint(
-                    //         baseColor: UIConstants.COLOR_ITEM_SLOT_ACTIVE, outlineColor: UIConstants.COLOR_ITEM_SLOT_ACTIVE_OUTLINE
-                    //         , AdjT: adjList[0], AdjB: adjList[1], AdjL: adjList[2], AdjR: adjList[3]
-                    //     );
-                    // }
+                    else if (activePos.Contains(curPos))
+                    {
+                        slot.Paint(
+                            baseColor: UIConstants.COLOR_ITEM_SLOT_ACTIVE, outlineColor: UIConstants.COLOR_ITEM_SLOT_ACTIVE_OUTLINE
+                            , AdjT: adjList[0], AdjB: adjList[1], AdjL: adjList[2], AdjR: adjList[3]
+                        );
+                    }
                     else if (item != null)
                     {
                         // var (baseColor, outlineColor) = UIConstants.GetItemTeirColor(item.ItemTier); 

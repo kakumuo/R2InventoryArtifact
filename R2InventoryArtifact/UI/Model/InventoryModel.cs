@@ -254,7 +254,11 @@ namespace R2InventoryArtifact.Model
             InventoryUpdateResult result = new(){InventoryItem=targetItem, Pos=new(), ResultCode=InventoryResultCode.NONEQUIP_UPDATE}; 
             targetItem.StackCount = Math.Max(targetItem.StackCount - count, 0); 
 
-            if(targetItem.StackCount == 0) result.ResultCode = InventoryResultCode.NONEQUIP_REMOVE; 
+            if(targetItem.StackCount == 0)
+            {
+                _nonEquipList.Remove(targetItem); 
+                result.ResultCode = InventoryResultCode.NONEQUIP_REMOVE; 
+            }
 
             removedItems.Add(result); 
             return removedItems;
@@ -268,13 +272,13 @@ namespace R2InventoryArtifact.Model
             List<InventoryUpdateResult> removedItems = new(); 
             List<InventoryUpdateResult> tmp = new(); 
 
-            _nonEquipList.ForEach(item =>
-            {
-                if(item.Pickup == pickup)
-                {
-                    tmp.Add(new(){ResultCode=InventoryResultCode.NONEQUIP_UPDATE, InventoryItem=item}); 
-                }
-            });
+            // _nonEquipList.ForEach(item =>
+            // {
+            //     if(item.Pickup == pickup)
+            //     {
+            //         tmp.Add(new(){ResultCode=InventoryResultCode.NONEQUIP_UPDATE, InventoryItem=item}); 
+            //     }
+            // });
 
             _holdList.ForEach(item =>
             {
@@ -323,10 +327,10 @@ namespace R2InventoryArtifact.Model
                         RemoveFromHold(result.InventoryItem);  
                         result.ResultCode = InventoryResultCode.HOLD_REMOVE; 
                     break; 
-                    case InventoryResultCode.NONEQUIP_UPDATE: 
-                        RemoveFromNonEquip(result.InventoryItem); 
-                        result.ResultCode = InventoryResultCode.NONEQUIP_REMOVE; 
-                    break; 
+                    // case InventoryResultCode.NONEQUIP_UPDATE: 
+                    //     RemoveFromNonEquip(result.InventoryItem); 
+                    //     result.ResultCode = InventoryResultCode.NONEQUIP_REMOVE; 
+                    // break; 
                 }
 
                 removedItems.Add(result); 

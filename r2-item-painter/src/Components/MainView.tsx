@@ -26,7 +26,7 @@ const PaintColors = {
 
 export function MainView() {
     const {modelState, dataModel } = useDataModelState(); 
-    const [selectedTool, setSelectedTool] = React.useState(PaintType.ACTIVE); 
+    const [selectedTool, setSelectedTool] = React.useState(PaintType.BASE); 
 
     const selectedItem = React.useMemo(() => {
         return modelState.SelectedItemToken != null ? modelState.ItemDict[modelState.SelectedItemToken] : null; 

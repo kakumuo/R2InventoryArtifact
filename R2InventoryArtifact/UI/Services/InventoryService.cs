@@ -63,11 +63,57 @@ namespace R2InventoryArtifact.UI.Services
                 ) {MaxStackCount=target.MaxStackCount}; 
             } 
             
+
+            List<List<GridPosition>> defaultNodeShapes = new List<List<GridPosition>>()
+            {
+                // 4 node shapes
+                {new List<GridPosition>(){new(0, 0), new(0, 1), new(1, 0), new(1, 1)}},     // square
+                {new List<GridPosition>(){new(-1, 0), new(0, 0), new(1, 0), new(2, 0)}},    // line
+                {new List<GridPosition>(){new(0, 0), new(0, -1), new(-1, -1), new(1, 0)}},  // s
+                {new List<GridPosition>(){new(0, 0), new(-1, 0), new(0, -1), new(1, -1)}},  // z
+                {new List<GridPosition>(){new(0, 0), new(1, 0), new(0, 1), new(0, 2)}},     // j
+                {new List<GridPosition>(){new(0, 0), new(-1, 0), new(0, 1), new(0, 2)}},    // l
+                {new List<GridPosition>(){new(0, 0), new(-1, 0), new(1, 0), new(0, -1)}},   // t
+                
+                
+                // 5 node shapes
+                {new List<GridPosition>(){new(0, 0), new(1, 0), new(1, 1), new(-1, 0), new(-1, 1)}},    //u
+                {new List<GridPosition>(){new(0, 0), new(-1, 0), new(-2, 0), new(1, 0), new(2, 0)}},    //line
+                {new List<GridPosition>(){new(0, 0), new(-1, 0), new(1, 0), new(0, -1), new(0, -2)}},   // T
+                {new List<GridPosition>(){new(0, 0), new(-1, 0), new(-1, -1), new(0, 1), new(1, 1)}},   // w
+                {new List<GridPosition>(){new(0, 0), new(0, 1), new(1, 0), new(1, 1), new(1, 2)}},      // p
+                {new List<GridPosition>(){new(0, 0), new(-1, 0), new(1, 0), new(0, -1), new(0, 1)}},    // +
+                {new List<GridPosition>(){new(0, 0), new(-1, 0), new(-2, 0), new(0, 1), new(0, 2)}},    // l
+            }; 
+
+            int defaultStackCount = 2; 
+
+            switch(pickup.pickupIndex.pickupDef.itemTier)
+            {
+                case ItemTier.Tier1:
+                case ItemTier.FoodTier:
+                case ItemTier.VoidTier1: defaultStackCount = 5;
+                break;
+                case ItemTier.Tier2:
+                case ItemTier.VoidTier2: defaultStackCount = 4;
+                break; 
+                case ItemTier.Tier3:
+                case ItemTier.VoidTier3: defaultStackCount = 3;
+                break; 
+            }
+
+            ItemIndex itemIndex = pickup.pickupIndex.pickupDef.itemIndex; 
+            EquipmentIndex equipmentIndex= pickup.pickupIndex.pickupDef.equipmentIndex;
+
+            int nodeIndex = itemIndex != ItemIndex.None ? ((int) itemIndex) : ((int) equipmentIndex);
+            nodeIndex = Math.Max(nodeIndex, 0) % defaultNodeShapes.Count;  
+
             return new InventoryItem(
                 pickup, 
-                new List<GridPosition>(){new(0, 0), new(0, 1)}, 
-                new List<GridPosition>(){new(0, 0), new(0, 1)}
-            ); 
+                nodeOrigin: new List<GridPosition>(defaultNodeShapes[nodeIndex]), 
+                activeOrigin: new()
+            ) {MaxStackCount=defaultStackCount};  
+
         }
 
         public static InventoryEffectCode GetInventoryEffectCode(UniquePickup pickup, HashSet<UniquePickup> adjacent)

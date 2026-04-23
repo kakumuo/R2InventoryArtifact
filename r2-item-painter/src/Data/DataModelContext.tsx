@@ -19,7 +19,7 @@ export const useDataModelContext = () => {
             const target = localStorage.getItem(LOCAL_STORAGE_KEY_MODEL_STATE); 
             const history = localStorage.getItem(LOCAL_STORAGE_KEY_HISTORY); 
             if(target && dataModel) {
-               dataModel.LoadData(target) 
+               dataModel.LoadState(target) 
             }
 
             if(history && dataModel) {

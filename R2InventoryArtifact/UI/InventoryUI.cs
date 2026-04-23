@@ -102,18 +102,6 @@ namespace R2InventoryArtifact.UI
             OnInventoryItemDropped.Invoke(item.Pickup, item.StackCount); 
         }
 
-        // public bool AddToInventory(EquipmentIndex equipmentIndex, bool toNonEquip)
-        // {
-        //     Debug.Log($"InventoryUI | AddToInventory | :{equipmentIndex}");
-        //     return AddToInventory(new(equipmentIndex), toNonEquip); 
-        // }
-
-        // public bool AddToInventory(ItemIndex itemIndex, bool toNonEquip)
-        // {
-        //     Debug.Log($"InventoryUI | AddToInventory | :{itemIndex}");
-        //     return AddToInventory(new(itemIndex), toNonEquip); 
-        // }
-
         public InventoryResultCode AddToInventory(UniquePickup pickup, bool toNonEquip)
         {
             InventoryUpdateResult result = InventoryModel.AddToInventory(pickup, toNonEquip); 
@@ -139,20 +127,6 @@ namespace R2InventoryArtifact.UI
             InventoryModel.AddToHold(item); 
             _inventoryHoldList.AddToHold(item); 
         }
-
-        // public void RemoveFromInventory(ItemIndex itemIndex, bool isTemp)
-        // {
-        //     Debug.Log($"InventoryUI | RemoveFromInventory | :{itemIndex}");
-        //     UniquePickup pickup = new UniquePickup(PickupCatalog.FindPickupIndex(itemIndex)); 
-        //     pickup.isTempItem = isTemp; 
-        //     RemoveFromInventory(PickupCatalog.FindPickupIndex(itemIndex), isTemp); 
-        // }
-
-        // public void RemoveFromInventory(EquipmentIndex equipmentIndex)
-        // {
-        //     Debug.Log($"InventoryUI | RemoveFromInventory | :{equipmentIndex}");
-        //     RemoveFromInventory(PickupCatalog.FindPickupIndex(equipmentIndex), false); 
-        // }
 
         public void RemoveFromInventory(UniquePickup pickup, bool fromNonEquip, int count)
         {
@@ -203,20 +177,6 @@ namespace R2InventoryArtifact.UI
             _inventoryGrid.RepaintGrid(); 
             PlayerLevel = 0; 
         }
-
-        // void Update()
-        // {
-        //     if (Input.GetKeyUp(KeyCode.Q))
-        //     {
-        //         SetUIVisibility(!IsVisible); 
-        //     }
-
-        //     if (Input.GetKeyUp(KeyCode.R) && CursorElement != null)
-        //     {
-        //         CursorElement.Rotate();
-        //         _inventoryGrid.RepaintGrid();
-        //     }
-        // }
 
         public void RotateCursorItem()
         {

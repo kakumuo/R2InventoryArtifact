@@ -27,7 +27,7 @@ export class DataModel {
         this.SetState("constructor", [], this._state); 
     }
 
-    LoadData = (data:string) => {
+    LoadState = (data:string) => {
         let jsonData = {};
         try {
             jsonData = JSON.parse(data);
@@ -38,7 +38,39 @@ export class DataModel {
         if(!Object.prototype.hasOwnProperty.call(jsonData, "ItemDict")) return null; 
         if(!Object.prototype.hasOwnProperty.call(jsonData, "SelectedItemToken")) return null; 
 
-        return this.SetState("LoadData", [data], jsonData as DataModelState); 
+        return this.SetState("LoadData", [data.length.toString()], jsonData as DataModelState); 
+    }
+
+    LoadItemDict = (data:string) => {
+        let jsonData = {};
+        try {
+            console.log(typeof(data)); 
+            jsonData = JSON.parse(data);
+        } catch {
+            return false;  
+        }
+
+        // rotate the items 180; FIXME: update UI to correct item orientation
+        this._state.ItemDict = jsonData; 
+        for(const key of Object.keys(this._state.ItemDict)) {
+            this.RotateItem180(this._state.ItemDict[key]); 
+        }
+        this.SetState("LoadItemDict", [data.length.toString()], this._state); 
+        return true; 
+    }
+
+    ExportItemDict = () => {
+        const itemDict:DataModelState['ItemDict'] = JSON.parse(JSON.stringify(this._state.ItemDict)) as DataModelState['ItemDict']; 
+        for(const key of Object.keys(itemDict)) {
+            this.RotateItem180(itemDict[key]); 
+        }
+        return JSON.stringify(itemDict, null, 2)
+    }
+    
+    private RotateItem180 = (item:Item) => {
+        for(let i = 0; i < item.NodeOrigin.length; i++) {
+            [item.NodeOrigin[i].Row, item.NodeOrigin[i].Col] = [-item.NodeOrigin[i].Row, -item.NodeOrigin[i].Col]
+        }
     }
     
     LoadHistory(history: string) {

@@ -7,56 +7,141 @@ import { useNotificationContext } from "./Notificaton/NotificationService";
 
 //FIXME: not updating when state changes
 export function Sidebar() {
-    const notifService = useNotificationContext(); 
-    const {modelState, dataModel} = useDataModelState(); 
-    const [curFiler, setCurFilter] = React.useState<"all"|"equip"|"items">("all")
+    const notifService = useNotificationContext();
+    const { modelState, dataModel } = useDataModelState();
+    const [exportFileURL, setExportFileURL] = React.useState(""); 
+    const [curFiler, setCurFilter] = React.useState<"all" | "equip" | "items">("all")
     const inputRef = React.useRef<HTMLInputElement>(null!)
 
     const HandleItemAdd = () => {
         // TODO: do search for item
-        if(!inputRef.current || inputRef.current.value.trim() == "") return; 
+        if (!inputRef.current || inputRef.current.value.trim() == "") return;
 
         dataModel.AddItem(inputRef.current.value.trim())
-        inputRef.current.value = ""; 
+        inputRef.current.value = "";
     }
 
-    const HandleSearchItemSelected = (token:string) => {
+    const HandleSearchItemSelected = (token: string) => {
         dataModel.AddItem(token)
     }
 
-    const HandleItemRemove = (item:Item) => {
-        dataModel.RemoveItem(item.Token); 
+    const HandleItemRemove = (item: Item) => {
+        dataModel.RemoveItem(item.Token);
     }
 
-    const HandleItemSelect = (item:Item) => {
-        dataModel.SetSelectedItem(item.Token); 
+    const HandleItemSelect = (item: Item) => {
+        dataModel.SetSelectedItem(item.Token);
     }
-    
+
     const HandleExportToClipboard = () => {
-        navigator.clipboard.writeText(JSON.stringify(modelState.ItemDict, null, 2)); 
+        navigator.clipboard.writeText(dataModel.ExportItemDict());
         notifService.PushNotificaton({
-            title: "Added to Clipboard", 
-            body:null, 
-            status: "info", 
+            title: "Added to Clipboard",
+            body: null,
+            status: "info",
         })
     }
 
-    const HandleListFilter = (filter:'all'|'items'|'equip') => {
+    const HandleImportFromFile = () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+
+        input.addEventListener('change', (ev) => {
+            if (!ev.target) return;
+
+            const inputElement: HTMLInputElement = ev.target as HTMLInputElement;
+            if (inputElement.files == null || inputElement.files.length <= 0) {
+                notifService.PushNotificaton({
+                    title: "Import from File",
+                    body: "No files to import",
+                    status: 'error'
+                });
+                return;
+            };
+
+            const file = inputElement.files[0];
+            const reader = new FileReader;
+            reader.addEventListener('load', (ev) => {
+                const content = ev.target?.result;
+        
+
+                if (!content) {
+                    notifService.PushNotificaton({
+                        title: "Import from File",
+                        body: "Unable to read file",
+                        status: 'error'
+                    });
+                    return;
+                }
+
+                const success = dataModel.LoadItemDict(atob(content.toString().replace("data:application/json;base64,", ""))); 
+                if(success) {
+                    notifService.PushNotificaton({
+                        title: "Import from File",
+                        body: "File Loaded successfully",
+                        status: 'success'
+                    });
+                } else  {
+                    notifService.PushNotificaton({
+                        title: "Import from File",
+                        body: "Invalid file contents",
+                        status: 'error'
+                    });
+                }
+            });
+
+            reader.readAsDataURL(file);
+
+
+        });
+
+        input.click();
+    }
+
+    const HandleExportToFile = () => {
+        const blob = new Blob([dataModel.ExportItemDict()], {type: 'application/json'}); 
+        
+        if(exportFileURL != "") {
+            window.URL.revokeObjectURL(exportFileURL); 
+            setExportFileURL(""); 
+        }
+
+        const targetURL = window.URL.createObjectURL(blob); 
+        setExportFileURL(targetURL); 
+
+        const downloadLink = document.createElement('a'); 
+        downloadLink.setAttribute('download', 'item_data.json'); 
+        downloadLink.href = targetURL; 
+        document.body.appendChild(downloadLink); 
+        window.requestAnimationFrame(() => {
+            const ev = new MouseEvent('click'); 
+            downloadLink.dispatchEvent(ev); 
+            document.body.removeChild(downloadLink); 
+
+            notifService.PushNotificaton({
+                title: "Export to File",
+                body: "Successfuly exported to file",
+                status: 'success'
+            });
+        }); 
+    }
+
+    const HandleListFilter = (filter: 'all' | 'items' | 'equip') => {
         setCurFilter(filter);
     }
 
     const filteredItems = React.useMemo(() => {
-        switch(curFiler) {
-            case 'all':     
-                return modelState.ItemDict; 
-            case "equip": 
+        switch (curFiler) {
+            case 'all':
+                return modelState.ItemDict;
+            case "equip":
                 return Object.keys(modelState.ItemDict).reduce((filtered, key) => {
-                    if(modelState.ItemDict[key].Token.includes("EQUIP")) filtered[key] = modelState.ItemDict[key]; 
+                    if (modelState.ItemDict[key].Token.includes("EQUIP")) filtered[key] = modelState.ItemDict[key];
                     return filtered;
                 }, {} as DataModelState['ItemDict'])
-            case "items": 
+            case "items":
                 return Object.keys(modelState.ItemDict).reduce((filtered, key) => {
-                    if(modelState.ItemDict[key].Token.includes("ITEM")) filtered[key] = modelState.ItemDict[key]; 
+                    if (modelState.ItemDict[key].Token.includes("ITEM")) filtered[key] = modelState.ItemDict[key];
                     return filtered;
                 }, {} as DataModelState['ItemDict'])
         }
@@ -77,17 +162,19 @@ export function Sidebar() {
         </div>
 
         <div className={styles.list}>
-            {Object.entries(filteredItems).map(([k, val]) => 
-                <ListItem key={k} 
-                    data={val} 
+            {Object.entries(filteredItems).map(([k, val]) =>
+                <ListItem key={k}
+                    data={val}
                     isSelected={val.Token == modelState.SelectedItemToken}
-                    onClose={() => HandleItemRemove(val)} 
-                    onSelect={() => HandleItemSelect(val)} 
+                    onClose={() => HandleItemRemove(val)}
+                    onSelect={() => HandleItemSelect(val)}
                 />)}
         </div>
 
         <div className={styles.ButtonGroup._}>
+            <Button onClick={HandleImportFromFile}>Import from File</Button>
             <Button onClick={HandleExportToClipboard}>Export to Clipboard</Button>
+            <Button onClick={HandleExportToFile}>Export to File</Button>
             {/* <Button>Export to File</Button> */}
             {/* <Button>Import from File</Button> */}
             {/* <Button>Import from Clipboard</Button> */}
@@ -96,17 +183,17 @@ export function Sidebar() {
     </div>
 }
 
-export function ListItem(props:{data:Item, isSelected:boolean, onClose:()=>void, onSelect:()=>void}){
+export function ListItem(props: { data: Item, isSelected: boolean, onClose: () => void, onSelect: () => void }) {
     const selectStyle = React.useMemo(() => {
-        return props.isSelected ? 
+        return props.isSelected ?
             {
-                color: 'blue', 
-            } as React.CSSProperties 
-        : {} as React.CSSProperties;
-    }, [props.isSelected]); 
+                color: 'blue',
+            } as React.CSSProperties
+            : {} as React.CSSProperties;
+    }, [props.isSelected]);
 
     const iconPath = React.useMemo(() => {
-        return ItemService.GetItemIconPath(props.data.Token); 
+        return ItemService.GetItemIconPath(props.data.Token);
     }, [props.data])
 
     return <div style={selectStyle} className={styles.listItem._} onClick={props.onSelect}>
@@ -123,17 +210,17 @@ const styles = {
     _: `
         grid grid-cols-1 grid-rows-[auto_auto_1fr_auto] gap-4 p-2
         border
-    `, 
-    filterGroup: `grid grid-cols-3 grid-rows-1 gap-2 p-2`, 
-    filterGroupButton: `truncate [.selected]:font-bold [.selected]:underline`, 
+    `,
+    filterGroup: `grid grid-cols-3 grid-rows-1 gap-2 p-2`,
+    filterGroupButton: `truncate [.selected]:font-bold [.selected]:underline`,
     header: `
         w-full grid grid-cols-[1fr_auto] grid-rows-1 gap-2
-    `, 
+    `,
     list: `
         flex flex-col gap-1
         overflow-y-scroll
-    `, 
-    listItem:{
+    `,
+    listItem: {
         _: `
             min-h-20 max-h-30 p-2
             border 
@@ -142,13 +229,13 @@ const styles = {
             hover:bg-gray-200
             active:bg-gray-100
             selected:bg-blue-100
-        `, 
-        img:`max-h-15 max-w-15`,
-        labelGroup: `grid grid-cols-1 grid-rows-2`, 
-        headerLabel: `font-bold`, 
-        tokenLabel: `text-[70%] truncate`, 
-    }, 
+        `,
+        img: `max-h-15 max-w-15`,
+        labelGroup: `grid grid-cols-1 grid-rows-2`,
+        headerLabel: `font-bold`,
+        tokenLabel: `text-[70%] truncate`,
+    },
     ButtonGroup: {
-        _: `grid grid-cols-1 grid-rows-auto gap-1`, 
+        _: `grid grid-cols-1 grid-rows-auto gap-1`,
     }
 }

@@ -30,7 +30,7 @@ export function NotificationPanel() {
     </div>
 }
 
-const NOTIF_DURATION = 2 * 1000; 
+const NOTIF_DURATION = 3 * 1000; 
 export function NotificationItem(props:{data: NotificaitonData, OnClose:()=>void}) {
     React.useEffect(() => {
         const timeout = setTimeout(props.OnClose, NOTIF_DURATION);

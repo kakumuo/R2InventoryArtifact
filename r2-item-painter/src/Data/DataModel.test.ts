@@ -5,13 +5,13 @@ import { DataModel } from "./DataModel";
 
 test('Load Success', () => {
     const model = new DataModel(); 
-    const resp = model.LoadData('{"SelectedItemToken": null, "ItemDict": {}}'); 
+    const resp = model.LoadState('{"SelectedItemToken": null, "ItemDict": {}}'); 
     expect(resp).not.toBeNull(); 
 });
 
 test('Load Failed', () => {
     const model = new DataModel(); 
-    const resp = model.LoadData('"123"'); 
+    const resp = model.LoadState('"123"'); 
     expect(resp).toBeNull(); 
 }); 
 

@@ -62,21 +62,33 @@ namespace R2InventoryArtifact
             currentRun.AdvanceStage(RoR2.SceneCatalog.FindSceneDef("golemplains")); 
         }
 
+        private void GrantMoney()
+        {
+            PlayerCharacterMasterController.instances[0].master.GiveMoney(200); 
+        }
+
+        private void LevelPlayer()
+        {
+            PlayerCharacterMasterController.instances[0].master.GiveExperience(100); 
+        }
+
         // DEBUG: test item setting
         private void Update()
         {
             if(Input.GetKeyUp(KeyCode.Alpha1)) SpawnItem(DLC2Content.Items.IncreaseDamageOnMultiKill.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha2)) SpawnItem(DLC1Content.Equipment.Molotov.equipmentIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha2)) SpawnItem(DLC2Content.Items.LowerPricedChests.itemIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha3)) GrantMoney();
+            // if(Input.GetKeyUp(KeyCode.Alpha2)) SpawnItem(DLC1Content.Equipment.Molotov.equipmentIndex);
             if(Input.GetKeyUp(KeyCode.Alpha3)) SpawnItem(RoR2Content.Items.Mushroom.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha4)) SpawnItem(DLC1Content.Items.MushroomVoid.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha5)) SpawnItem(DLC2Content.Items.LowerPricedChests.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha7))
+            // if(Input.GetKeyUp(KeyCode.Alpha4)) SpawnItem(DLC1Content.Items.MushroomVoid.itemIndex);
+            // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
+            if(Input.GetKeyUp(KeyCode.Alpha4))
             {
                 var body = PlayerCharacterMasterController.instances[0].master;
                 if(body) body.GetBody().InflictLavaDamage(); 
             }
-            if(Input.GetKeyUp(KeyCode.Alpha8)) AdvanceStage();
+            if(Input.GetKeyUp(KeyCode.Alpha5)) AdvanceStage();
+            if(Input.GetKeyUp(KeyCode.Alpha6)) LevelPlayer(); 
             // if(Input.GetKeyUp(KeyCode.Alpha8)) SpawnItem(DLC1Content.Equipment.GummyClone.equipmentIndex);
             // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
             // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);

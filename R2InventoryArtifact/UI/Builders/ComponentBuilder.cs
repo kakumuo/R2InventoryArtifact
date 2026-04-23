@@ -86,8 +86,8 @@ namespace R2InventoryArtifact.UI.Builders
                 // new(){Col=8, Row=0, ColSpan=2, RowSpan=10},
             }; 
             int spacing = 8; 
-            int horipad = (int)(canvasScaler.referenceResolution.x * .20f); 
-            int vertpad = (int)(canvasScaler.referenceResolution.y * .20f); 
+            int horipad = (int)(canvasScaler.referenceResolution.x * PluginConfig.UIHorizontalPadding.Value * .1f); 
+            int vertpad = (int)(canvasScaler.referenceResolution.y * PluginConfig.UIVerticalPadding.Value * .1f); 
             bentoGroup.UnitWidth = 10; 
             bentoGroup.UnitHeight = 10; 
             bentoGroup.Spacing = spacing; 
