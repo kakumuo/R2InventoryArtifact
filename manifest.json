@@ -1,6 +1,6 @@
 {
     "name": "R2InventoryArtifact",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/kakumuo/R2InventoryArtifact",
     "description": "A mod adds an active inventory management system.",
     "dependencies": [

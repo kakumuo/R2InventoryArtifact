@@ -72,7 +72,7 @@ As this is my first mod, I used the below mods as references:
 # Pending Tasks
 ### Known Bugs
 - Sometimes items in the Hold Area are dropped from the inventory, but not from the HUD, thus allowing items to be dropped multiple times
-- Item Painter returns nodes 'upside down'
+- ~~Item Painter returns nodes 'upside down'~~
 
 ### Todo
 - Add custom sprites for item slots when they are occupied to better identify item boundaries

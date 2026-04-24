@@ -71,7 +71,43 @@
 		<Copy
 			SourceFiles="@(ReadmeMediaFiles)"
 			DestinationFiles="..\Thunderstore\build\media\%(RecursiveDir)\%(Filename)%(Extension)" />
+
+		<!-- use Github media path -->
+		<ReplaceFileText 
+			InputFilename="..\Thunderstore\build\README.md" 
+			OutputFilename="..\Thunderstore\build\README.md" 
+			MatchExpression="\(media" 
+			ReplacementText="(https://raw.githubusercontent.com/kakumuo/R2InventoryArtifact/refs/heads/main/media" 
+		/>
 	</Target>
+
+	<!--
+	Source - https://stackoverflow.com/a/22571621
+	Posted by csharptest.net
+	Retrieved 2026-04-24, License - CC BY-SA 3.0
+	-->
+	<UsingTask TaskName="ReplaceFileText" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+		<ParameterGroup>
+			<InputFilename ParameterType="System.String" Required="true" />
+			<OutputFilename ParameterType="System.String" Required="true" />
+			<MatchExpression ParameterType="System.String" Required="true" />
+			<ReplacementText ParameterType="System.String" Required="true" />
+		</ParameterGroup>
+		<Task>
+			<Reference Include="System.Core" />
+			<Using Namespace="System" />
+			<Using Namespace="System.IO" />
+			<Using Namespace="System.Text.RegularExpressions" />
+			<Code Type="Fragment" Language="cs">
+			<![CDATA[
+					File.WriteAllText(
+						OutputFilename,
+						Regex.Replace(File.ReadAllText(InputFilename), MatchExpression, ReplacementText)
+						);
+				]]>
+			</Code>
+		</Task>
+	</UsingTask>
 
     <Target Name="ZipOutputPath" AfterTargets="Deploy">
         <ZipDirectory

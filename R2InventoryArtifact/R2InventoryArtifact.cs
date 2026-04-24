@@ -21,7 +21,7 @@ namespace R2InventoryArtifact
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "foxfen64";
         public const string PluginName = "R2InventoryArtifact";
-        public const string PluginVersion = "1.0.0";
+        public const string PluginVersion = "1.0.1";
         public static R2InventoryArtifact Instance; 
 
         public void Awake()
