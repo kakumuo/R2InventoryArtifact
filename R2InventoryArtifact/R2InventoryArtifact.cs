@@ -40,7 +40,7 @@ namespace R2InventoryArtifact
             pluginObj.AddComponent<InventoryHook>(); 
             pluginObj.AddComponent<UIHook>(); 
             pluginObj.AddComponent<LevelUpHook>(); 
-            pluginObj.AddComponent<DebugManager>(); 
+            // pluginObj.AddComponent<DebugManager>(); 
 
             Log.Info("R2InventoryArtifactPlugin Initialized..."); 
         }

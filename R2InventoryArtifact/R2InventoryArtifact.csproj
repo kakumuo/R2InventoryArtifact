@@ -50,5 +50,35 @@
 			DestinationFolder="$(AppData)\r2modmanPlus-local\RiskOfRain2\profiles\dev\BepInEx\plugins\foxfen64-R2InventoryArtifact\%(RecursiveDir)"
 		/>
 	</Target>
+	
+	<Target Name="Deploy" DependsOnTargets="Build">
+		<Message Text="=== Compiling ==="/>
+		<MSBuild Projects="R2InventoryArtifact.sln" Properties="Configuraiton=Debug" />
+		
+		<ItemGroup>
+			<PluginOutputFiles Include="$(OutDir)\**\*.*"/>
+			<PluginMetaFiles Include="..\README.md;..\CHANGELOG.md;..\manifest.json;$(OutDir)\Assets\icon.png" />
+			<ReadmeMediaFiles Include="..\media\**\*.*"/>
+		</ItemGroup>
+		<Copy
+			SourceFiles="@(PluginOutputFiles)"
+			DestinationFolder="..\Thunderstore\build\%(RecursiveDir)"
+		/>
+		<Copy
+			SourceFiles="@(PluginMetaFiles)"
+			DestinationFolder="..\Thunderstore\build\%(RecursiveDir)"
+		/>
+		<Copy
+			SourceFiles="@(ReadmeMediaFiles)"
+			DestinationFiles="..\Thunderstore\build\media\%(RecursiveDir)\%(Filename)%(Extension)" />
+	</Target>
+
+    <Target Name="ZipOutputPath" AfterTargets="Deploy">
+        <ZipDirectory
+            SourceDirectory="..\Thunderstore\build"
+            DestinationFile="..\Thunderstore\foxfen64-R2InventoryArtifact.zip" 
+			Overwrite="true"	
+		/>
+    </Target>
 
 </Project>
