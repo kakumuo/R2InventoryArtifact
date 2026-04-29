@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using R2InventoryArtifact.UI.Components;
 using R2InventoryArtifact.UI.Layouts;
 using RoR2;
-using UnityEngine.AddressableAssets;
-using RoR2.UI;
+using R2InventoryArtifact.UI.Services;
 
 
 namespace R2InventoryArtifact.UI.Builders
@@ -14,7 +13,7 @@ namespace R2InventoryArtifact.UI.Builders
     {
         public static InventoryDropComponent BuildInventoryDropComponent(Transform parent)
         {
-            RectTransform panel = BuildPanel(parent, "DropArea"); 
+            RectTransform panel = BuildPanel(parent, "DropArea", UIAssetService.SpritePanelType.DROP_ZONE); 
             return panel.gameObject.AddComponent<InventoryDropComponent>(); 
         }
 
@@ -58,9 +57,9 @@ namespace R2InventoryArtifact.UI.Builders
             // GameObject panel = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/DefaultPanel.prefab").WaitForCompletion(); 
             // panel.transform.SetParent(parent); 
             // UnityEngine.Component.Destroy(panel.GetComponent<RectTransform>()); 
-            // panel.AddComponent<RectTransform>(); 
+            // panel.AddComponent<RectTransform>();
         
-            RectTransform panelRect = BuildPanel(parent, "InventoryUI", SpritePanelType.BACKDROP);
+            RectTransform panelRect = BuildPanel(parent, "InventoryUI", UIAssetService.SpritePanelType.BACKDROP);
             GameObject panelObj = panelRect.gameObject; 
             panelObj.layer = LayerIndex.ui.intVal; 
             // panelObj.AddComponent<LayoutElement>(); 

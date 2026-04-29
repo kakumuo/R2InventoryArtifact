@@ -71,6 +71,12 @@ namespace R2InventoryArtifact.Model
                     break; 
                 }
 
+            if(PickupType == PickupType.Item)
+            {
+                ItemDef def = ItemCatalog.GetItemDef(pickup.pickupIndex.pickupDef.itemIndex); 
+                if(pickup.isTempItem || (def != null && def.isConsumed)) IsDroppable = false; 
+            }
+
             _nodeOrigin = nodeOrigin; 
             _activeOrigin = activeOrigin; 
 
@@ -108,7 +114,7 @@ namespace R2InventoryArtifact.Model
                 case PickupType.Item: 
                     // ItemIcon icon = new ItemIcon(); 
                     // icon.SetItemIndex(Pickup.pickupIndex.pickupDef.itemIndex, 1, 1);
-                    // Log.Info($"{icon.tooltipProvider.bodyText}");  
+                    // Log.Debug($"{icon.tooltipProvider.bodyText}");  
                     ItemDef itemDef = ItemCatalog.GetItemDef(Pickup.pickupIndex.pickupDef.itemIndex); //TODO: move to constructor
                     content.titleToken = itemDef.nameToken; 
                     content.bodyToken = itemDef.descriptionToken;

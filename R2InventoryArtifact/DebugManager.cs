@@ -1,5 +1,8 @@
 
+using System;
+using IL.RoR2.UI;
 using R2API;
+using R2API.Utils;
 using RoR2;
 using UnityEngine;
 
@@ -8,7 +11,10 @@ namespace R2InventoryArtifact
     public class DebugManager : MonoBehaviour
     {
         public static DebugManager Instance; 
-        public static Run currentRun; 
+        public static Run currentRun;
+        public static CharacterMaster PlayerMaster; 
+        public bool SetDecayValue = false; 
+        public static CharacterBody PlayerBody => PlayerMaster.GetBody();
 
         private void Awake()
         {
@@ -22,76 +28,35 @@ namespace R2InventoryArtifact
         private void HandleRunStart(Run run)
         {
             currentRun = run; 
+            PlayerMaster = PlayerCharacterMasterController.instances[0].master; 
+            On.RoR2.Inventory.SetItemDecayDurationServer += Inventory_SetItemDecayDurationServer;
         }
 
-        private void SpawnItem(ItemIndex itemindex, bool isTemp=false)
+        private void Inventory_SetItemDecayDurationServer(On.RoR2.Inventory.orig_SetItemDecayDurationServer orig, Inventory self, float duration)
         {
-            var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-            var unique = new UniquePickup(PickupCatalog.FindPickupIndex(itemindex)); 
-            // Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
-            if(transform) PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
-        }
-
-        
-        private void SpawnItem(EquipmentIndex itemindex, bool isTemp=false)
-        {
-            var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-            var unique = new UniquePickup(PickupCatalog.FindPickupIndex(itemindex)); 
-            // Log.Info($"Spawning {(isTemp ? "temp" : "permanent")} {unique.pickupIndex}"); 
-            if(transform) PickupDropletController.CreatePickupDroplet(unique, transform.position, transform.forward * 20f, false);
-        }
-
-        private void PrintItems()
-        {
-            Log.Info("Printing items..."); 
-            foreach(var item in ItemCatalog.allItemDefs)
+            if(!SetDecayValue)
             {
-                Log.Info($"\"{item.nameToken}\":\t{{IconPath: \"{Language.GetString(item.nameToken).Replace(" ", "_") + "webp"}\", BaseLabel:\"{item.name}\", Label:\"{Language.GetString(item.nameToken)}\"}}"); 
-            }
-
-            Log.Info("Printing Equipment..."); 
-            foreach(var item in EquipmentCatalog.equipmentDefs)
-            {
-                Log.Info($"\"{item.nameToken}\":\t{{IconPath: \"{Language.GetString(item.nameToken).Replace(" ", "_") + "webp"}\", BaseLabel:\"{item.name}\", Label:\"{Language.GetString(item.nameToken)}\"}}"); 
-            }
+                self.SetItemDecayDurationServer(2);
+                SetDecayValue = true; 
+            } 
+            // orig(self, duration); 
         }
 
-        private void AdvanceStage()
-        {
-            if(!currentRun) return; 
-            currentRun.AdvanceStage(RoR2.SceneCatalog.FindSceneDef("golemplains")); 
-        }
 
-        private void GrantMoney()
-        {
-            PlayerCharacterMasterController.instances[0].master.GiveMoney(200); 
-        }
-
-        private void LevelPlayer()
-        {
-            PlayerCharacterMasterController.instances[0].master.GiveExperience(100); 
-        }
 
         // DEBUG: test item setting
         private void Update()
         {
-            if(Input.GetKeyUp(KeyCode.Alpha1)) SpawnItem(DLC2Content.Items.IncreaseDamageOnMultiKill.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha2)) SpawnItem(DLC2Content.Items.LowerPricedChests.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha3)) GrantMoney();
-            // if(Input.GetKeyUp(KeyCode.Alpha2)) SpawnItem(DLC1Content.Equipment.Molotov.equipmentIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha3)) SpawnItem(RoR2Content.Items.Mushroom.itemIndex);
-            // if(Input.GetKeyUp(KeyCode.Alpha4)) SpawnItem(DLC1Content.Items.MushroomVoid.itemIndex);
-            // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
-            if(Input.GetKeyUp(KeyCode.Alpha4))
-            {
-                var body = PlayerCharacterMasterController.instances[0].master;
-                if(body) body.GetBody().InflictLavaDamage(); 
-            }
-            if(Input.GetKeyUp(KeyCode.Alpha5)) AdvanceStage();
-            if(Input.GetKeyUp(KeyCode.Alpha6)) LevelPlayer(); 
-            // if(Input.GetKeyUp(KeyCode.Alpha8)) SpawnItem(DLC1Content.Equipment.GummyClone.equipmentIndex);
-            // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
-            // if(Input.GetKeyUp(KeyCode.Alpha6)) SpawnItem(DLC1Content.Items.HealingPotion.itemIndex);
+            if(Input.GetKeyDown(KeyCode.Alpha1)) PlayerBody?.inventory.GiveItemPermanent(DLC1Content.Items.RegeneratingScrap); 
+            if(Input.GetKeyDown(KeyCode.Alpha3)) PlayerBody?.inventory.GiveItemTemp(DLC1Content.Items.HealingPotion.itemIndex); 
+            if(Input.GetKeyDown(KeyCode.Alpha4)) PlayerBody?.inventory.GiveItemPermanent(RoR2Content.Items.BleedOnHit); 
+            if(Input.GetKeyDown(KeyCode.Alpha5)) PlayerBody?.inventory.GiveItemPermanent(DLC1Content.Items.BleedOnHitVoid); 
+            if(Input.GetKeyDown(KeyCode.Alpha6)) PlayerBody?.inventory.GiveRandomItems(1, ItemTier.Tier1, ItemTier.Tier2); 
+            if(Input.GetKeyDown(KeyCode.Alpha7)) PlayerBody?.inventory.GiveRandomEquipment();  
+            
+            if(Input.GetKeyDown(KeyCode.Keypad1)) PlayerBody?.inventory.RemoveItemPermanent(RoR2Content.Items.AlienHead.itemIndex); 
+            if(Input.GetKeyDown(KeyCode.Keypad2)) PlayerBody?.inventory.RemoveItemTemp(RoR2Content.Items.AlienHead.itemIndex); 
+            if(Input.GetKeyDown(KeyCode.Keypad2)) PlayerBody?.inventory.RemoveEquipment(RoR2Content.Equipment.BFG.equipmentIndex); 
         }
     }
 }

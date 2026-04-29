@@ -30,7 +30,7 @@ namespace R2InventoryArtifact.UI.Components
             _titleLbl = labels[0];
             _stackLbl = labels[1];
 
-            _icon.sprite = UIAssetService.GetSprite(item.Pickup);
+            _icon.sprite = UIAssetService.GetPickupSprite(item.Pickup);
             Item.OnStackCountChanged += UpdateLabels;
             // Item.OnItemCorrupted += HandleItemCorruption;
 

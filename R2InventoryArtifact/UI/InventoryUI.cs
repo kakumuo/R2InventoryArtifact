@@ -62,7 +62,7 @@ namespace R2InventoryArtifact.UI
         void OnDestroy()
         {
             _inventoryDropArea.OnInventoryItemDropped -= HandleItemDrop;
-            Log.Info("destroyed inventoryui"); 
+            Log.Debug("destroyed inventoryui"); 
         }
         
         public void SetUIVisibility(bool show)
@@ -159,7 +159,7 @@ namespace R2InventoryArtifact.UI
         public void SetPlayerLevel(int playerLevel)
         {
             PlayerLevel = playerLevel; 
-            Debug.Log($"Setting player level to: {PlayerLevel}"); 
+            // Debug.Log($"Setting player level to: {PlayerLevel}"); 
             List<InventoryLock> unlocks = InventoryModel.SetUnlocksAtLevel(PlayerLevel); 
             _inventoryGrid.UpdateGridLocks(unlocks); 
             _inventoryGrid.RepaintGrid(); 

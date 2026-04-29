@@ -1,11 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using UnityEngine.AddressableAssets;
-using UnityEngine.U2D;
-using RoR2.UI;
-using RoR2;
+using static R2InventoryArtifact.UI.Services.UIAssetService;
 
 
 namespace R2InventoryArtifact.UI.Builders
@@ -29,13 +25,13 @@ namespace R2InventoryArtifact.UI.Builders
             scrollRect.inertia = false;
             scrollRect.movementType = ScrollRect.MovementType.Clamped;
             
-            RectTransform viewportRect = BuildPanel(obj.transform, "Viewport");
+            RectTransform viewportRect = BuildPanel(obj.transform, "Viewport", SpritePanelType.NONE);
             SetRectTransformAnchor(viewportRect, horizontal: AnchorPreset.STRETCH, vertical: AnchorPreset.STRETCH);
             viewportRect.pivot = Vector2.zero; 
             viewportRect.gameObject.AddComponent<Mask>().showMaskGraphic = false;
             scrollRect.viewport = viewportRect.GetComponent<RectTransform>();
 
-            RectTransform contentRect = BuildPanel(viewportRect.transform, "Content");
+            RectTransform contentRect = BuildPanel(viewportRect.transform, "Content", SpritePanelType.BACKDROP);
             SetRectTransformAnchor(
                 contentRect, 
                 horizontal: horizontal && !vertical ? AnchorPreset.START : AnchorPreset.STRETCH, 
@@ -69,7 +65,7 @@ namespace R2InventoryArtifact.UI.Builders
             bool hori = direction == Scrollbar.Direction.LeftToRight || direction == Scrollbar.Direction.RightToLeft;
             string targetName = hori ? "HScrollBar" : "VScrollBar";
 
-            RectTransform scrollRect = BuildPanel(parent, targetName);
+            RectTransform scrollRect = BuildPanel(parent, targetName, SpritePanelType.BACKDROP);
             SetRectTransformAnchor(
                 scrollRect,
                 horizontal: hori ? AnchorPreset.STRETCH : AnchorPreset.END,
@@ -115,9 +111,30 @@ namespace R2InventoryArtifact.UI.Builders
             // img.color = c; 
             if(panelType != SpritePanelType.NONE)
             {
-                img.sprite = GetSprite(panelType); 
+                img.sprite = GetUISprite(panelType); 
                 img.type = Image.Type.Sliced;
+            } else
+            {
+                // img.color = new Color(0, 0, 0, 0); 
             }
+
+            obj.transform.SetParent(parent);
+            return rect;
+        }
+
+        // TODO: write in a cleaner way
+        public static RectTransform BuildTile(Transform parent, string objName = "", SpriteTileType tileType = SpriteTileType.TILE)
+        {
+            GameObject obj = new GameObject(objName);
+            RectTransform rect = obj.AddComponent<RectTransform>();
+            obj.AddComponent<CanvasRenderer>();
+            Image img = obj.AddComponent<Image>();
+
+            // Color c  = Color.white; 
+            // c.a = .25f; 
+            // img.color = c; 
+            img.sprite = GetTileSprite(tileType); 
+            img.type = Image.Type.Sliced;
 
             obj.transform.SetParent(parent);
             return rect;

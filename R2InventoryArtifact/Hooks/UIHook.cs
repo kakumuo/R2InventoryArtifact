@@ -35,9 +35,8 @@ namespace R2InventoryArtifact.Hooks
         public static Action OnInitializeUI;
 
         public static InventoryUI InventoryUI;
-        public static CharacterBody PlayerBody => ClientUser.master.GetBody();
+        public static CharacterBody PlayerBody => ClientUser?.master.GetBody();
         public static NetworkUser ClientUser; 
-
 
 
         private void HandleRunStart(Run run)
@@ -53,12 +52,17 @@ namespace R2InventoryArtifact.Hooks
             IntRect rect = new IntRect(PluginConfig.InventoryWidth.Value, PluginConfig.InventoryHeight.Value);
             _locks = GenerateGridLocks(rect, 3);
 
+            if(InventoryUI != null)
+            {
+                Destroy(InventoryUI.gameObject); 
+            }
+
             InventoryUI = ComponentBuilder.BuildInventoryUI(null); //MAYBE: use null or embed into base game ui
             InventoryUI.Initialize(rect, _locks);
             InventoryUI.SetUIVisibility(show: false);
             InventoryUI.OnUIVisibilityChanged += HandleCursorVisibility;
             InventoryUI.OnInventoryItemDropped += OnInventoryItemDropped;
-            OnInitializeUI.Invoke();
+            OnInitializeUI?.Invoke();
         }
 
         private List<InventoryLock> GenerateGridLocks(IntRect grid, int startRow, int minLevel=5, int maxLevel=30)
@@ -104,7 +108,7 @@ namespace R2InventoryArtifact.Hooks
         private void HandleCursorVisibility(bool show)
         {
             var pes = MPEventSystemManager.primaryEventSystem;
-            // Log.Info($"Selected Obj: {pes.currentSelectedGameObject}");
+            // Log.Debug($"Selected Obj: {pes.currentSelectedGameObject}");
             pes.allowCursorPush = true; 
             pes.cursorOpenerCount = show || _isPaused ? 1 : 0;
             pes.SetSelectedGameObject(null); //make sure ui components are deselected   

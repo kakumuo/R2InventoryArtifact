@@ -18,7 +18,7 @@ A mod adds an active inventory management system.
 
 #### Drop Area
 - `Droppable` items may by dropped by dragging them from either the `Hold Area` or the `Grid Area` to the `Drop Area`. 
-- Only `Lunar` Teir and `Void` Tier items are deemed not `Droppable`.
+- Only `Lunar` Teir and `Void` Tier and `Temp` and `Consumed` items are deemed not `Droppable`.
 
 #### Non Equip Area
 - `Non-equippable Items` will appear in the `Non-Equip Area`. 
@@ -75,7 +75,7 @@ As this is my first mod, I used the below mods as references:
 - ~~Item Painter returns nodes 'upside down'~~
 
 ### Todo
-- Add custom sprites for item slots when they are occupied to better identify item boundaries
+~~- Add custom sprites for item slots when they are occupied to better identify item boundaries~~
 - Controller support
 - Allow some config options to update UI without Run restart
 

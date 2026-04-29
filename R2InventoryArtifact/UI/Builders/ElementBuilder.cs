@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using R2InventoryArtifact.UI.Components;
 using R2InventoryArtifact.UI.Layouts;
 using RoR2.UI;
-using UnityEngine.AddressableAssets;
+using R2InventoryArtifact.UI.Services;
 
 namespace R2InventoryArtifact.UI.Builders
 {    
@@ -14,7 +14,7 @@ namespace R2InventoryArtifact.UI.Builders
     {
         public static InventorySlotComponent BuildGridSlot(Transform parent, string objName = "")
         {
-            RectTransform slotRect = BuildPanel(parent, objName, SpritePanelType.TILE); 
+            RectTransform slotRect = BuildTile(parent, objName); 
             GameObject obj = slotRect.gameObject; 
             obj.AddComponent<HorizontalLayoutGroup>();
             obj.AddComponent<TooltipProvider>(); 
@@ -27,25 +27,21 @@ namespace R2InventoryArtifact.UI.Builders
         }
 
         public static InventoryItemElement BuildItemElement(string objName="")
-        {
-            // var obj = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/ItemIcon.prefab").WaitForCompletion();
-            // ItemIcon icon = obj.GetComponent<ItemIcon>(); 
-            // icon.SetItemIndex(item.Pickup.pickupIndex.pickupDef.itemIndex, 1, 1); 
-            
+        {           
             GameObject obj = new GameObject(objName); 
             obj.AddComponent<RectTransform>(); 
             obj.AddComponent<Image>(); 
             obj.AddComponent<CanvasGroup>(); 
             obj.AddComponent<HorizontalLayoutGroup>(); 
             obj.AddComponent<LayoutElement>(); 
-            // AspectRatioFitter fitter = obj.AddComponent<AspectRatioFitter>(); 
-            // fitter.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth; 
-            // fitter.aspectRatio = 1; 
+            AspectRatioFitter fitter = obj.AddComponent<AspectRatioFitter>(); 
+            fitter.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth; 
+            fitter.aspectRatio = 1; 
 
                 GameObject labelObj = new GameObject("label");
                 labelObj.AddComponent<RectTransform>(); 
                 TextMeshProUGUI label = labelObj.AddComponent<TextMeshProUGUI>();  
-                label.color = Color.black; 
+                // label.color = Color.white; 
                 label.horizontalAlignment = HorizontalAlignmentOptions.Right; 
                 label.verticalAlignment = VerticalAlignmentOptions.Bottom; 
                 labelObj.transform.SetParent(obj.transform); 
@@ -68,7 +64,7 @@ namespace R2InventoryArtifact.UI.Builders
                 labelObj.AddComponent<RectTransform>(); 
                 TextMeshProUGUI label = labelObj.AddComponent<TextMeshProUGUI>();  
                 label.fontSize = UIConstants.FONT_MD; 
-                label.color = Color.black; 
+                // label.color = Color.white; 
                 label.autoSizeTextContainer = true; 
                 labelObj.transform.SetParent(obj.transform); 
             
@@ -80,7 +76,7 @@ namespace R2InventoryArtifact.UI.Builders
             // GameObject obj = new GameObject(objName); 
             // obj.AddComponent<RectTransform>(); 
             // obj.AddComponent<Image>(); 
-            RectTransform objRect = BuildPanel(null, objName, SpritePanelType.ELEMENT); 
+            RectTransform objRect = BuildPanel(null, objName, UIAssetService.SpritePanelType.ELEMENT); 
             GameObject obj = objRect.gameObject; 
             obj.AddComponent<CanvasGroup>(); 
             LayoutElement layoutElement = obj.AddComponent<LayoutElement>(); 
@@ -110,7 +106,7 @@ namespace R2InventoryArtifact.UI.Builders
             GameObject titleObj = new GameObject("title"); 
             titleObj.AddComponent<RectTransform>(); 
             TextMeshProUGUI titleLbl = titleObj.AddComponent<TextMeshProUGUI>(); 
-            titleLbl.color = Color.black; 
+            // titleLbl.color = Color.black; 
             titleLbl.fontSize = UIConstants.FONT_LG; 
             titleObj.transform.SetParent(obj.transform); 
 
@@ -118,7 +114,7 @@ namespace R2InventoryArtifact.UI.Builders
             GameObject stackObj = new GameObject("stack"); 
             stackObj.AddComponent<RectTransform>(); 
             TextMeshProUGUI stackLbl = stackObj.AddComponent<TextMeshProUGUI>(); 
-            stackLbl.color = Color.black; 
+            // stackLbl.color = Color.black; 
             stackLbl.fontSize = UIConstants.FONT_LG;  
             stackObj.transform.SetParent(obj.transform); 
         
@@ -147,7 +143,7 @@ namespace R2InventoryArtifact.UI.Builders
                     GameObject headerLblObj = new GameObject("headerLbl"); 
                     headerLblObj.AddComponent<RectTransform>(); 
                     TextMeshProUGUI headerLbl = headerLblObj.AddComponent<TextMeshProUGUI>(); 
-                    headerLbl.color = Color.black; 
+                    // headerLbl.color = Color.black; 
                     headerLbl.fontSize = UIConstants.FONT_MD; 
                     headerLblObj.transform.SetParent(headerObj.transform); 
 
@@ -160,7 +156,7 @@ namespace R2InventoryArtifact.UI.Builders
                     GameObject bodyLblObj = new GameObject("bodyLbl"); 
                     bodyLblObj.AddComponent<RectTransform>(); 
                     TextMeshProUGUI bodyLbl = bodyLblObj.AddComponent<TextMeshProUGUI>(); 
-                    bodyLbl.color = Color.black; 
+                    // bodyLbl.color = Color.black; 
                     bodyLbl.fontSize = UIConstants.FONT_MD; 
                     bodyLblObj.transform.SetParent(bodyObj.transform); 
             R2Tooltip tootlip =  obj.AddComponent<R2Tooltip>(); 

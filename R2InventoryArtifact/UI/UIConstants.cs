@@ -16,7 +16,7 @@ namespace R2InventoryArtifact.UI
         public const int FONT_LG = 16; 
 
         private const float ALPHA = .5f; 
-        public readonly static Color COLOR_ITEM_SLOT_NEUTRAL         = ColorFromHex("#ffffff", ALPHA); 
+        public readonly static Color COLOR_ITEM_SLOT_NEUTRAL         = ColorFromHex("#ffffff", ALPHA / 2); 
         public readonly static Color COLOR_ITEM_SLOT_ACTIVE          = ColorFromHex("#daa520", ALPHA); 
         public readonly static Color COLOR_ITEM_SLOT_ACTIVE_OUTLINE  = ColorFromHex("#b8860b", ALPHA);
         public readonly static Color COLOR_ITEM_SLOT_HOVER_VALID     = ColorFromHex("#008000", ALPHA);

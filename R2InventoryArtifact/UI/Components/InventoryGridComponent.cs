@@ -113,8 +113,8 @@ namespace R2InventoryArtifact.UI.Components
 
         public void RepaintGrid()
         {
-            List<GridPosition> highlightPos = new List<GridPosition>();
-            List<GridPosition> activePos = new List<GridPosition>();
+            List<GridPosition> dragHighlightPos = new List<GridPosition>();
+            List<GridPosition> hoverHighlightPos = new List<GridPosition>();
             bool isValidPosition = true;
 
             if (_cursorPosition != null)
@@ -123,8 +123,8 @@ namespace R2InventoryArtifact.UI.Components
                 if (InventoryUI.Instance.CursorElement != null)
                 {
                     isValidPosition = InventoryModel.IsValidItemPosition(InventoryUI.Instance.CursorElement.Item, (GridPosition)_cursorPosition);
-                    highlightPos = InventoryUI.Instance.CursorElement.Item.Nodes.Select(n => n + (GridPosition)_cursorPosition).ToList();
-                    activePos = InventoryUI.Instance.CursorElement.Item.ActiveNodes.Select(n => n + (GridPosition)_cursorPosition).Where(n => _gridRect.Contains(n)).ToList();
+                    dragHighlightPos = InventoryUI.Instance.CursorElement.Item.Nodes.Select(n => n + (GridPosition)_cursorPosition).ToList();
+                    // activePos = InventoryUI.Instance.CursorElement.Item.ActiveNodes.Select(n => n + (GridPosition)_cursorPosition).Where(n => _gridRect.Contains(n)).ToList();
                 }
                 else
                 {
@@ -132,7 +132,7 @@ namespace R2InventoryArtifact.UI.Components
                     if (hoveredItem != null)
                     {
                         GridPosition itemRoot = InventoryModel.GetItemRoot(hoveredItem);
-                        activePos = hoveredItem.Nodes.Select(n => n + itemRoot).Where(n => _gridRect.Contains(n)).ToList();
+                        hoverHighlightPos = hoveredItem.Nodes.Select(n => n + itemRoot).Where(n => _gridRect.Contains(n)).ToList();
                     }
                 }
             }
@@ -143,30 +143,40 @@ namespace R2InventoryArtifact.UI.Components
                 {
                     InventoryItem item = InventoryModel.GetItemAt(r, c);
                     InventorySlotComponent slot = _slots[r, c];
+                    GridPosition pos = new GridPosition(c, r); 
+                    InventoryLock curLock = InventoryModel.GetLockAt(r, c); 
 
                     // check adjacent elements for painting
-                    bool[] adjList = new bool[4]; 
-                    if(item != null)
+                    bool[] adjList = new bool[_DIRS.Count]; 
+                    if(item != null || (curLock != null && curLock.IsLocked))
                     {
                         for (int i = 0; i < _DIRS.Count; i++)
                         {
                             int dR = r + _DIRS[i].Item1;
                             int dC = c + _DIRS[i].Item2;
 
-                            adjList[i] = _gridRect.Contains(dC, dR) && InventoryModel.GetItemAt(dR, dC) == item;
+                            if(curLock != null) 
+                                adjList[i] = _gridRect.Contains(dR, dC) && curLock == InventoryModel.GetLockAt(dR, dC); 
+                            else 
+                                adjList[i] = _gridRect.Contains(dR, dC) && InventoryModel.GetItemAt(dR, dC) == item;
                         }
                     }
 
                     GridPosition curPos = new(c,r); 
-                    if(InventoryModel.IsPositionLocked(curPos))
-                    {
-                        slot.Paint(UIConstants.COLOR_ITEM_SLOT_LOCKED); 
-                    }
-                    // TODO: re-enable when adding item buffs
-                    else if (activePos.Contains(curPos))
+                    if(curLock != null && curLock.IsLocked) 
                     {
                         slot.Paint(
-                            baseColor: UIConstants.COLOR_ITEM_SLOT_ACTIVE, outlineColor: UIConstants.COLOR_ITEM_SLOT_ACTIVE_OUTLINE
+                            baseColor: UIConstants.COLOR_ITEM_SLOT_LOCKED
+                            , isLocked: true
+                            , AdjT: adjList[0], AdjB: adjList[1], AdjL: adjList[2], AdjR: adjList[3]
+                        );
+                    }
+                    // TODO: re-enable when adding item buffs
+                    else if (hoverHighlightPos.Contains(curPos))
+                    {
+                        slot.Paint(
+                            baseColor: UIConstants.COLOR_ITEM_SLOT_ACTIVE
+                            , isLocked: false
                             , AdjT: adjList[0], AdjB: adjList[1], AdjL: adjList[2], AdjR: adjList[3]
                         );
                     }
@@ -175,11 +185,12 @@ namespace R2InventoryArtifact.UI.Components
                         // var (baseColor, outlineColor) = UIConstants.GetItemTeirColor(item.ItemTier); 
                         Color baseColor = item.GetTooltipContent().titleColor; 
                         slot.Paint(
-                            baseColor: baseColor, outlineColor: baseColor
+                            baseColor: baseColor
+                            , isLocked: false
                             , AdjT: adjList[0], AdjB: adjList[1], AdjL: adjList[2], AdjR: adjList[3]
                         );
                     }
-                    else if (InventoryUI.Instance.CursorElement != null && _cursorPosition != null && highlightPos.Contains(curPos))
+                    else if (InventoryUI.Instance.CursorElement != null && _cursorPosition != null && dragHighlightPos.Contains(curPos))
                     {
                         slot.Paint(isValidPosition ? UIConstants.COLOR_ITEM_SLOT_HOVER_VALID : UIConstants.COLOR_ITEM_SLOT_HOVER_INVALID);
                     }

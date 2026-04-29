@@ -153,6 +153,19 @@ namespace R2InventoryArtifact.Model
             return _effectObserver.EffectFreqs.Keys.ToList();
         }
 
+        public static InventoryLock GetLockAt(int row, int col)
+        {
+            foreach(InventoryLock invLock in InventoryLocks)
+            {
+                foreach(GridPosition node in invLock.Nodes)
+                {
+                    if(node.Row == row && node.Col == col) return invLock; 
+                }
+            }
+
+            return null;  
+        }
+
         public static InventoryItem GetItemAt(GridPosition pos)
         {
             return GetItemAt(pos.Row, pos.Col);

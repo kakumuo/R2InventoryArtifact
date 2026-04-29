@@ -32,7 +32,7 @@ namespace R2InventoryArtifact.UI.Services
             if (!string.IsNullOrEmpty(_basePath))
             {
                 string filePath = System.IO.Path.Combine(_basePath, "Assets", _ITEM_DATA_FILENAME);
-                Log.Info($"try load file: {filePath}"); 
+                Log.Debug($"try load file: {filePath}"); 
                 try { using(StreamReader reader = new StreamReader(filePath))
                 {
                     string json = reader.ReadToEnd(); 
@@ -40,7 +40,7 @@ namespace R2InventoryArtifact.UI.Services
                 }} 
                 catch(Exception e)
                 {
-                    Log.Info($"Unable to read file ({filePath}): {e}"); 
+                    Log.Debug($"Unable to read file ({filePath}): {e}"); 
                 }
             }
 

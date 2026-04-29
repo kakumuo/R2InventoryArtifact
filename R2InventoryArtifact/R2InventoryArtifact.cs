@@ -6,6 +6,7 @@ using R2InventoryArtifact.UI.Services;
 using UnityEngine;
 using R2InventoryArtifact.Artifact;
 using R2InventoryArtifact.UI.Builders;
+using RoR2;
 
 
 namespace R2InventoryArtifact
@@ -33,16 +34,17 @@ namespace R2InventoryArtifact
             PluginConfig.Initialize(Config, Info); 
             InventoryArtifactProvider.Initialize(Info); 
             InventoryService.Initialize(Info); 
-            ComponentBuilder.Initialize(); 
+            UIAssetService.Initialize(Info); 
 
             GameObject pluginObj = new GameObject("R2InventoryArtifactPlugin"); 
             DontDestroyOnLoad(pluginObj); 
-            pluginObj.AddComponent<InventoryHook>(); 
+            pluginObj.AddComponent<InventoryDeltaHook>(); 
+            // pluginObj.AddComponent<InventoryHook>(); 
             pluginObj.AddComponent<UIHook>(); 
             pluginObj.AddComponent<LevelUpHook>(); 
-            // pluginObj.AddComponent<DebugManager>(); 
+            pluginObj.AddComponent<DebugManager>(); 
 
-            Log.Info("R2InventoryArtifactPlugin Initialized..."); 
+            Log.Debug("R2InventoryArtifactPlugin Initialized..."); 
         }
     }
 }

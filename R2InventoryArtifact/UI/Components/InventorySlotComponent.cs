@@ -3,14 +3,10 @@
 using RoR2.UI;
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.Util;
-using Rewired.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using System;
-using R2InventoryArtifact.UI.Builders;
-using System.Diagnostics.Tracing;
-using RoR2BepInExPack.GameAssetPaths;
+using R2InventoryArtifact.UI.Services;
 
 namespace R2InventoryArtifact.UI.Components
 {
@@ -60,34 +56,14 @@ namespace R2InventoryArtifact.UI.Components
 
         public void Paint(Color baseColor)
         {
-            Paint(baseColor, baseColor, false, false, false, false);
+            _img.color = baseColor; 
+            _img.sprite = UIAssetService.GetTileSprite(_slotLock != null ? UIAssetService.SpriteTileType.DISABLED_TILE : UIAssetService.SpriteTileType.TILE); 
         }
 
-        /**FIXME: 
-        1. set item in inventory
-        2. scroll down
-        3. set item lower in inventory
-        => item internal borders show when it shouldn't
-        */
-        public void Paint(
-            Color baseColor, Color outlineColor, 
-            bool AdjT, bool AdjB, bool AdjL, bool AdjR
-        )
+        public void Paint(Color baseColor, bool isLocked, bool AdjT, bool AdjB, bool AdjL, bool AdjR)
         {
             _img.color = baseColor; 
-            // if(!img.materialForRendering)
-            // {
-            //     img.color = baseColor; 
-            //     return; 
-            // }
-
-            // img.materialForRendering.SetColor("_Color", baseColor);
-            // img.materialForRendering.SetColor("_OutlineColor", outlineColor);
-            // img.materialForRendering.SetFloat("_Thickness", OUTLINE_THICKNESS);
-            // img.materialForRendering.SetFloat("_AdjT", AdjT ? 1 : 0);
-            // img.materialForRendering.SetFloat("_AdjB", AdjB ? 1 : 0);
-            // img.materialForRendering.SetFloat("_AdjL", AdjL ? 1 : 0);
-            // img.materialForRendering.SetFloat("_AdjR", AdjR ? 1 : 0);
+            _img.sprite = UIAssetService.GetTileSprite(isLocked, !AdjT, !AdjB, !AdjL, !AdjR); 
         }
 
         public void OnTransformChildrenChanged()
@@ -139,14 +115,14 @@ namespace R2InventoryArtifact.UI.Components
                 titleToken  = "Slot Locked", 
                 bodyToken   = $"Unlocks at Level <style=cIsHealth>{slotLock.UnlockLevel}</style>."
             });
-            _img.sprite = ComponentBuilder.GetSprite(ComponentBuilder.SpritePanelType.DISABLED_TILE); 
+            // _img.sprite = UIAssetService.GetTileSprite(UIAssetService.SpriteTileType.DISABLED_TILE); 
         }
 
         public void UnlockSlot()
         {
             _slotLock = null; 
             _tooltipProvider.enabled = false;  
-            _img.sprite = ComponentBuilder.GetSprite(ComponentBuilder.SpritePanelType.TILE); 
+            // _img.sprite = UIAssetService.GetTileSprite(UIAssetService.SpriteTileType.TILE); 
         }
     }
 }
