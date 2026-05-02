@@ -40,7 +40,7 @@ namespace R2InventoryArtifact.UI.Services
                 }} 
                 catch(Exception e)
                 {
-                    Log.Debug($"Unable to read file ({filePath}): {e}"); 
+                    Log.Warning($"Unable to read file ({filePath}): {e}"); 
                 }
             }
 

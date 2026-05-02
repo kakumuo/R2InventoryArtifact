@@ -5,8 +5,6 @@ using R2InventoryArtifact.Hooks;
 using R2InventoryArtifact.UI.Services;
 using UnityEngine;
 using R2InventoryArtifact.Artifact;
-using R2InventoryArtifact.UI.Builders;
-using RoR2;
 
 
 namespace R2InventoryArtifact
@@ -22,7 +20,7 @@ namespace R2InventoryArtifact
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "foxfen64";
         public const string PluginName = "R2InventoryArtifact";
-        public const string PluginVersion = "1.0.1";
+        public const string PluginVersion = "1.1.0";
         public static R2InventoryArtifact Instance; 
 
         public void Awake()
@@ -42,9 +40,9 @@ namespace R2InventoryArtifact
             // pluginObj.AddComponent<InventoryHook>(); 
             pluginObj.AddComponent<UIHook>(); 
             pluginObj.AddComponent<LevelUpHook>(); 
-            pluginObj.AddComponent<DebugManager>(); 
+            // pluginObj.AddComponent<DebugManager>(); 
 
-            Log.Debug("R2InventoryArtifactPlugin Initialized..."); 
+            Log.Info("R2InventoryArtifactPlugin Initialized..."); 
         }
     }
 }

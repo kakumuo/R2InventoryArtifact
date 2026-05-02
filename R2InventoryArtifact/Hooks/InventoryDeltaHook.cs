@@ -6,10 +6,7 @@ using RoR2;
 using System;
 using System.Collections.Generic;
 using R2InventoryArtifact.Artifact;
-using Newtonsoft.Json.Utilities;
-using R2API.Utils;
 using System.Linq;
-using RoR2.UI;
 
 namespace R2InventoryArtifact.Hooks
 {
@@ -82,7 +79,7 @@ namespace R2InventoryArtifact.Hooks
 
         private void HandleItemDrop(UniquePickup pickup, int count)
         {
-            Log.Info($"Dropping item...{pickup.pickupIndex}, {count}");
+            // Log.Debug($"Dropping item...{pickup.pickupIndex}, {count}");
             if (PlayerBody == null) return;
 
             if (pickup.pickupIndex.pickupDef.itemIndex != ItemIndex.None)

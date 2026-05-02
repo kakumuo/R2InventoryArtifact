@@ -1,8 +1,8 @@
 {
     "name": "R2InventoryArtifact",
-    "version_number": "1.0.1",
+    "version_number": "1.1.0",
     "website_url": "https://github.com/kakumuo/R2InventoryArtifact",
-    "description": "A mod adds an active inventory management system.",
+    "description": "Adds an active inventory management system.",
     "dependencies": [
         "Rune580-Risk_Of_Options-2.8.5", 
         "RiskofThunder-R2API_Language-1.1.0", 

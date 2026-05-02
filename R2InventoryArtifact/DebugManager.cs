@@ -1,8 +1,4 @@
 
-using System;
-using IL.RoR2.UI;
-using R2API;
-using R2API.Utils;
 using RoR2;
 using UnityEngine;
 

@@ -67,7 +67,7 @@ namespace R2InventoryArtifact.UI.Services
             }
             catch (Exception e)
             {
-                Log.Debug($"Failed to load asset from file: {e}");
+                Log.Warning($"Failed to load asset from file: {e}");
             }
 
             _spriteBaseTileDict = new Dictionary<SpriteTileType, Sprite>();
