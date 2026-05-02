@@ -10,16 +10,13 @@ export class ItemService {
     static ItemDetails:ItemDetail[]; 
     static FuzzySearch:Fuse<ItemDetail>; 
 
-
     static async Init() {
-        const resp = await (await fetch('/data/data.json')).json();
+        const resp = await (await fetch('./data/data.json')).json();
         this.ItemDetails = resp['ItemDetails']; 
         this.FuzzySearch = new Fuse(this.ItemDetails, {
             keys: ['Token', 'BaseLabel', 'Label'], 
             includeScore: true, 
         }); 
-
-
     }
 
     static Dispose() {
