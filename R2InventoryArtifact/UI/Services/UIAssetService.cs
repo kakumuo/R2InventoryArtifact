@@ -39,7 +39,7 @@ namespace R2InventoryArtifact.UI.Services
             TILExTBL_ = 14,
             TILExTBLR = 15,
             TILE = 15,
-            DISABLED_TILE = 16,
+            DISABLED_TILE
         }
 
         private static Dictionary<SpritePanelType, Sprite> _spritePanelDict;
@@ -104,8 +104,6 @@ namespace R2InventoryArtifact.UI.Services
                         _spritePanelDict.Add(SpritePanelType.DROP_ZONE, s);
                     }
                 }
-
-                _spriteBaseTileDict.Add(SpriteTileType.DISABLED_TILE, Addressables.LoadAssetAsync<Sprite>("RoR2/Base/UI/texUIHatchingTile.png").WaitForCompletion());
             }
         }
 

@@ -201,9 +201,7 @@ export class DataModel {
             Label: label, 
             Args: args.join(" "), 
             State: JSON.parse(JSON.stringify(state))
-        })
-
-        console.log(this._history, this._historyIndex)
+        }); 
 
         this._historyIndex = this._history.length - 1; 
         this.InvokeListeners(); 
@@ -222,12 +220,9 @@ export class DataModel {
         this._listeners.forEach(l => l());
     }
 
-
     StepAction = (dir:'forward'|'backward', step:number=1) => {
         if(this._historyIndex - step < 0 && dir == 'backward' || this._historyIndex + step >= this._history.length && dir == 'forward')
             return null; 
-        
-        console.log("Stepping: ", dir, step)
         step = Math.abs(step); 
         const curAction = this._history[this._historyIndex]; 
         if(dir == "forward") 

@@ -263,18 +263,18 @@ namespace R2InventoryArtifact.Hooks
         }
 
         /************************ TRANSFORMATIONS ************************/
-        private void GenericPickupController_OnTriggerStay(On.RoR2.GenericPickupController.orig_OnTriggerStay orig, GenericPickupController self, Collider other)
-        {
-            if(UIHook.PlayerBody == other?.GetComponent<CharacterMaster>()?.GetBody() && PluginConfig.DisableAutoPickup.Value)
-                return; 
-            orig(self, other); 
-        }
+        // private void GenericPickupController_OnTriggerStay(On.RoR2.GenericPickupController.orig_OnTriggerStay orig, GenericPickupController self, Collider other)
+        // {
+        //     if(UIHook.PlayerBody == other?.GetComponent<CharacterMaster>()?.GetBody() && PluginConfig.DisableAutoPickup.Value)
+        //         return; 
+        //     orig(self, other); 
+        // }
 
         private bool Inventory_ItemTransformation_TryTransform(On.RoR2.Inventory.ItemTransformation.orig_TryTransform orig, ref Inventory.ItemTransformation self, Inventory inventory, out Inventory.ItemTransformation.TryTransformResult result)
         { 
             
             bool didTransform = orig(ref self, inventory, out result); 
-            if(UIHook.PlayerBody != null && UIHook.PlayerBody.netId == inventory.netId && PluginConfig.DisableAutoPickup.Value)
+            if(UIHook.PlayerBody != null && UIHook.PlayerBody.netId == inventory.netId /* && PluginConfig.DisableAutoPickup.Value */)
                 if(didTransform && result.totalTransformed > 0) {
                     UniquePickup takenPickup = new UniquePickup(PickupCatalog.FindPickupIndex(result.takenItem.itemIndex)); 
                     UniquePickup givenPickup = new UniquePickup(PickupCatalog.FindPickupIndex(result.givenItem.itemIndex)); 
@@ -330,7 +330,7 @@ namespace R2InventoryArtifact.Hooks
             On.RoR2.CharacterBody.OnEquipmentLost               += CharacterBody_OnEquipmentLost; 
             On.RoR2.Inventory.TempItemsStorage.SyncStackToDecay += Inventory_TempItemsStorage_SyncStackToDecay;
 
-            On.RoR2.GenericPickupController.OnTriggerStay       += GenericPickupController_OnTriggerStay;
+            // On.RoR2.GenericPickupController.OnTriggerStay       += GenericPickupController_OnTriggerStay;
             On.RoR2.Inventory.ItemTransformation.TryTransform   += Inventory_ItemTransformation_TryTransform;
 
             /*
@@ -384,7 +384,7 @@ namespace R2InventoryArtifact.Hooks
             On.RoR2.CharacterBody.OnEquipmentLost               -= CharacterBody_OnEquipmentLost;
             On.RoR2.Inventory.TempItemsStorage.SyncStackToDecay -= Inventory_TempItemsStorage_SyncStackToDecay; 
             
-            On.RoR2.GenericPickupController.OnTriggerStay       -= GenericPickupController_OnTriggerStay;
+            // On.RoR2.GenericPickupController.OnTriggerStay       -= GenericPickupController_OnTriggerStay;
             On.RoR2.Inventory.ItemTransformation.TryTransform   -= Inventory_ItemTransformation_TryTransform;  
         }
     }

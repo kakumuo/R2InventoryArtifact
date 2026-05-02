@@ -116,6 +116,9 @@ namespace R2InventoryArtifact.Model
                     // icon.SetItemIndex(Pickup.pickupIndex.pickupDef.itemIndex, 1, 1);
                     // Log.Debug($"{icon.tooltipProvider.bodyText}");  
                     ItemDef itemDef = ItemCatalog.GetItemDef(Pickup.pickupIndex.pickupDef.itemIndex); //TODO: move to constructor
+                    // content.overrideTitleText = $"{itemDef.nameToken} {(Pickup.isTempItem ? " (Temp)":"" )}"; 
+                    // content.titleToken = itemDef.nameToken; 
+                    content.overrideTitleText = $"{Language.GetString(itemDef.nameToken)}{(Pickup.isTempItem ? " (Temp)":"")} [{StackCount}/{MaxStackCount}]";  
                     content.titleToken = itemDef.nameToken; 
                     content.bodyToken = itemDef.descriptionToken;
                     content.bodyColor = Pickup.pickupIndex.pickupDef.baseColor; 

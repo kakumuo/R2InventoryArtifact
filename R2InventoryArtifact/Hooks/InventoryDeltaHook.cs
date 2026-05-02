@@ -9,6 +9,7 @@ using R2InventoryArtifact.Artifact;
 using Newtonsoft.Json.Utilities;
 using R2API.Utils;
 using System.Linq;
+using RoR2.UI;
 
 namespace R2InventoryArtifact.Hooks
 {
@@ -25,10 +26,10 @@ namespace R2InventoryArtifact.Hooks
         Dictionary<ItemIndex, int> permaItemSet;
         Dictionary<ItemIndex, int> tempItemSet;
 
-        int itemAcqIndex;
-        private int _equipCount;
-        private ItemIndex extraEquipItemIndex;
-        byte[] equipSet;
+        // int itemAcqIndex;
+        // private int _equipCount;
+        // private ItemIndex extraEquipItemIndex;
+        // byte[] equipSet;
 
         private CharacterMaster CharacterMaster;
         private CharacterBody PlayerBody => CharacterMaster?.GetBody();
@@ -39,11 +40,11 @@ namespace R2InventoryArtifact.Hooks
         {
             permaItemSet = new Dictionary<ItemIndex, int>();
             tempItemSet = new Dictionary<ItemIndex, int>();
-            itemAcqIndex = 0;
+            // itemAcqIndex = 0;
 
-            _equipCount = 1;
-            equipSet = new byte[1];  //TODO: get actual size of byteset
-            extraEquipItemIndex = DLC3Content.Items.ExtraEquipment.itemIndex;
+            // _equipCount = 1;
+            // equipSet = new byte[1];  //TODO: get actual size of byteset
+            // extraEquipItemIndex = DLC3Content.Items.ExtraEquipment.itemIndex;
 
 
             _FORCE_ITEMS_TO_NONEQUIP = new()
@@ -158,24 +159,25 @@ namespace R2InventoryArtifact.Hooks
                 res.Add(new() { ItemIndex = item, Delta = diff });
             }
 
+            // sort, keep void items last
+            List<ItemTier> voidItemTiers = [ItemTier.VoidTier1, ItemTier.VoidBoss, ItemTier.VoidTier2, ItemTier.VoidTier3]; 
+            res.Sort((a, b) =>
+            {
+                int aIsVoid = voidItemTiers.Contains(ItemCatalog.GetItemDef(a.ItemIndex).tier) ? 1 : 0; 
+                int bIsVoid = voidItemTiers.Contains(ItemCatalog.GetItemDef(a.ItemIndex).tier) ? 1 : 0; 
+                return aIsVoid - bIsVoid; 
+            }); 
+
             return res;
         }
 
-        // TODO: find way to attach to player body hook
+        // TODO: find way to attach to player inventory hook
         private void Inventory_onInventoryChangedGlobal(Inventory inventory)
         {
             if (!(PlayerBody && PlayerBody.inventory == inventory)) return;
 
             List<ItemAddResult> resultPerma = FindInventoryDelta(permaItemSet, inventory.permanentItemStacks);
             List<ItemAddResult> resultTemp = FindInventoryDelta(tempItemSet, inventory.tempItemsStorage.tempItemStacks);
-
-            // allow callback
-            // if already called HandleItemDrop, dont remove from UI again
-            // bool wasCalledFromDrop = new System.Diagnostics.StackTrace(1, false)
-            //     .GetFrames()
-            //     .IndexOf(f => f.GetMethod().Name == "HandleItemDrop") != -1;
-
-            // if (wasCalledFromDrop) return;
 
             foreach (ItemAddResult res in resultPerma)
             {
@@ -214,13 +216,6 @@ namespace R2InventoryArtifact.Hooks
             HandleItemAdd(pickup, false, 1);
         }
 
-        private void GenericPickupController_OnTriggerStay(On.RoR2.GenericPickupController.orig_OnTriggerStay orig, GenericPickupController self, Collider other)
-        {
-            if (UIHook.PlayerBody == other?.GetComponent<CharacterMaster>()?.GetBody() && PluginConfig.DisableAutoPickup.Value)
-                return;
-            orig(self, other);
-        }
-
         private void Awake()
         {
             _isInRun = false;
@@ -235,8 +230,8 @@ namespace R2InventoryArtifact.Hooks
 
                 On.RoR2.CharacterBody.OnEquipmentGained         += CharacterBody_OnEquipmentGained;
                 On.RoR2.CharacterBody.OnEquipmentLost           += CharacterBody_OnEquipmentLost;
-                On.RoR2.GenericPickupController.OnTriggerStay   += GenericPickupController_OnTriggerStay;
                 RoR2.Inventory.onInventoryChangedGlobal         += Inventory_onInventoryChangedGlobal;  //TODO: try to use character body's inventory changed, instead of global
+                
             };
 
             Run.onRunDestroyGlobal += (Run run) =>
@@ -249,7 +244,6 @@ namespace R2InventoryArtifact.Hooks
 
                 On.RoR2.CharacterBody.OnEquipmentGained         -= CharacterBody_OnEquipmentGained;
                 On.RoR2.CharacterBody.OnEquipmentLost           -= CharacterBody_OnEquipmentLost;
-                On.RoR2.GenericPickupController.OnTriggerStay   -= GenericPickupController_OnTriggerStay;
                 RoR2.Inventory.onInventoryChangedGlobal         -= Inventory_onInventoryChangedGlobal;
             };
         }

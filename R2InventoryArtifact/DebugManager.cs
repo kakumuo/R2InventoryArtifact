@@ -47,12 +47,13 @@ namespace R2InventoryArtifact
         // DEBUG: test item setting
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Alpha1)) PlayerBody?.inventory.GiveItemPermanent(DLC1Content.Items.RegeneratingScrap); 
+            if(Input.GetKeyDown(KeyCode.Alpha1)) PlayerBody?.inventory.GiveItemPermanent(RoR2Content.Items.BleedOnHit); 
+            if(Input.GetKeyDown(KeyCode.Alpha2)) PlayerBody?.inventory.GiveItemPermanent(DLC1Content.Items.BleedOnHitVoid); 
             if(Input.GetKeyDown(KeyCode.Alpha3)) PlayerBody?.inventory.GiveItemTemp(DLC1Content.Items.HealingPotion.itemIndex); 
-            if(Input.GetKeyDown(KeyCode.Alpha4)) PlayerBody?.inventory.GiveItemPermanent(RoR2Content.Items.BleedOnHit); 
-            if(Input.GetKeyDown(KeyCode.Alpha5)) PlayerBody?.inventory.GiveItemPermanent(DLC1Content.Items.BleedOnHitVoid); 
-            if(Input.GetKeyDown(KeyCode.Alpha6)) PlayerBody?.inventory.GiveRandomItems(1, ItemTier.Tier1, ItemTier.Tier2); 
-            if(Input.GetKeyDown(KeyCode.Alpha7)) PlayerBody?.inventory.GiveRandomEquipment();  
+            if(Input.GetKeyDown(KeyCode.Alpha4)) PlayerBody?.inventory.GiveItemPermanent(DLC1Content.Items.RegeneratingScrap); 
+            if(Input.GetKeyDown(KeyCode.Alpha5)) PlayerBody?.inventory.GiveRandomItems(1, ItemTier.Tier1, ItemTier.Tier2); 
+            if(Input.GetKeyDown(KeyCode.Alpha6)) PlayerBody?.inventory.GiveRandomEquipment();  
+            if(Input.GetKeyDown(KeyCode.Alpha7)) PlayerMaster?.GiveExperience(40);  
             
             if(Input.GetKeyDown(KeyCode.Keypad1)) PlayerBody?.inventory.RemoveItemPermanent(RoR2Content.Items.AlienHead.itemIndex); 
             if(Input.GetKeyDown(KeyCode.Keypad2)) PlayerBody?.inventory.RemoveItemTemp(RoR2Content.Items.AlienHead.itemIndex); 

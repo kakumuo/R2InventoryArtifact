@@ -13,6 +13,7 @@ using UnityEngine;
 using R2InventoryArtifact.Artifact;
 using System.Linq;
 using UnityEngine.Networking;
+using RoR2.UI;
 
 namespace R2InventoryArtifact.Hooks
 {
@@ -105,8 +106,16 @@ namespace R2InventoryArtifact.Hooks
             InventoryUI.SetUIVisibility(false);
         }
 
+        private GameEndReportPanelController GameOverController_GenerateReportScreen(On.RoR2.GameOverController.orig_GenerateReportScreen orig, GameOverController self, HUD hud)
+        {
+            InventoryUI.gameObject.SetActive(false); 
+            return orig(self, hud); 
+        }
+
         private void HandleCursorVisibility(bool show)
         {
+            if(InventoryUI == null || !InventoryUI.isActiveAndEnabled) return; 
+
             var pes = MPEventSystemManager.primaryEventSystem;
             // Log.Debug($"Selected Obj: {pes.currentSelectedGameObject}");
             pes.allowCursorPush = true; 
@@ -120,22 +129,27 @@ namespace R2InventoryArtifact.Hooks
             {
                 if (!InventoryArtifactProvider.IsEnabled()) return;
                 _isInRun = false;
+                _isPaused = false; 
                 HandleRunStart(run);
                 On.RoR2.UI.PauseScreenController.OnDisable += PauseScreenController_OnDisable; 
                 On.RoR2.UI.PauseScreenController.OnEnable += PauseScreenController_OnEnable; 
+                On.RoR2.GameOverController.GenerateReportScreen += GameOverController_GenerateReportScreen; 
             };
 
             Run.onRunDestroyGlobal += (run) =>
             {
                 if (!_isInRun) return;
                 _isInRun = false;
+                _isPaused = false; 
                 HandleRunEnd(run);
                 On.RoR2.UI.PauseScreenController.OnDisable -= PauseScreenController_OnDisable; 
                 On.RoR2.UI.PauseScreenController.OnEnable -= PauseScreenController_OnEnable; 
+                On.RoR2.GameOverController.GenerateReportScreen -= GameOverController_GenerateReportScreen; 
             };
 
             
         }
+
 
         // Handle Input
         void Update()

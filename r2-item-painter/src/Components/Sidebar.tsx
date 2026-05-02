@@ -4,6 +4,7 @@ import { useDataModelState } from "../Data/DataModelContext"
 import type { DataModelState, Item } from "../Data";
 import { ItemService } from "../Data/ItemService";
 import { useNotificationContext } from "./Notificaton/NotificationService";
+import { CrossIcon, PlusIcon } from "./Icons";
 
 //FIXME: not updating when state changes
 export function Sidebar() {
@@ -17,7 +18,9 @@ export function Sidebar() {
         // TODO: do search for item
         if (!inputRef.current || inputRef.current.value.trim() == "") return;
 
-        dataModel.AddItem(inputRef.current.value.trim())
+        const target = inputRef.current.value.trim(); 
+        dataModel.AddItem(target)
+        dataModel.SetSelectedItem(target)
         inputRef.current.value = "";
     }
 
@@ -152,7 +155,7 @@ export function Sidebar() {
         <div className={styles.header}>
             {/* <Input ref={inputRef} onKeyDown={e => e.key == 'Enter' && HandleItemAdd()} /> */}
             <Search ref={inputRef} OnItemSelected={HandleSearchItemSelected} />
-            <Button children={"Add"} onClick={HandleItemAdd} />
+            <Button children={<PlusIcon className="w-10 h-10 stroke-black" />} onClick={HandleItemAdd} />
         </div>
 
         <div className={styles.filterGroup}>
@@ -202,7 +205,7 @@ export function ListItem(props: { data: Item, isSelected: boolean, onClose: () =
             <p className={styles.listItem.headerLabel}>{props.data.Label}</p>
             <p className={styles.listItem.tokenLabel}>{props.data.Token}</p>
         </div>
-        <Button onClick={props.onClose}>X</Button>
+        <Button onClick={props.onClose}><CrossIcon className="w-5 h-5 fill-red"/></Button>
     </div>
 }
 
@@ -232,7 +235,7 @@ const styles = {
         `,
         img: `max-h-15 max-w-15`,
         labelGroup: `grid grid-cols-1 grid-rows-2`,
-        headerLabel: `font-bold`,
+        headerLabel: `font-bold truncate`,
         tokenLabel: `text-[70%] truncate`,
     },
     ButtonGroup: {

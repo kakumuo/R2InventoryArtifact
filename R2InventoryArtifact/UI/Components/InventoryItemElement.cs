@@ -70,6 +70,7 @@ namespace R2InventoryArtifact.UI.Components
         public void UpdateStackCountLabel()
         {
             _label.text = Item.StackCount.ToString(); 
+            _tooltip.SetContent(Item.GetTooltipContent()); // for when stack count changes, update title
         }
 
         void OnDestroy()
@@ -87,6 +88,13 @@ namespace R2InventoryArtifact.UI.Components
         public void OnBeginDrag(PointerEventData eventData)
         {
             SetDropTarget(transform.parent); 
+
+            InventorySlotComponent slot; 
+            if(slot = transform.parent.GetComponent<InventorySlotComponent>())
+            {
+                slot.UnslotItem(); 
+            }
+
             transform.SetParent(transform.root); 
             transform.SetAsLastSibling(); 
 
@@ -113,7 +121,17 @@ namespace R2InventoryArtifact.UI.Components
                 Rotate(); 
             }
             
-            transform.SetParent(dropTarget);
+        
+            InventorySlotComponent slot; 
+            if(slot = dropTarget.GetComponent<InventorySlotComponent>())
+            {
+                slot.SlotItem(this); 
+            } else
+            {
+                transform.SetParent(dropTarget);
+            }
+
+
             _canvasGroup.alpha = 1f; 
             _canvasGroup.blocksRaycasts = true; 
             InventoryUI.Instance.SetCursorElement(null);    

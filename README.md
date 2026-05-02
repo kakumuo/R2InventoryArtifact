@@ -1,6 +1,6 @@
 # R2InventoryArtifact
 
-![Demo - Inventory Full](media/inventory_full.png)
+![Demo - Inventory Full](media/inventory_demo.gif)
 A mod adds an active inventory management system.
 
 ### Features

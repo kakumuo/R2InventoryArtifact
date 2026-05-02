@@ -1,11 +1,655 @@
 {
+  "ITEM_SCRAPRED_NAME": {
+    "Label": "Item Scrap, Red",
+    "Token": "ITEM_SCRAPRED_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SCRAPGREEN_NAME": {
+    "Label": "Item Scrap, Green",
+    "Token": "ITEM_SCRAPGREEN_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SCRAPWHITE_NAME": {
+    "Label": "Item Scrap, White",
+    "Token": "ITEM_SCRAPWHITE_NAME",
+    "MaxStackCount": 9,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SCRAPYELLOW_NAME": {
+    "Label": "Item Scrap, Yellow",
+    "Token": "ITEM_SCRAPYELLOW_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SYRINGE_NAME": {
+    "Label": "Soldier's Syringe",
+    "Token": "ITEM_SYRINGE_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TOOTH_NAME": {
+    "Label": "Monster Tooth",
+    "Token": "ITEM_TOOTH_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CRITGLASSES_NAME": {
+    "Label": "Lens-Maker's Glasses",
+    "Token": "ITEM_CRITGLASSES_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_HOOF_NAME": {
+    "Label": "Paul's Goat Hoof",
+    "Token": "ITEM_HOOF_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
   "ITEM_BEAR_NAME": {
     "Label": "Tougher Times",
     "Token": "ITEM_BEAR_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MUSHROOM_NAME": {
+    "Label": "Bustling Fungus",
+    "Token": "ITEM_MUSHROOM_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CROWBAR_NAME": {
+    "Label": "Crowbar",
+    "Token": "ITEM_CROWBAR_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BLEEDONHIT_NAME": {
+    "Label": "Tri-Tip Dagger",
+    "Token": "ITEM_BLEEDONHIT_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_WARDONLEVEL_NAME": {
+    "Label": "Warbanner",
+    "Token": "ITEM_WARDONLEVEL_NAME",
+    "MaxStackCount": 7,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_HEALWHILESAFE_NAME": {
+    "Label": "Cautious Slug",
+    "Token": "ITEM_HEALWHILESAFE_NAME",
     "MaxStackCount": 5,
     "NodeOrigin": [
       {
         "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_PERSONALSHIELD_NAME": {
+    "Label": "Personal Shield Generator",
+    "Token": "ITEM_PERSONALSHIELD_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MEDKIT_NAME": {
+    "Label": "Medkit",
+    "Token": "ITEM_MEDKIT_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_IGNITEONKILL_NAME": {
+    "Label": "Gasoline",
+    "Token": "ITEM_IGNITEONKILL_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_STUNCHANCEONHIT_NAME": {
+    "Label": "Stun Grenade",
+    "Token": "ITEM_STUNCHANCEONHIT_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FIREWORK_NAME": {
+    "Label": "Bundle of Fireworks",
+    "Token": "ITEM_FIREWORK_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SPRINTBONUS_NAME": {
+    "Label": "Energy Drink",
+    "Token": "ITEM_SPRINTBONUS_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SECONDARYSKILLMAGAZINE_NAME": {
+    "Label": "Backup Magazine",
+    "Token": "ITEM_SECONDARYSKILLMAGAZINE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": -2,
         "Col": -1
       },
       {
@@ -13,9 +657,213 @@
         "Col": 0
       },
       {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_STICKYBOMB_NAME": {
+    "Label": "Sticky Bomb",
+    "Token": "ITEM_STICKYBOMB_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
         "Row": 0,
         "Col": -1
       },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TREASURECACHE_NAME": {
+    "Label": "Rusted Key",
+    "Token": "ITEM_TREASURECACHE_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BOSSDAMAGEBONUS_NAME": {
+    "Label": "Armor-Piercing Rounds",
+    "Token": "ITEM_BOSSDAMAGEBONUS_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BARRIERONKILL_NAME": {
+    "Label": "Topaz Brooch",
+    "Token": "ITEM_BARRIERONKILL_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_NEARBYDAMAGEBONUS_NAME": {
+    "Label": "Focus Crystal",
+    "Token": "ITEM_NEARBYDAMAGEBONUS_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FLATHEALTH_NAME": {
+    "Label": "Bison Steak",
+    "Token": "ITEM_FLATHEALTH_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
       {
         "Row": -1,
         "Col": 0
@@ -39,13 +887,105 @@
     ],
     "ActiveOrigin": []
   },
-  "EQUIPMENT_BFG_NAME": {
-    "Label": "Preon Accumulator",
-    "Token": "EQUIPMENT_BFG_NAME",
-    "MaxStackCount": 5,
+  "ITEM_REPULSIONARMORPLATE_NAME": {
+    "Label": "Repulsion Armor Plate",
+    "Token": "ITEM_REPULSIONARMORPLATE_NAME",
+    "MaxStackCount": 6,
     "NodeOrigin": [
       {
         "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ATTACKSPEEDANDMOVESPEED_NAME": {
+    "Label": "Mocha",
+    "Token": "ITEM_ATTACKSPEEDANDMOVESPEED_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_HEALINGPOTION_NAME": {
+    "Label": "Power Elixir",
+    "Token": "ITEM_HEALINGPOTION_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FRAGILEDAMAGEBONUS_NAME": {
+    "Label": "Delicate Watch",
+    "Token": "ITEM_FRAGILEDAMAGEBONUS_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
         "Col": -2
       },
       {
@@ -61,6 +1001,2314 @@
         "Col": 0
       },
       {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_OUTOFCOMBATARMOR_NAME": {
+    "Label": "Oddly-shaped Opal",
+    "Token": "ITEM_OUTOFCOMBATARMOR_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_GOLDONHURT_NAME": {
+    "Label": "Roll of Pennies",
+    "Token": "ITEM_GOLDONHURT_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_DELAYEDDAMAGE_NAME": {
+    "Label": "Warped Echo",
+    "Token": "ITEM_DELAYEDDAMAGE_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_INCREASEDAMAGEONMULTIKILL_NAME": {
+    "Label": "Chronic Expansion",
+    "Token": "ITEM_INCREASEDAMAGEONMULTIKILL_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_KNOCKBACKHITENEMIES_NAME": {
+    "Label": "Breaching Fin",
+    "Token": "ITEM_KNOCKBACKHITENEMIES_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ATTACKSPEEDPERNEARBYALLYORENEMY_NAME": {
+    "Label": "Bolstering Lantern",
+    "Token": "ITEM_ATTACKSPEEDPERNEARBYALLYORENEMY_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SPEEDBOOSTPICKUP_NAME": {
+    "Label": "Elusive Antlers",
+    "Token": "ITEM_SPEEDBOOSTPICKUP_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MISSILE_NAME": {
+    "Label": "AtG Missile Mk. 1",
+    "Token": "ITEM_MISSILE_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BANDOLIER_NAME": {
+    "Label": "Bandolier",
+    "Token": "ITEM_BANDOLIER_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 4,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_WARCRYONMULTIKILL_NAME": {
+    "Label": "Berzerker's Pauldron",
+    "Token": "ITEM_WARCRYONMULTIKILL_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_DRONESDROPDYNAMITE_NAME": {
+    "Label": "Box of Dynamite",
+    "Token": "ITEM_DRONESDROPDYNAMITE_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EXTRASHRINEITEM_NAME": {
+    "Label": "Chance Doll",
+    "Token": "ITEM_EXTRASHRINEITEM_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -3,
+        "Col": 1
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SLOWONHIT_NAME": {
+    "Label": "Chronobauble",
+    "Token": "ITEM_SLOWONHIT_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SPEEDONPICKUP_NAME": {
+    "Label": "Collector's Compulsion",
+    "Token": "ITEM_SPEEDONPICKUP_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_DEATHMARK_NAME": {
+    "Label": "Death Mark",
+    "Token": "ITEM_DEATHMARK_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_JUMPDAMAGESTRIKE_NAME": {
+    "Label": "Faraday Spur",
+    "Token": "ITEM_JUMPDAMAGESTRIKE_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EQUIPMENTMAGAZINE_NAME": {
+    "Label": "Fuel Cell",
+    "Token": "ITEM_EQUIPMENTMAGAZINE_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BONUSGOLDPACKONKILL_NAME": {
+    "Label": "Ghor's Tome",
+    "Token": "ITEM_BONUSGOLDPACKONKILL_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_HEALONCRIT_NAME": {
+    "Label": "Harvester's Scythe",
+    "Token": "ITEM_HEALONCRIT_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FEATHER_NAME": {
+    "Label": "Hopoo Feather",
+    "Token": "ITEM_FEATHER_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MOVESPEEDONKILL_NAME": {
+    "Label": "Hunter's Harpoon",
+    "Token": "ITEM_MOVESPEEDONKILL_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_STRENGTHENBURN_NAME": {
+    "Label": "Ignition Tank",
+    "Token": "ITEM_STRENGTHENBURN_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_INFUSION_NAME": {
+    "Label": "Infusion",
+    "Token": "ITEM_INFUSION_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SHIELDBOOSTER_NAME": {
+    "Label": "Kinetic Dampener",
+    "Token": "ITEM_SHIELDBOOSTER_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FIRERING_NAME": {
+    "Label": "Kjaro's Band",
+    "Token": "ITEM_FIRERING_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SEED_NAME": {
+    "Label": "Leeching Seed",
+    "Token": "ITEM_SEED_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TPHEALINGNOVA_NAME": {
+    "Label": "Lepton Daisy",
+    "Token": "ITEM_TPHEALINGNOVA_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_INCREASEPRIMARYDAMAGE_NAME": {
+    "Label": "Luminous Shot",
+    "Token": "ITEM_INCREASEPRIMARYDAMAGE_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TRIGGERENEMYDEBUFFS_NAME": {
+    "Label": "Noxious Thorn",
+    "Token": "ITEM_TRIGGERENEMYDEBUFFS_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EXECUTELOWHEALTHELITE_NAME": {
+    "Label": "Old Guillotine",
+    "Token": "ITEM_EXECUTELOWHEALTHELITE_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_PHASING_NAME": {
+    "Label": "Old War Stealthkit",
+    "Token": "ITEM_PHASING_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -3
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EXTRASTATSONLEVELUP_NAME": {
+    "Label": "Prayer Beads",
+    "Token": "ITEM_EXTRASTATSONLEVELUP_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 2
+      },
+      {
+        "Row": 4,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 4,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 4,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ATTACKSPEEDONCRIT_NAME": {
+    "Label": "Predatory Instincts",
+    "Token": "ITEM_ATTACKSPEEDONCRIT_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_THORNS_NAME": {
+    "Label": "Razorwire",
+    "Token": "ITEM_THORNS_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_REGENERATINGSCRAP_NAME": {
+    "Label": "Regenerating Scrap",
+    "Token": "ITEM_REGENERATINGSCRAP_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SPRINTARMOR_NAME": {
+    "Label": "Rose Buckler",
+    "Token": "ITEM_SPRINTARMOR_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ICERING_NAME": {
+    "Label": "Runald's Band",
+    "Token": "ITEM_ICERING_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -3,
+        "Col": 1
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LOWERPRICEDCHESTS_NAME": {
+    "Label": "Sale Star",
+    "Token": "ITEM_LOWERPRICEDCHESTS_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FREECHEST_NAME": {
+    "Label": "Shipping Request Form",
+    "Token": "ITEM_FREECHEST_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_PRIMARYSKILLSHURIKEN_NAME": {
+    "Label": "Shuriken",
+    "Token": "ITEM_PRIMARYSKILLSHURIKEN_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SQUIDTURRET_NAME": {
+    "Label": "Squid Polyp",
+    "Token": "ITEM_SQUIDTURRET_NAME",
+    "MaxStackCount": 8,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CHAINLIGHTNING_NAME": {
+    "Label": "Ukulele",
+    "Token": "ITEM_CHAINLIGHTNING_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 4,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TELEPORTONLOWHEALTH_NAME": {
+    "Label": "Unstable Transmitter",
+    "Token": "ITEM_TELEPORTONLOWHEALTH_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
         "Row": 0,
         "Col": 1
       },
@@ -71,17 +3319,185 @@
       {
         "Row": 1,
         "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
       }
     ],
     "ActiveOrigin": []
   },
-  "ITEM_MUSHROOM_NAME": {
-    "Label": "Bustling Fungus",
-    "Token": "ITEM_MUSHROOM_NAME",
-    "MaxStackCount": 5,
+  "ITEM_ENERGIZEDONEQUIPMENTUSE_NAME": {
+    "Label": "War Horn",
+    "Token": "ITEM_ENERGIZEDONEQUIPMENTUSE_NAME",
+    "MaxStackCount": 4,
     "NodeOrigin": [
       {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_JUMPBOOST_NAME": {
+    "Label": "Wax Quail",
+    "Token": "ITEM_JUMPBOOST_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
         "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EXPLODEONDEATH_NAME": {
+    "Label": "Will-o'-the-wisp",
+    "Token": "ITEM_EXPLODEONDEATH_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
         "Col": -1
       },
       {
@@ -91,6 +3507,106 @@
       {
         "Row": -2,
         "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CLOVER_NAME": {
+    "Label": "57 Leaf Clover",
+    "Token": "ITEM_CLOVER_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 3
+      },
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 3
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
       },
       {
         "Row": -2,
@@ -102,11 +3618,7583 @@
       },
       {
         "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": 1,
+        "Col": -3
+      },
+      {
+        "Row": -3,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -3
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -3
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BARRIERONOVERHEAL_NAME": {
+    "Label": "Aegis",
+    "Token": "ITEM_BARRIERONOVERHEAL_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -3,
+        "Col": 1
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -4,
+        "Col": 0
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ALIENHEAD_NAME": {
+    "Label": "Alien Head",
+    "Token": "ITEM_ALIENHEAD_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
         "Col": 0
       },
       {
         "Row": -1,
         "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_IMMUNETODEBUFF_NAME": {
+    "Label": "Ben's Raincoat",
+    "Token": "ITEM_IMMUNETODEBUFF_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -3,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_RANDOMEQUIPMENTTRIGGER_NAME": {
+    "Label": "Bottled Chaos",
+    "Token": "ITEM_RANDOMEQUIPMENTTRIGGER_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_KILLELITEFRENZY_NAME": {
+    "Label": "Brainstalks",
+    "Token": "ITEM_KILLELITEFRENZY_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 4,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BEHEMOTH_NAME": {
+    "Label": "Brilliant Behemoth",
+    "Token": "ITEM_BEHEMOTH_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 3,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 2,
+        "Col": -3
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_DAGGER_NAME": {
+    "Label": "Ceremonial Dagger",
+    "Token": "ITEM_DAGGER_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CAPTAINDEFENSEMATRIX_NAME": {
+    "Label": "Defensive Microbots",
+    "Token": "ITEM_CAPTAINDEFENSEMATRIX_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EXTRALIFE_NAME": {
+    "Label": "Dio's Best Friend",
+    "Token": "ITEM_EXTRALIFE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_STUNANDPIERCE_NAME": {
+    "Label": "Electric Boomerang",
+    "Token": "ITEM_STUNANDPIERCE_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ICICLE_NAME": {
+    "Label": "Frost Relic",
+    "Token": "ITEM_ICICLE_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BOOSTALLSTATS_NAME": {
+    "Label": "Growth Nectar",
+    "Token": "ITEM_BOOSTALLSTATS_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 4,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FALLBOOTS_NAME": {
+    "Label": "H3AD-5T v2",
+    "Token": "ITEM_FALLBOOTS_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_GHOSTONKILL_NAME": {
+    "Label": "Happiest Mask",
+    "Token": "ITEM_GHOSTONKILL_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_UTILITYSKILLMAGAZINE_NAME": {
+    "Label": "Hardlight Afterburner",
+    "Token": "ITEM_UTILITYSKILLMAGAZINE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_INTERSTELLARDESKPLANT_NAME": {
+    "Label": "Interstellar Desk Plant",
+    "Token": "ITEM_INTERSTELLARDESKPLANT_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CRITDAMAGE_NAME": {
+    "Label": "Laser Scope",
+    "Token": "ITEM_CRITDAMAGE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -3
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_NOVAONHEAL_NAME": {
+    "Label": "N'kuhana's Opinion",
+    "Token": "ITEM_NOVAONHEAL_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SHAREDSUFFERING_NAME": {
+    "Label": "Networked Suffering",
+    "Token": "ITEM_SHAREDSUFFERING_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 3
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 3
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 2,
+        "Col": -3
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -3
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_PHYSICSPROJECTILE_NAME": {
+    "Label": "Orphaned Core",
+    "Token": "ITEM_PHYSICSPROJECTILE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MOREMISSILE_NAME": {
+    "Label": "Pocket I.C.B.M.",
+    "Token": "ITEM_MOREMISSILE_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 3,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 2,
+        "Col": -3
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LASERTURBINE_NAME": {
+    "Label": "Resonance Disc",
+    "Token": "ITEM_LASERTURBINE_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_METEORATTACKONHIGHDAMAGE_NAME": {
+    "Label": "Runic Lens",
+    "Token": "ITEM_METEORATTACKONHIGHDAMAGE_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 4,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BOUNCENEARBY_NAME": {
+    "Label": "Sentient Meat Hook",
+    "Token": "ITEM_BOUNCENEARBY_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ARMORREDUCTIONONHIT_NAME": {
+    "Label": "Shattering Justice",
+    "Token": "ITEM_ARMORREDUCTIONONHIT_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ITEMDROPCHANCEONKILL_NAME": {
+    "Label": "Sonorous Whispers",
+    "Token": "ITEM_ITEMDROPCHANCEONKILL_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TALISMAN_NAME": {
+    "Label": "Soulbound Catalyst",
+    "Token": "ITEM_TALISMAN_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -3,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -4,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_DRONEWEAPONS_NAME": {
+    "Label": "Spare Drone Parts",
+    "Token": "ITEM_DRONEWEAPONS_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_DUPLICATOR_NAME": {
+    "Label": "Substandard Duplicator",
+    "Token": "ITEM_DUPLICATOR_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_PERMANENTDEBUFFONHIT_NAME": {
+    "Label": "Symbiotic Scorpion",
+    "Token": "ITEM_PERMANENTDEBUFFONHIT_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SHOCKNEARBY_NAME": {
+    "Label": "Unstable Tesla Coil",
+    "Token": "ITEM_SHOCKNEARBY_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_HEADHUNTER_NAME": {
+    "Label": "Wake of Vultures",
+    "Token": "ITEM_HEADHUNTER_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -3
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BARRAGEONBOSS_NAME": {
+    "Label": "War Bonds",
+    "Token": "ITEM_BARRAGEONBOSS_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ARTIFACTKEY_NAME": {
+    "Label": "Artifact Key",
+    "Token": "ITEM_ARTIFACTKEY_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LIGHTNINGSTRIKEONHIT_NAME": {
+    "Label": "Charged Perforator",
+    "Token": "ITEM_LIGHTNINGSTRIKEONHIT_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MINORCONSTRUCTONKILL_NAME": {
+    "Label": "Defense Nucleus",
+    "Token": "ITEM_MINORCONSTRUCTONKILL_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ROBOBALLBUDDY_NAME": {
+    "Label": "Empathy Cores",
+    "Token": "ITEM_ROBOBALLBUDDY_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MASTERCORE_NAME": {
+    "Label": "Exposed Cerebellum",
+    "Token": "ITEM_MASTERCORE_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SHOCKDAMAGEAURA_NAME": {
+    "Label": "Faulty Conductor",
+    "Token": "ITEM_SHOCKDAMAGEAURA_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EXTRAEQUIPMENT_NAME": {
+    "Label": "Functional Coupler",
+    "Token": "ITEM_EXTRAEQUIPMENT_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_NOVAONLOWHEALTH_NAME": {
+    "Label": "Genesis Loop",
+    "Token": "ITEM_NOVAONLOWHEALTH_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TITANGOLDDURINGTP_NAME": {
+    "Label": "Halcyon Seed",
+    "Token": "ITEM_TITANGOLDDURINGTP_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SHINYPEARL_NAME": {
+    "Label": "Irradiant Pearl",
+    "Token": "ITEM_SHINYPEARL_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SPRINTWISP_NAME": {
+    "Label": "Little Disciple",
+    "Token": "ITEM_SPRINTWISP_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SIPHONONLOWHEALTH_NAME": {
+    "Label": "Mired Urn",
+    "Token": "ITEM_SIPHONONLOWHEALTH_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FIREBALLSONHIT_NAME": {
+    "Label": "Molten Perforator",
+    "Token": "ITEM_FIREBALLSONHIT_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_PEARL_NAME": {
+    "Label": "Pearl",
+    "Token": "ITEM_PEARL_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_PARENTEGG_NAME": {
+    "Label": "Planula",
+    "Token": "ITEM_PARENTEGG_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_POWERCUBE_NAME": {
+    "Label": "Prison Matrix",
+    "Token": "ITEM_POWERCUBE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BEETLEGLAND_NAME": {
+    "Label": "Queen's Gland",
+    "Token": "ITEM_BEETLEGLAND_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_POWERPYRAMID_NAME": {
+    "Label": "Sentry Key",
+    "Token": "ITEM_POWERPYRAMID_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BLEEDONHITANDEXPLODE_NAME": {
+    "Label": "Shatterspleen",
+    "Token": "ITEM_BLEEDONHITANDEXPLODE_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_KNURL_NAME": {
+    "Label": "Titanic Knurl",
+    "Token": "ITEM_KNURL_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LUNARTRINKET_NAME": {
+    "Label": "Beads of Fealty",
+    "Token": "ITEM_LUNARTRINKET_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_GOLDONHIT_NAME": {
+    "Label": "Brittle Crown",
+    "Token": "ITEM_GOLDONHIT_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_REPEATHEAL_NAME": {
+    "Label": "Corpsebloom",
+    "Token": "ITEM_REPEATHEAL_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MONSTERSONSHRINEUSE_NAME": {
+    "Label": "Defiant Gouge",
+    "Token": "ITEM_MONSTERSONSHRINEUSE_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LUNARSUN_NAME": {
+    "Label": "Egocentrism",
+    "Token": "ITEM_LUNARSUN_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LUNARSPECIALREPLACEMENT_NAME": {
+    "Label": "Essence of Heresy",
+    "Token": "ITEM_LUNARSPECIALREPLACEMENT_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_RANDOMLYLUNAR_NAME": {
+    "Label": "Eulogy Zero",
+    "Token": "ITEM_RANDOMLYLUNAR_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_FOCUSEDCONVERGENCE_NAME": {
+    "Label": "Focused Convergence",
+    "Token": "ITEM_FOCUSEDCONVERGENCE_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_AUTOCASTEQUIPMENT_NAME": {
+    "Label": "Gesture of the Drowned",
+    "Token": "ITEM_AUTOCASTEQUIPMENT_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LUNARSECONDARYREPLACEMENT_NAME": {
+    "Label": "Hooks of Heresy",
+    "Token": "ITEM_LUNARSECONDARYREPLACEMENT_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_HALFATTACKSPEEDHALFCOOLDOWNS_NAME": {
+    "Label": "Light Flux Pauldron",
+    "Token": "ITEM_HALFATTACKSPEEDHALFCOOLDOWNS_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ONLEVELUPFREEUNLOCK_NAME": {
+    "Label": "Longstanding Solitude",
+    "Token": "ITEM_ONLEVELUPFREEUNLOCK_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 3,
+        "Col": -3
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -3
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_RANDOMDAMAGEZONE_NAME": {
+    "Label": "Mercurial Rachis",
+    "Token": "ITEM_RANDOMDAMAGEZONE_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 3
+      },
+      {
+        "Row": 3,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 3
+      },
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 3
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 3
+      },
+      {
+        "Row": 3,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -3,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -3
+      },
+      {
+        "Row": -3,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -3
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -3
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -3
+      },
+      {
+        "Row": -3,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -3
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TRANSFERDEBUFFONHIT_NAME": {
+    "Label": "Neutronium Weight",
+    "Token": "ITEM_TRANSFERDEBUFFONHIT_NAME",
+    "MaxStackCount": 20,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LUNARBADLUCK_NAME": {
+    "Label": "Purity",
+    "Token": "ITEM_LUNARBADLUCK_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_HALFSPEEDDOUBLEHEALTH_NAME": {
+    "Label": "Stone Flux Pauldron",
+    "Token": "ITEM_HALFSPEEDDOUBLEHEALTH_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LUNARUTILITYREPLACEMENT_NAME": {
+    "Label": "Strides of Heresy",
+    "Token": "ITEM_LUNARUTILITYREPLACEMENT_NAME",
+    "MaxStackCount": 3,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SHIELDONLY_NAME": {
+    "Label": "Transcendence",
+    "Token": "ITEM_SHIELDONLY_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_LUNARPRIMARYREPLACEMENT_NAME": {
+    "Label": "Visions of Heresy",
+    "Token": "ITEM_LUNARPRIMARYREPLACEMENT_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CLOVERVOID_NAME": {
+    "Label": "Benthic Bloom",
+    "Token": "ITEM_CLOVERVOID_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 4,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 4,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 4,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_TREASURECACHEVOID_NAME": {
+    "Label": "Encrusted Key",
+    "Token": "ITEM_TREASURECACHEVOID_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CRITGLASSESVOID_NAME": {
+    "Label": "Lost Seer's Lenses",
+    "Token": "ITEM_CRITGLASSESVOID_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EQUIPMENTMAGAZINEVOID_NAME": {
+    "Label": "Lysate Cell",
+    "Token": "ITEM_EQUIPMENTMAGAZINEVOID_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BLEEDONHITVOID_NAME": {
+    "Label": "Needletick",
+    "Token": "ITEM_BLEEDONHITVOID_NAME",
+    "MaxStackCount": 5,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_VOIDMEGACRABITEM_NAME": {
+    "Label": "Newly Hatched Zoea",
+    "Token": "ITEM_VOIDMEGACRABITEM_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MISSILEVOID_NAME": {
+    "Label": "Plasma Shrimp",
+    "Token": "ITEM_MISSILEVOID_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EXTRALIFEVOID_NAME": {
+    "Label": "Pluripotent Larva",
+    "Token": "ITEM_EXTRALIFEVOID_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_CHAINLIGHTNINGVOID_NAME": {
+    "Label": "Polylute",
+    "Token": "ITEM_CHAINLIGHTNINGVOID_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_BEARVOID_NAME": {
+    "Label": "Safer Spaces",
+    "Token": "ITEM_BEARVOID_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_ELEMENTALRINGVOID_NAME": {
+    "Label": "Singularity Band",
+    "Token": "ITEM_ELEMENTALRINGVOID_NAME",
+    "MaxStackCount": 2,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_SLOWONHITVOID_NAME": {
+    "Label": "Tentabauble",
+    "Token": "ITEM_SLOWONHITVOID_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_EXPLODEONDEATHVOID_NAME": {
+    "Label": "Voidsent Flame",
+    "Token": "ITEM_EXPLODEONDEATHVOID_NAME",
+    "MaxStackCount": 4,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "ITEM_MUSHROOMVOID_NAME": {
+    "Label": "Weeping Fungus",
+    "Token": "ITEM_MUSHROOMVOID_NAME",
+    "MaxStackCount": 6,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_CLEANSE_NAME": {
+    "Label": "Blast Shower",
+    "Token": "EQUIPMENT_CLEANSE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_PARRY_NAME": {
+    "Label": "Deus Ex Machina",
+    "Token": "EQUIPMENT_PARRY_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_COMMANDMISSILE_NAME": {
+    "Label": "Disposable Missile Launcher",
+    "Token": "EQUIPMENT_COMMANDMISSILE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_GATEWAY_NAME": {
+    "Label": "Eccentric Vase",
+    "Token": "EQUIPMENT_GATEWAY_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_MULTISHOPCARD_NAME": {
+    "Label": "Executive Card",
+    "Token": "EQUIPMENT_MULTISHOPCARD_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_FRUIT_NAME": {
+    "Label": "Foreign Fruit",
+    "Token": "EQUIPMENT_FRUIT_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_DEATHPROJECTILE_NAME": {
+    "Label": "Forgive Me Please",
+    "Token": "EQUIPMENT_DEATHPROJECTILE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_QUESTVOLATILEBATTERY_NAME": {
+    "Label": "Fuel Array",
+    "Token": "EQUIPMENT_QUESTVOLATILEBATTERY_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_PASSIVEHEALING_NAME": {
+    "Label": "Gnarled Woodsprite",
+    "Token": "EQUIPMENT_PASSIVEHEALING_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_GUMMYCLONE_NAME": {
+    "Label": "Goobo Jr.",
+    "Token": "EQUIPMENT_GUMMYCLONE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_TEAMWARCRY_NAME": {
+    "Label": "Gorag's Opus",
+    "Token": "EQUIPMENT_TEAMWARCRY_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_GAINARMOR_NAME": {
+    "Label": "Jade Elephant",
+    "Token": "EQUIPMENT_GAINARMOR_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 3
+      },
+      {
+        "Row": 0,
+        "Col": 4
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -3
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_JETPACK_NAME": {
+    "Label": "Milky Chrysalis",
+    "Token": "EQUIPMENT_JETPACK_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 3
+      },
+      {
+        "Row": 1,
+        "Col": 3
+      },
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": 2,
+        "Col": -3
+      },
+      {
+        "Row": 1,
+        "Col": -3
+      },
+      {
+        "Row": 0,
+        "Col": -3
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_MOLOTOV_NAME": {
+    "Label": "Molotov (6-Pack)",
+    "Token": "EQUIPMENT_MOLOTOV_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_CRITONUSE_NAME": {
+    "Label": "Ocular HUD",
+    "Token": "EQUIPMENT_CRITONUSE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_BFG_NAME": {
+    "Label": "Preon Accumulator",
+    "Token": "EQUIPMENT_BFG_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_BLACKHOLE_NAME": {
+    "Label": "Primordial Cube",
+    "Token": "EQUIPMENT_BLACKHOLE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_SCANNER_NAME": {
+    "Label": "Radar Scanner",
+    "Token": "EQUIPMENT_SCANNER_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_RECYCLER_NAME": {
+    "Label": "Recycler",
+    "Token": "EQUIPMENT_RECYCLER_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_VENDINGMACHINE_NAME": {
+    "Label": "Remote Caffeinator",
+    "Token": "EQUIPMENT_VENDINGMACHINE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -3,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -3,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      },
+      {
+        "Row": -3,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_LIGHTNING_NAME": {
+    "Label": "Royal Capacitor",
+    "Token": "EQUIPMENT_LIGHTNING_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 3
+      },
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": 3,
+        "Col": -3
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_SAWMERANG_NAME": {
+    "Label": "Sawmerang",
+    "Token": "EQUIPMENT_SAWMERANG_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 2,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      },
+      {
+        "Row": -2,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_HEALANDREVIVE_NAME": {
+    "Label": "Seed of Life",
+    "Token": "EQUIPMENT_HEALANDREVIVE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_HEALANDREVIVECONSUMED_NAME": {
+    "Label": "Seed of Life (Consumed)",
+    "Token": "EQUIPMENT_HEALANDREVIVECONSUMED_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -2
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_LIFESTEALONHIT_NAME": {
+    "Label": "Super Massive Leech",
+    "Token": "EQUIPMENT_LIFESTEALONHIT_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 2,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_DRONEBACKUP_NAME": {
+    "Label": "The Back-up",
+    "Token": "EQUIPMENT_DRONEBACKUP_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 3,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_GOLDGAT_NAME": {
+    "Label": "The Crowdfunder",
+    "Token": "EQUIPMENT_GOLDGAT_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 3
+      },
+      {
+        "Row": 1,
+        "Col": 3
+      },
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_BOSSHUNTER_NAME": {
+    "Label": "Trophy Hunter's Tricorn",
+    "Token": "EQUIPMENT_BOSSHUNTER_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": 0,
+        "Col": 3
+      },
+      {
+        "Row": -1,
+        "Col": 3
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": -1,
+        "Col": 2
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_BOSSHUNTERCONSUMED_NAME": {
+    "Label": "Trophy Hunter's Tricorn (Consumed)",
+    "Token": "EQUIPMENT_BOSSHUNTERCONSUMED_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 0,
+        "Col": 2
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -2
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_FIREBALLDASH_NAME": {
+    "Label": "Volcanic Egg",
+    "Token": "EQUIPMENT_FIREBALLDASH_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_CRIPPLEWARD_NAME": {
+    "Label": "Effigy of Grief",
+    "Token": "EQUIPMENT_CRIPPLEWARD_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 2,
+        "Col": -1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": 1
+      },
+      {
+        "Row": -2,
+        "Col": 0
+      },
+      {
+        "Row": -2,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_METEOR_NAME": {
+    "Label": "Glowing Meteorite",
+    "Token": "EQUIPMENT_METEOR_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_BURNNEARBY_NAME": {
+    "Label": "Helfire Tincture",
+    "Token": "EQUIPMENT_BURNNEARBY_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 3,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_TONIC_NAME": {
+    "Label": "Spinel Tonic",
+    "Token": "EQUIPMENT_TONIC_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 2,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXAURELIONITE_NAME": {
+    "Label": "Aurelionite's Blessing",
+    "Token": "EQUIPMENT_AFFIXAURELIONITE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXWHITE_NAME": {
+    "Label": "Her Biting Embrace",
+    "Token": "EQUIPMENT_AFFIXWHITE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXEARTH_NAME": {
+    "Label": "His Reassurance",
+    "Token": "EQUIPMENT_AFFIXEARTH_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXBEAD_NAME": {
+    "Label": "His Spiteful Boon",
+    "Token": "EQUIPMENT_AFFIXBEAD_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXRED_NAME": {
+    "Label": "Ifrit's Distinction",
+    "Token": "EQUIPMENT_AFFIXRED_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXPOISON_NAME": {
+    "Label": "N'kuhana's Retort",
+    "Token": "EQUIPMENT_AFFIXPOISON_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXCOLLECTIVE_NAME": {
+    "Label": "Of One Mind",
+    "Token": "EQUIPMENT_AFFIXCOLLECTIVE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXLUNAR_NAME": {
+    "Label": "Shared Design",
+    "Token": "EQUIPMENT_AFFIXLUNAR_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXBLUE_NAME": {
+    "Label": "Silence Between Two Strikes",
+    "Token": "EQUIPMENT_AFFIXBLUE_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": -1
+      }
+    ],
+    "ActiveOrigin": []
+  },
+  "EQUIPMENT_AFFIXHAUNTED_NAME": {
+    "Label": "Spectral Circlet",
+    "Token": "EQUIPMENT_AFFIXHAUNTED_NAME",
+    "MaxStackCount": 1,
+    "NodeOrigin": [
+      {
+        "Row": 1,
+        "Col": 1
+      },
+      {
+        "Row": 0,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": 0
+      },
+      {
+        "Row": -1,
+        "Col": 1
+      },
+      {
+        "Row": 1,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": 0
+      },
+      {
+        "Row": 0,
+        "Col": -1
+      },
+      {
+        "Row": -1,
+        "Col": -1
       }
     ],
     "ActiveOrigin": []

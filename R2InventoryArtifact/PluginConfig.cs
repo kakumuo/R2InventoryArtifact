@@ -23,15 +23,15 @@ namespace R2InventoryArtifact
         public static ConfigEntry<KeyboardShortcut> ShowInventoryKey {get; private set; }
         public static ConfigEntry<KeyboardShortcut> RotateInventoryItemKey {get; private set; }
         public static ConfigEntry<InventoryShowType> InventoryShowType {get; private set;}
-        public static ConfigEntry<bool> DisableAutoPickup {get; private set; }
+        // public static ConfigEntry<bool> DisableAutoPickup {get; private set; }
         public static ConfigEntry<int> InventoryHeight {get; private set;}
         public static ConfigEntry<int> InventoryWidth {get; private set;}
         public static ConfigEntry<float> UIScale { get; private set; }
         public static ConfigEntry<float> UIVerticalPadding {get; private set; }
         public static ConfigEntry<float> UIHorizontalPadding {get; private set; }
 
-        private const int INVENTORY_WIDTH_MIN_VALUE=10; 
-        private const int INVENTORY_WIDTH_MAX_VALUE=20; 
+        private const int INVENTORY_WIDTH_MIN_VALUE=15; 
+        private const int INVENTORY_WIDTH_MAX_VALUE=25; 
         private const int INVENTORY_HEIGHT_MIN_VALUE=20; 
         private const int INVENTORY_HEIGHT_MAX_VALUE=40; 
 
@@ -45,12 +45,12 @@ namespace R2InventoryArtifact
                 defaultValue:   (InventoryShowType)0
             ); 
 
-            DisableAutoPickup = config.Bind(
-                section:        "Inventory", 
-                key:            "Disable Autopickup", 
-                description:    "Disables automatically picking up items by approaching them",
-                defaultValue:   false
-            ); 
+            // DisableAutoPickup = config.Bind(
+            //     section:        "Inventory", 
+            //     key:            "Disable Autopickup", 
+            //     description:    "Disables automatically picking up items by approaching them",
+            //     defaultValue:   false
+            // ); 
 
             InventoryWidth=config.Bind(
                 section:            "Inventory", 
@@ -120,7 +120,7 @@ namespace R2InventoryArtifact
             ModSettingsManager.SetModDescription("Artifact of Inventory - Manage your inventory");
             
             ModSettingsManager.AddOption(new ChoiceOption(InventoryShowType)); 
-            ModSettingsManager.AddOption(new CheckBoxOption(DisableAutoPickup)); 
+            // ModSettingsManager.AddOption(new CheckBoxOption(DisableAutoPickup)); 
             ModSettingsManager.AddOption(new KeyBindOption(ShowInventoryKey)); 
             ModSettingsManager.AddOption(new KeyBindOption(RotateInventoryItemKey)); 
             

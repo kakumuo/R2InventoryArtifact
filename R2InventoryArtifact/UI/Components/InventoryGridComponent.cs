@@ -66,10 +66,12 @@ namespace R2InventoryArtifact.UI.Components
         {
             InventoryItemElement element = ComponentBuilder.BuildItemElement($"{item.Pickup.ToString()}");
             element.Initialize(item, DragSource.GRID);
-            element.transform.SetParent(_slots[pos.Row, pos.Col].transform);
+            _slots[pos.Row, pos.Col].SlotItem(element); 
+            // element.transform.SetParent(_slots[pos.Row, pos.Col].transform);
+            // _slots[pos.Row, pos.Col]
         }
 
-        internal void RemoveAt(GridPosition pos)
+        public void RemoveAt(GridPosition pos)
         {
             if(_slots[pos.Row, pos.Col].transform.childCount == 0) return; //slots should only have one child 
 
@@ -77,7 +79,7 @@ namespace R2InventoryArtifact.UI.Components
             InventoryItemElement element; 
             if(elementTrans && (element = elementTrans.GetComponent<InventoryItemElement>()))
             {
-                Destroy(element.gameObject); // triggers slot's transform children updated listener
+                Destroy(element.gameObject); // triggers slot's OnTransformChildrenChanged
             }
         }
 
@@ -155,7 +157,7 @@ namespace R2InventoryArtifact.UI.Components
                             int dR = r + _DIRS[i].Item1;
                             int dC = c + _DIRS[i].Item2;
 
-                            if(curLock != null) 
+                            if(curLock != null && curLock.IsLocked) 
                                 adjList[i] = _gridRect.Contains(dR, dC) && curLock == InventoryModel.GetLockAt(dR, dC); 
                             else 
                                 adjList[i] = _gridRect.Contains(dR, dC) && InventoryModel.GetItemAt(dR, dC) == item;

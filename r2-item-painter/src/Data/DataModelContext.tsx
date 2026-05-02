@@ -6,7 +6,7 @@ import React from "react";
 const DataModelContext = createContext<DataModel | null>(null); 
 const dataModel = new DataModel(); 
 const LOCAL_STORAGE_KEY_MODEL_STATE = 'R2_ITEM_PAINTER_MODEL_STATE'; 
-const LOCAL_STORAGE_KEY_HISTORY = 'R2_ITEM_PAINTER_HISTORY'; 
+// const LOCAL_STORAGE_KEY_HISTORY = 'R2_ITEM_PAINTER_HISTORY'; 
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useDataModelContext = () => {
@@ -17,14 +17,14 @@ export const useDataModelContext = () => {
         if(!isInitialized) {
             setIsInitialized(true); 
             const target = localStorage.getItem(LOCAL_STORAGE_KEY_MODEL_STATE); 
-            const history = localStorage.getItem(LOCAL_STORAGE_KEY_HISTORY); 
+            // const history = localStorage.getItem(LOCAL_STORAGE_KEY_HISTORY); 
             if(target && dataModel) {
                dataModel.LoadState(target) 
             }
 
-            if(history && dataModel) {
-                dataModel.LoadHistory(history)
-            }
+            // if(history && dataModel) {
+            //     dataModel.LoadHistory(history)
+            // }
         }
     }, [dataModel, isInitialized])
 
@@ -41,7 +41,7 @@ export const useDataModelState = () => {
     // write to local storage
     React.useEffect(() => {
         if(isInitialized) localStorage.setItem(LOCAL_STORAGE_KEY_MODEL_STATE, JSON.stringify(modelState)); 
-        if(isInitialized) localStorage.setItem(LOCAL_STORAGE_KEY_HISTORY, JSON.stringify(dataModel.GetHistory())); 
+        // if(isInitialized) localStorage.setItem(LOCAL_STORAGE_KEY_HISTORY, JSON.stringify(dataModel.GetHistory())); 
         
         // console.log(dataModel.GetHistory())
     }, [modelState, isInitialized])

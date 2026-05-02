@@ -54,8 +54,9 @@ namespace R2InventoryArtifact.UI.Components
 
         public void UpdateLabels()
         {
-            if (_titleLbl != null) _titleLbl.text = Language.GetString(Item.GetTooltipContent().titleToken);
+            if (_titleLbl != null) _titleLbl.text = Language.GetString(Item.Pickup.pickupIndex.pickupDef.nameToken);
             if (_stackLbl != null) _stackLbl.text = $"Stack: {Item.StackCount}";
+            _tooltip.SetContent(Item.GetTooltipContent()); 
         }
 
         public void OnBeginDrag(PointerEventData eventData)

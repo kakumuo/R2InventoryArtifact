@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Sidebar, MainView, PropsList } from "./Components"
 import { NotificationPanel } from "./Components/Notificaton/NotificationPanel"
 import { useNotificationContext } from "./Components/Notificaton/NotificationService";
 import type { DataModelAction } from "./Data";
 import { useDataModelContext } from "./Data/DataModelContext";
-
+import { ItemService } from "./Data/ItemService";
 
 export function App() {    
     const {dataModel, } = useDataModelContext(); 
     const notifService = useNotificationContext(); 
+    const [lastInitTS, setLastInitTS] = useState(0); 
+    React.useEffect(() => {
+        (async() => {
+            await ItemService.Init();
+            setLastInitTS(Date.now())
+        })(); 
+
+        return () => ItemService.Dispose(); 
+    }, []);
+    
     // Handle Undo and Redo
     React.useEffect(() => {
         const HandleUndoRedo = (ev:KeyboardEvent) => {
@@ -38,7 +48,7 @@ export function App() {
     }, []); 
 
     return (
-        <div className={styles.container}>
+        <div key={lastInitTS} className={styles.container}>
             <Sidebar />
             <MainView />
             <PropsList />

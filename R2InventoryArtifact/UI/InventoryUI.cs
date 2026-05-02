@@ -3,14 +3,11 @@ using R2InventoryArtifact.UI.Builders;
 using R2InventoryArtifact.Model;
 using R2InventoryArtifact.Util;
 using UnityEngine;
-using R2InventoryArtifact.Util.R2API;
 using UnityEngine.EventSystems;
 using R2InventoryArtifact.UI.Components;
 using RoR2;
 using System.Collections.Generic;
 using System;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 namespace R2InventoryArtifact.UI
 {
@@ -146,8 +143,9 @@ namespace R2InventoryArtifact.UI
                     break; 
                 }
             });
-        }
 
+            _inventoryGrid.RepaintGrid(); 
+        }
 
         public void SetCursorElement(InventoryItemElement element)
         {

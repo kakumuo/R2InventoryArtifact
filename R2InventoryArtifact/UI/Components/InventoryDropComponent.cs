@@ -16,7 +16,7 @@ namespace R2InventoryArtifact.UI.Components
         public void OnDrop(PointerEventData eventData)
         {
             InventoryItemElement element = eventData.pointerDrag.GetComponent<InventoryItemElement>(); 
-            if(element == null || !element.Item.IsDroppable) 
+            if(element == null || ((element.DragSource == DragSource.GRID || element.DragSource == DragSource.NONEQUIP) && !element.Item.IsDroppable)) 
                 return; 
 
             OnInventoryItemDropped.Invoke(element.Item); 
